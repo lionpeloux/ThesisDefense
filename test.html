@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+        <section>
+            <div id="container">
+                <object id="object" width="50%" type="image/svg+xml" data="img/projects.svg"></object>
+            </div>
+                
+        </section>
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.3/svg.min.js"></script>
+        <script>
+            window.onload=function() {
+
+                var a = document.getElementById("object");
+                // Get the SVG document inside the Object tag
+                var svgDoc = a.contentDocument;
+                // Get one of the SVG items by ID;
+                var svgItem = svgDoc.getElementById("zz");
+                // Set the colour to something else
+                svgItem.setAttribute("fill", "lime");
+            };
+            // alert('loading');
+            // $('#object')[0].addEventListener('load', function() {
+            //     var a = document.getElementById("container");
+            //     // Get the SVG document inside the Object tag
+            //     var svgDoc = a.contentDocument;
+            //     // Get one of the SVG items by ID;
+            //     var svgItem = svgDoc.getElementById("zz");
+            //     // Set the colour to something else
+            //     svgItem.setAttribute("fill", "lime");
+            //     var c = $("#container").contentDocument;
+            //     alert($('#projects-svg').length);    
+            // }, true);
+            // var c = $("#container")[0].contentDocument;
+            // var obj = $("#object")[0];
+            // var cont = obj.contentDocument;
+            // $e.replaceWith($($e[0].contentDocument.documentElement).clone());
+            // var draw = SVG('svg').size(500, 500).image('Face.svg');
+            // window.onload=function() {
+            //     var c = $("#container");
+            //     var cont = c.contents();
+            // };
+            // window.onload=function() {
+
+            //     var a = document.getElementById("container");
+            //     // Get the SVG document inside the Object tag
+            //     var svgDoc = a.contentDocument;
+            //     // Get one of the SVG items by ID;
+            //     var svgItem = svgDoc.getElementById("zz");
+            //     // Set the colour to something else
+            //     svgItem.setAttribute("fill", "lime");
+
+                
+
+            //     // Get the Object by ID
+            //     // var a = document.getElementById("container");
+            //     // var svgDoc = a.contentDocument;
+            //     // var b = $("#container").contents();
+            //     // var svg = SVG.get('F4');
+            //     // jQuery('#container').load('./img/projects.svg', null, function() { 
+            //     //     jQuery('#projects-svg').click( function() {
+            //     //     alert('You clicked on the element!');
+            //     //     });
+            //     // });
+            //     // console.log(a.contentDocument);
+            //     // Get the SVG document inside the Object tag
+            //     // var svgDoc = a.contentDocument;
+            //     // // Get one of the SVG items by ID;
+            //     // var svgItem = svgDoc.getElementById("zz");
+            //     // Set the colour to something else
+            //     // svgItem.setAttribute("fill", "lime");
+
+            //     // // svgDoc.getElementById("F4").hide();
+            //     var svg = SVG.get('Grid');
+                
+            //     // var elements = $('#F4 g');
+            //     // svg.select('path').hide();
+            //     // svg.fill("lime");
+
+            //     // var elements = $('#F4 path').each(function() {
+            //     //     this.instance.animate().fill('#f09')
+            //     // })
+
+            //     // var a = $("container").contents();
+            //     // $("container").contents().click( function() {
+            //     // alert('You clicked on the element!');
+            //     // });
+                
+                
+            // };
+        </script>
+	</body>
+</html>

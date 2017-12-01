@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="340.157" height="340.157" viewBox="0, 0, 340.157, 340.157">
+  <g id="Background">
+    <rect x="0" y="0" width="340.157" height="340.157" fill="#000000" fill-opacity="0"/>
+  </g>
+  <g id="Calque_1">
+    <g>
+      <path d="M170.078,255.118 C123.112,255.118 85.039,217.045 85.039,170.079 C85.039,123.113 123.112,85.039 170.078,85.039 C217.044,85.039 255.118,123.113 255.118,170.079 C255.118,217.045 217.044,255.118 170.078,255.118 z" fill="#FFFFFF"/>
+      <path d="M170.078,255.118 C123.112,255.118 85.039,217.045 85.039,170.079 C85.039,123.113 123.112,85.039 170.078,85.039 C217.044,85.039 255.118,123.113 255.118,170.079 C255.118,217.045 217.044,255.118 170.078,255.118 z" fill-opacity="0" stroke="#000000" stroke-width="10"/>
+    </g>
+    <g>
+      <path d="M193.378,82.413 L170.307,169.956 L178.57,79.802 L193.378,82.413 z" fill="#FFFFFF"/>
+      <path d="M162.56,79.802 L170.822,169.956 L147.752,82.413 L162.56,79.802 z" fill="#FFFFFF"/>
+    </g>
+    <path d="M212.598,440.598 L212.598,-15.402" fill-opacity="0" stroke="#000000" stroke-width="1" display="none"/>
+    <path d="M410.053,98.598 L15.145,326.598" fill-opacity="0" stroke="#000000" stroke-width="1" display="none"/>
+    <path d="M15.144,98.598 L410.052,326.599" fill-opacity="0" stroke="#000000" stroke-width="1" display="none"/>
+    <path d="M192.726,2338.943 L232.471,1884.679" fill-opacity="0" stroke="#000000" stroke-width="1" display="none"/>
+    <path d="M85.039,0 L127.559,0" fill-opacity="0" stroke="#000000" stroke-width="1" display="none"/>
+    <g>
+      <path d="M80.729,192.198 L169.967,167.892 L85.983,206.633 L80.729,192.198 z" fill="#FFFFFF"/>
+      <path d="M94.161,220.798 L169.704,167.436 L104.035,232.565 L94.161,220.798 z" fill="#FFFFFF"/>
+    </g>
+    <g>
+      <path d="M234.78,234.078 L170.45,170.276 L244.453,222.55 L234.78,234.078 z" fill="#FFFFFF"/>
+      <path d="M252.464,208.674 L170.193,170.723 L257.611,194.534 L252.464,208.674 z" fill="#FFFFFF"/>
+    </g>
+    <path d="M154.925,84.728 L146.454,102.894 L136.759,76.257 L154.925,84.728 z" fill="#000000"/>
+    <path d="M103.74,225.755 L123.707,224.008 L105.486,245.723 L103.74,225.755 z" fill="#000000"/>
+    <path d="M251.572,199.63 L240.075,183.211 L267.991,188.133 L251.572,199.63 z" fill="#000000"/>
+  </g>
+  <g id="Calque_2">
+    <text transform="matrix(1, 0, 0, 1, 166.015, 48.373)">
+      <tspan x="-21.604" y="-5.026" font-family="CourierNewPS-BoldMT" font-size="18" fill="#000000">FORM</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 293.574, 234.618)">
+      <tspan x="-21.604" y="-5.026" font-family="CourierNewPS-BoldMT" font-size="18" fill="#000000">GRID</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 45.283, 234.865)">
+      <tspan x="-27.004" y="-5.5" font-family="CourierNewPS-BoldMT" font-size="18" fill="#000000">STRUC</tspan>
+      <tspan x="-21.604" y="14.5" font-family="CourierNewPS-BoldMT" font-size="18" fill="#000000">TURE</tspan>
+    </text>
+    <path d="M-42.52,-42.52 L382.677,-42.52 L382.677,382.677 L-42.52,382.677 L-42.52,-42.52 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+  </g>
+</svg>
