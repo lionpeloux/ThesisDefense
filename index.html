@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Formfinding Lab 2016</title>
+		<title>Modeling of bending-torsion couplings in active-bending structures</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/thesis.css" id="theme">
@@ -91,8 +91,10 @@
 
 		<section data-external="1-intro.html"> </section>
 		<section data-external="2-creteil.html"> </section>
-		<section data-external="3-curvature.html"> </section>
-		
+		<section data-external="3-model_1.html"> </section>
+		<section data-external="4-model_2.html"> </section>
+		<section data-external="5-curvature.html"> </section>
+		<section data-external="6-numeric.html"> </section>
 		<!-- <section data-external="3-context.html"> </section>
 		<section data-external="1-context.html"> </section> -->
 			
@@ -239,7 +241,7 @@
 					var pause = 0.75;
 					var element = $('section.present > h7');
 					tl = new TimelineMax();
-					tl.fromTo(element, transition, {css: {opacity:0}}, {css:{opacity:1}});
+					tl.to(element, transition, {css:{opacity:1}});
 					tl.fromTo(element, transition, {css: {opacity:1}}, {css:{opacity:0}},"+="+pause);
 					tl.play();
 				} );

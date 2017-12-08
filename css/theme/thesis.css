@@ -36,6 +36,32 @@ body {
   line-height: 1.3;
   font-weight: inherit; }
 
+/*********************************************
+ * BLACK THEME
+ *********************************************/
+.reveal .slide-background .black {
+  background: #000000;
+}
+.reveal .black strong {
+  color: white;
+}
+
+.reveal .black h7{
+  color: black;
+  background-color: white;
+}
+
+/*********************************************
+ * ELLIPSIS THEME
+ *********************************************/
+ .reveal .slide-background .ellipsis {
+  background-color: #ffffff;
+}
+
+.reveal .ellipsis h5{
+  color: red;
+}
+
 
 /*********************************************
  * POSITIVE THEME
@@ -43,20 +69,25 @@ body {
 .reveal .slide-background .positive {
   background: #9ccc65;
 }
-.reveal .positive strong {
+.reveal .positive strong,
+.reveal .positive ul,
+.reveal .positive h5 {
   color: white;
 }
 
 
 /*********************************************
- * POSITIVE THEME
+ * NEGATIVE THEME
  *********************************************/
 .reveal .slide-background .negative {
   background: #ff7043;
 }
-.reveal .negative strong {
+.reveal .negative strong,
+.reveal .negative ul,
+.reveal .negative h5 {
   color: white;
 }
+
 
 /*********************************************
  * HEADERS
@@ -204,7 +235,7 @@ body {
   display: inline-block;
   text-align: left;
   font-size: 0.75em;
-  margin-top: 1.5em;
+  margin-top: 0em;
   list-style-type: disc; 
 
 }
@@ -490,22 +521,6 @@ html.slide_type_2 .backgrounds  {
 .reveal .header h1,
 .reveal .header h2 {
     color: #fff;
-}
-
-/* ELLIPSIS
-*********************************************/
-.reveal .slide-background.ellipsis  {
-    background-color: grey;
-    color: #fff;
-}
-.reveal .ellipsis p, i{
-  color: #fff;
-}
-.reveal .ellipsis strong {
-  color: black;
-}
-.reveal .ellipsis img{
-    border-radius:20px;
 }
 
 

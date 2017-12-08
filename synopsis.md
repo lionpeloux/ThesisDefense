@@ -1,4 +1,6 @@
+-------
 # INTRO
+-------
 
 ## brief
 
@@ -23,16 +25,67 @@ Avant de poursuivre, je voudrais donner de manière très brève quelques élém
 * Pour ma part j'ai rejoins ce projet en 2010, comme ingénieur de recherche puis plus récemment comme doctorant. Sur ces presque 8 années de collaboration j’ai eu la chance de pouvoir développer une recherche personnelle sur cette thématique, mais également de pouvoir confronter cette recherche à la réalité en concevant et construisant un certain nombre de ces structures. Cette alternance entre recherche et projet construit c'est ce qui marque l'orignialité de mon approche.
 
 
-# INTRO
+-------------------
+# ELASTIC GRIDSHELL
+-------------------
 
 ## Concept
 
 Le terme grid-shell vient de la contraction de grille la résille et shell la coque. Il désigne des structures faites d'une résille de poutre.
 
+## Construction Process
 
-## construire  courbe : une composante de l'architecture moderne
+- assembly
+    - swivel
+    - sleeve
+- bending
+- anchoring
+- bracing = shell
+- roofing
+- interior / exterior views
 
-Construire courbe se revèle être une composante prédominante de l'architecture moderne.
-On pense par exemple à Ghery au Zahadid.
+# Key benefits
 
-Se revêle complexe  
+- Material flexibility for structural rigidity (GFRP >> Wood + lightweight)
+- Curved shape from flat and regular grid (Constructibility ++)
+    - illustration CNIT
+
+# Potential for modern Architecture
+
+- Bejing Opera 2007
+- Construire courbe se revèle être une composante prédominante de l'architecture moderne. On pense par exemple à Ghery au Zahadid.
+
+# Key obstacles
+
+- Interaction Form <> Grid <> Structure + Envelope
+- Formfinding : difficult computation
+
+# History
+
+- birth with Frei Otto and Mannheim
+- legacy
+- cartographie des projets (une trentaine)
+- quelques images de projets récents
+
+
+----------------
+# GFRP GRIDSHELL
+----------------
+
+## Mannheim
+
+A Mannheim : la méthode du fillet inverse.
+Agile mais complex de jouer avec une grille et d'en trier des informations
+
+## Problématique & Enjeux
+
+* Form - Grid - Structure : la géométrie devient le lieu de rencontre entre architecture et structure.
+
+* Redonner sa place à l'intention architecturale et donc centrer le processus sur la forme
+
+* raccourcir les cycles. On travaille à temps fixé, donc le plus facilement on peut générer et évaluer des solutions, le plus on peut expolorer l'expace de design.
+
+## La méthode employée à Créteil
+
+- curvature analysis on surfaces
+- grid from compass
