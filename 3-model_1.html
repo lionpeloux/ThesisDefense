@@ -267,21 +267,34 @@
 	<hr>
 	<img class="" data-src="./img/eq/constitutive_law.svg" width="80%">
 </section>
-<section class="positive">
-		<h5 class="">Improvements</h5>
+<section class="">
+		<h5 class="">Dynamics</h5>
 		<ul>
-			<li>Model in the smooth world [Tayeb & Lefevre]</li>
-			<li>Locality of the expressions [du Peloux]</li>
-			<li>Physical meaning > Kirchhoff [du Peloux]</li>
-		</ul>	
+			<li>Symplectic Euler integrator (<sup>*</sup>) + Newton : [Bergou et al. 2008] </li>
+			<li>Dynamic relaxation : [Lefevre et al. 2017]</li>
+		</ul>
+		<hr>
+		<img class="" data-src="./img/eq/dr_2.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/dr_3.svg" width="80%">
+		<hr>
+		<small>(<sup>*</sup>) Also known as dynamic relaxation, Verlet integration or the semi-implicit Euler, symplectic Euler, semi-explicit Euler, Euler–Cromer or Newton–Størmer–Verlet (NSV) method. [Williams 2011]</small>
 	</section>
+<section class="positive">
+	<h5 class="">Benefits</h5>
+	<ul>
+		<li>Model in the smooth world [Tayeb & Lefevre]</li>
+		<li>Locality of the expressions [du Peloux]</li>
+		<li>Physical meaning > Kirchhoff [du Peloux]</li>
+	</ul>	
+</section>
 <section class="negative">
 	<h5 class="">Limitations</h5>
 	<ul>
 		<li>Static equations only > dynamic equations ?</li>
 		<li>External distributed loads ($\mathbf{f}_{ext} \;,\;\mathbf{m}_{ext}$)</li>
 		<li>External concentrated loads ($\mathbf{F}_{ext} \;,\;\mathbf{M}_{ext}$)</li>
-		<li>Inextensibility as a stiff constraint</li>
+		<li>Inextensibility as a stiff constraint ($\mathbf{N}$)</li>
 		<li>Lots of math to get back on simple balance equations ...</li>
 		<li>What about boundary conditions ?</li>
 		<li>Is there a more straightforward and unified approach ?</li>
