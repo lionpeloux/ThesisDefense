@@ -128,7 +128,7 @@
 				menu: {
 					side: 'right',
 					numbers: true,
-					titleSelector: 'h1, h3, h4, h10',
+					titleSelector: 'h1, h3, h5, h7',
 					hideMissingTitles: false,
         			markers: true,
 					custom: false,
@@ -249,13 +249,19 @@
 			// from here : https://stackoverflow.com/questions/23608762/replace-image-in-reveal-js
 			function fadeImage($el) {
 				// Get image DOM element
-				$img = $el.parent().siblings('img');
+				// the fragment image will be insterted in the <img class="imgfragment"> container
+				$img = $el.parent().siblings('img.imgfragment');
 
 				// Fade the image out, change source and fade in again
+				var fade = 0;
+				if ($img[0].hasAttribute("fade"))
+					fade = $img.attr('fade');
+
+    			// data attribute doesn't exist
 				if($img.attr('src') != $el.data('src'))
-					$img.fadeOut(0, function() {
+					$img.fadeOut(fade, function() {
 						$img.attr('src', $el.data('src'));
-						$img.fadeIn(0);
+						$img.fadeIn(fade);
 					});
 			}
 
