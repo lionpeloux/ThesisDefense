@@ -160,9 +160,16 @@
 	</div>
 </section>
 
-
 <section class="">
 	<h5 class="">Bending Behaviour</h5>
+	<img data-src="./img/eq/bending_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/bending_9.svg" width="80%">
+</section>
+
+<section class="">
+	<h5>Bending Behaviour</h5>
+	<h7 class="tag">Biarc</h7>
 	<img data-src="./img/eq/bending_5.svg" width="80%">
 	<hr>
 	<img data-src="./img/eq/bending_6.svg" width="80%">
@@ -202,7 +209,7 @@
 </section>
 
 <section class="">
-	<h5 class="">Interpolation at vertices</h5>
+	<h5 class="">Interpolation</h5>
 	<ul>
 		<li>Linear interpolation : mid-edge > vertex </li>
 		<li>From the equations of motion with inertial terms neglected</li>
@@ -228,7 +235,7 @@
 <section class="">
 	<h5 class="">Particle-Spring System</h5>
 	<ul>
-		<li>The system is now modeled as a particle spring system</li>
+		<li>The system is now modeled as a particle-spring system</li>
 		<li>Motion of the particules under resultant forces and moments</li>
 	</ul>
 	<hr>
@@ -240,13 +247,78 @@
 </section>
 
 <section class="positive">
-		<h5 class="">Benefits</h5>
-		<ul>
-			<li>Discrete beam model as a particle-spring system</li>
-			<li>Axial, Shear, Flexion, Torsion</li>
-			<li>Dynamical equations</li>
-			<li>Everything is well defined</li>
-			<li>Allow dicontinuities at handles</li>
-			<li>Only 4-DOFs</li>
-		</ul>	
-	</section>
+	<h5 class="">Benefits</h5>
+	<ul>
+		<li>Discrete beam model as a particle-spring system</li>
+		<li>Axial, Shear, Flexion, Torsion</li>
+		<li>Dynamical equations</li>
+		<li>Everything is well defined</li>
+		<li>Discontinuities at handle vertices</li>
+		<li>Only 4-DOFs</li>
+	</ul>	
+</section>
+
+<section class="">
+	<h5 class="">Dynamic Relaxation</h5>
+	<ul>
+		<li>Static equilibrium as quasi-static response</li>
+		<li>Artificially damped system</li>
+		<li>Ensure stability</li>
+		<li>Optimize convergence speed</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<!-- <hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_2.svg" width="80%"> -->
+</section>
+
+<section class="">
+	<h5 class="">Dynamic Relaxation</h5>
+	<ul>
+		<li>Compute strains from geometry</li>
+		<li>Compute internal forces and moments from strains</li>
+		<li>Compute resultant forces and twisting moment</li>
+		<li>Update acceleration from resultatn forces and moments</li>
+		<li>Update velocity</li>
+		<li>Update position</li>
+		<li>Iterate until convergence ...</li>
+	</ul>
+</section>
+
+<section class="">
+	<h5 class="">DR : Acceleration</h5>
+	<ul>
+		<li>Kinetic damping</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_1.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">DR : Speed</h5>
+	<img data-src="./img/eq/dr_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_2a.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_2b.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">DR : Position</h5>
+	<img data-src="./img/eq/dr_3a.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_3b.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_3c.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">DR : Position</h5>
+	<img data-src="./img/eq/out.gif" width="60%">
+</section>

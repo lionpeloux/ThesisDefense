@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">		
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="./lib/css/zenburn.css">
+		<script src="./js/tether.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 
@@ -94,6 +95,7 @@
 		<section data-external="3-model_1.html"> </section>
 		<section data-external="4-model_2.html"> </section>
 		<section data-external="5-numeric.html"> </section>
+		<section data-external="6-marsupilami.html"> </section>
 		<!-- <section data-external="3-context.html"> </section>
 		<section data-external="1-context.html"> </section> -->
 			
@@ -285,6 +287,23 @@
 					fadeImage($el.prev());
 				}
 			});
+		</script>
+		<script>
+			// absolute centering of h7.tag above the page
+			jQuery.fn.center = function(parent) {
+				if (parent) {
+					parent = this.parent();
+				} else {
+					parent = window;
+				}
+				this.css({
+					"position": "absolute",
+					"top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
+					"left": ((($(parent).width() - this.outerWidth()) / 2) + $(parent).scrollLeft() + "px")
+				});
+			return this;
+			}
+			window.onload = function () { $("h7.tag").center(true);}
 		</script>
 	</body>
 </html>
