@@ -13,6 +13,7 @@
 
 #title-footer
 {
+	background-color: darkgray;
 	opacity: 1;
 	transition: opacity 800ms ease-in-out;
 	position: fixed;

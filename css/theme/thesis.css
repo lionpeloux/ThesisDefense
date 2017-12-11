@@ -84,6 +84,37 @@ body {
   color: white;
 }
 
+/*********************************************
+ * PLAN THEME
+ *********************************************/
+.reveal .slide-background .plan {
+  background-color: black;
+}
+.reveal .plan h5{
+  color:white;
+  font-size: 2em;
+}
+.reveal .plan ul {
+  text-align: left;
+  color:rgb(110, 110, 110);
+}
+.reveal .plan li {
+  list-style-type: none;
+  font-size: 1.4em;
+}
+.reveal .plan .highlight {
+  color:white;
+  font-size: 1.5em;
+  font-weight: bold; 
+}
+
+.reveal .plan strong {
+  color:white;
+  font-size: 1.5em;
+  font-weight: bold; 
+}
+
+
 
 
 /*********************************************
@@ -437,6 +468,7 @@ body {
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
+  background:rgba(0, 0, 0, 0.6);
   height: 3px;
 }
 
@@ -516,7 +548,7 @@ html.slide_type_2 .backgrounds  {
 *********************************************/
 
 .reveal .slide-background.cover  {
-    background-color: #333333
+    background-color: #000000
     ;
 }
 .reveal .cover h1,
