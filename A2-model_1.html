@@ -1,0 +1,301 @@
+
+<section class="heading center">
+	<h3>4-DOFs beam model</h3>
+	<hr>
+	<h4>Variational approach</h4>
+	<aside class="notes">
+		Un mot rapide sur le contexte.
+	</aside>
+</section>
+
+<section class="black center" data-background-video="./img/mov/hair.mp4" data-background-size="contain" data-background-video-muted >
+	<!-- <h7 class="">Hair Animation</h7> -->
+	<aside class="notes">
+		Sur les pas de l'anmiation 3D
+		- représentation physico réaliste de la chevelure
+		- chaque mèche est représentée par une tige élastique avec une géométrie au repos
+		- pas de liaison entre les cheveux mais gestion du contact (self + extérieur)
+		- simulation dynamique avec exigence de temps réel (jeux)
+		- même types de travaux dans l'univers 2D avec les drapés
+	</aside>
+</section>
+
+
+<section class="">
+	<h5 class="">Previous Works</h5>
+	<p>"Discrete Elastic Rod" > Bergou et al. 2008</p>
+	<p>
+	<cite>Langer & Singer 1996 | Pai 2002 | Grégoire & Schömer 2007 | Spillmann & Teschner 2007</cite><br>
+	<cite>Bergou, Grinspun, Audoly, Bertails, Neukirch, Clauvelin 2006</cite><br>
+	<cite>Nabaei 2014</cite>
+	</p>
+	<aside class="notes">
+		On repart de l'article discrete elastic rod.
+		On le traite en continu ce qui laisse une liberté pour la discrétization
+	</aside>
+</section>
+
+
+
+<section class="">
+	<h5 class="">Assumptions</h5>
+	<ul>
+		<li>Inextensibility</li>
+		<li>Cross-sections remain planar</li>
+		<li>Cross-sections remain normal to the centerline</li>
+		<li>Material deforms elastically</li>
+	</ul>
+</section>
+
+<section class="">
+	<h5 class="">Kinematic Description</h5>
+	<ul>
+		<li>arc length > $s$</li>
+		<li>Centerline = space curve  > $\mathbf{x}(s)$</li>
+		<li>Cross-section = material frame  > $\{\mathbf{d}_3,\mathbf{d}_1,\mathbf{d}_2\}(s)$ </li>
+	</ul>
+	<hr>
+	<img data-src="./img/moving_frame.svg" width="80%">
+</section>
+
+<section class="ellipsis">
+	<h5 class="">Space Curve</h5>
+	<ul>
+		<li>Parameter : $\gamma(t)\;\text{vs.}\;\gamma(s)$</li>
+		<li>Frenet trihedron : $\{\mathbf{t},\mathbf{n},\mathbf{b}\}(s)$ </li>
+		<li>Invariants : $L,\;\kappa(s),\;\tau_f(s)$ </li>
+	</ul>
+	<hr>
+	<img class="" data-src="./img/frenet_trihedron.svg" width="75%">
+	<aside class="notes">
+		- Paramétrization par l'abscisse curviligne
+		- Définition des vecteurs
+		- Invariants
+	</aside>
+</section>
+<section class="ellipsis">
+	<h5 class="">Space Curve</h5>
+	<img class="" data-src="./img/eq/frenet_1.svg" width="80%">
+	<hr>
+	<div class="fragment">
+		<img class="" data-src="./img/eq/frenet_2.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/frenet_3.svg" width="80%">
+		<hr>
+	</div>
+	<div class="fragment">
+		<img class="" data-src="./img/eq/frenet_4.svg" width="80%">
+		<hr>
+	</div>
+	<div class="fragment">
+		<img class="" data-src="./img/eq/frenet_5.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/frenet_6.svg" width="80%">
+	</div>
+</section>
+<section class="ellipsis">
+	<h5 class="">Space Curve</h5>
+	<ul>
+		<li>Curvature : deviation from being a straight line</li>
+		<li>Torsion : deviation from being a planar curve</li>
+	</ul>
+	<hr>
+	<img class="" data-src="./img/eq/frenet_7.svg" width="70%">
+	<aside class="notes">
+		- Paramétrization par l'abscisse curviligne
+		- Définition des vecteurs
+		- Invariants
+	</aside>
+</section>
+
+<section class="ellipsis">
+	<h5 class="">Moving Frame</h5>
+	<img class="" data-src="./img/eq/moving_frame_1.svg" width="80%">
+	<hr>
+	<div class="fragment">
+		<img class="" data-src="./img/eq/moving_frame_2.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/moving_frame_3.svg" width="80%">
+		<hr>
+	</div>
+	<div class="fragment">
+		<img class="" data-src="./img/eq/moving_frame_4.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/moving_frame_5.svg" width="80%">
+	</div>
+</section>
+<section class="ellipsis">
+	<h5 class="">Moving Frame</h5>
+	<img class="" data-src="./img/eq/moving_frame_5.svg" width="80%">
+	<hr><br>
+	<img class="" data-src="./img/frame_speed.svg" width="80%">
+</section>
+<section class="ellipsis">
+	<h5 class="">Adapted Moving Frame</h5>
+	<ul>
+		<li>Adapted to the centerline</li>
+		<li>Differ only by their rate of twist ($\tau$)</li>
+	</ul>
+	<hr>
+	<div class="">
+		<img class="" data-src="./img/eq/adapted_1.svg" width="80%">
+		<hr>
+	</div>
+	<div class="">
+		<img class="" data-src="./img/eq/adapted_2.svg" width="80%">
+		<hr>
+	</div>
+	<div class="">
+		<img class="" data-src="./img/eq/adapted_3.svg" width="80%">
+	</div>
+</section>
+<section class="ellipsis">
+	<h5 class="">Adapted Moving Frame</h5>
+	<ul>
+		<li>Frenet Frame : $\tau = \tau_f$</li>
+		<li>Bishop Frame : $\tau = 0$</li>
+		<li class="">Material Frame : $\tau = \,?$</li>
+	</ul>
+	<hr>
+	<div class="">
+		<img class="" data-src="./img/eq/speed_frenet.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/speed_bishop.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/adapted_3.svg" width="80%">
+	</div>
+</section>
+<section class="ellipsis">
+	<h5 class="">Zero Twisting Frame</h5>
+	<ul>
+		<li>Bishop Frame : $\tau = 0$</li>
+		<div class="fragment">
+			<li>Components $\mathbf{e}_1$ and $\mathbf{e}_2$ are parallel transported at speed $\mathbf{\kappa b}$</li>
+			<li>$\mathbf{e}_1$ and $\mathbf{e}_2$ are relatively parallel normal fields (<sup>*</sup>)</li>
+		</div>
+	</ul>
+	<hr>
+	<div class="">
+		<img class="" data-src="./img/eq/bishop_1.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/bishop_2.svg" width="80%">
+	</div>
+	<hr>
+	<cite>(<sup>*</sup>) turns only whathever amount is necessary for it to remain normal, so it is as close to being parallel as possible without losing normality [Bishop 1975]</cite>
+</section>
+<section class="ellipsis">
+	<h5 class="">Reference Frame</h5>
+	<ul>
+		<li>Free of geometric torsion : $\tau = 0$</li>
+		<li>Defined everywhere for a regular curve ($\|\mathbf{x}'\| > 0$)</li>
+		<li>Evolves at angular velocity $\mathbf{\kappa b}$</li>
+		<li>Is simply translated when $\mathbf{\kappa b} = \mathbf{0}$</li>
+		<li>Is invariant within an intial condition</li>
+		<li>Any other adapted frame is obtained by a rotation $\theta(s)$ around $\mathbf{t}(s)$</li>
+	</ul>
+</section>
+
+<section class="">
+	<h5 class="">Curve-Angle Representation</h5>
+	<ul>
+		<li>3 translational DOFs : $\mathbf{x}$</li>
+		<li>1 rotational DOF : $\theta$</li>
+		<li>[Langer & Singer 1996] > [Bergou et al. 2008]</li>			
+	</ul>
+	<hr>
+	<img class="" data-src="./img/eq/curve_angle_1.svg" width="70%">
+	<!-- <cite>(<sup>*</sup>) to within a constant rotation angle </cite> -->		
+</section>
+<section class="">
+	<h5 class="">Curve-Angle Representation</h5>
+	<ul>
+		<li>$\mathbf{x}\,$ and $\theta$ are independant DOFs</li>
+		<li>$\kappa_1 = \mathbf{\kappa b} \cdot \mathbf{d}_1$</li>
+		<li>$\kappa_2 = \mathbf{\kappa b} \cdot \mathbf{d}_2$</li>
+		<li>$\tau = \theta'$</li>
+	</ul>
+	<hr><br><br>
+	<img class="" data-src="./img/eq/curve_angle_2.svg" width="70%">
+	<!-- <cite>(<sup>*</sup>) to within a constant rotation angle </cite> -->		
+</section>
+
+<section class="">
+	<h5 class="">Elastic Energy</h5>
+	<ul>
+		<li>Overbars refer to the stress-free configuration</li>
+		<li>Coupling between bending and torsion</li>
+		<li>Special case : naturally straight and isotropic rod</li>
+	</ul>
+	<hr>
+	<img class="" data-src="./img/eq/energy_1.svg" width="80%">
+	<div class="fragment">
+		<hr>
+		<img class="" data-src="./img/eq/energy_2.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/energy_3.svg" width="80%">
+		<img class="" data-src="./img/eq/energy_4.svg" width="80%">
+	</div>
+</section>
+<section class="">
+	<h5 class="">Internal Forces and Moments</h5>
+	<ul>
+		<li>Differentiating bending and twisting elastic energies relatively to the DoFs</li>
+		<li>Leads to quasi-static out-of-balance internal forces and moments</li>
+		<li>Quasistatic assumption [Bergou et al. 2008]</div></li>
+		<li>Variation of Bishop frame (holonomy)</div></li>
+	</ul>
+	<hr>
+	<img class="" data-src="./img/eq/internal_force_1.svg" width="80%">
+	<hr>
+	<img class="" data-src="./img/eq/internal_force_quasistat.svg" width="80%">
+	<div class="fragment">
+		<hr>
+		<img class="" data-src="./img/eq/internal_force_2.svg" width="80%">
+	</div>
+</section>
+<section class="">
+	<h5 class="">Internal Forces and Moments</h5>
+	<ul>
+		<li>Curvatures > bending moment</li>
+		<li>Twist > twisting moment</li>
+		<li>Variation of moment > shear force</li>
+		<li>Inextensibility > axial force</li>
+	</ul>
+	<hr>
+	<img class="" data-src="./img/eq/internal_forces_moments.svg" width="80%">
+	<hr>
+	<img class="" data-src="./img/eq/constitutive_law.svg" width="80%">
+</section>
+<section class="">
+		<h5 class="">Dynamics</h5>
+		<ul>
+			<li>Symplectic Euler integrator (<sup>*</sup>) + Newton : [Bergou et al. 2008] </li>
+			<li>Dynamic relaxation : [Lefevre et al. 2017]</li>
+		</ul>
+		<hr>
+		<img class="" data-src="./img/eq/dr_2.svg" width="80%">
+		<hr>
+		<img class="" data-src="./img/eq/dr_3.svg" width="80%">
+		<hr>
+		<small>(<sup>*</sup>) Also known as dynamic relaxation, Verlet integration or the semi-implicit Euler, symplectic Euler, semi-explicit Euler, Euler–Cromer or Newton–Størmer–Verlet (NSV) method. [Williams 2011]</small>
+	</section>
+<section class="positive">
+	<h5 class="">Benefits</h5>
+	<ul>
+		<li>Model in the smooth world [Tayeb & Lefevre]</li>
+		<li>Locality of the expressions [du Peloux]</li>
+		<li>Physical meaning > Kirchhoff [du Peloux]</li>
+	</ul>	
+</section>
+<section class="negative">
+	<h5 class="">Limitations</h5>
+	<ul>
+		<li>Static equations only > dynamic equations ?</li>
+		<li>External distributed loads ($\mathbf{f}_{ext} \;,\;\mathbf{m}_{ext}$)</li>
+		<li>External concentrated loads ($\mathbf{F}_{ext} \;,\;\mathbf{M}_{ext}$)</li>
+		<li>Inextensibility as a stiff constraint ($\mathbf{N}$)</li>
+		<li>Lots of math to get back on simple balance equations ...</li>
+		<li>What about boundary conditions ?</li>
+		<li>Is there a more straightforward and unified approach ?</li>
+	</ul>
+</section>

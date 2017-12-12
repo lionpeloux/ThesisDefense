@@ -93,6 +93,7 @@ body {
 .reveal .plan h5{
   color:white;
   font-size: 2em;
+  display: none;
 }
 .reveal .plan ul {
   text-align: left;

@@ -1,0 +1,325 @@
+
+<section class="heading center">
+	<h3>Discrete Beam Model</h3>
+	<hr>
+	<h4>The 4-DOFs Biarc Beam Model</h4>
+	<aside class="notes">
+		Un mot rapide sur le contexte.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Discrete Beam</h5>
+	<ul>
+		<li>Discrete centerline > $\mathbf{x}_i$</li>
+		<li>Discrete material frame > $\{\mathbf{d}_3,\mathbf{d}_1,\mathbf{d}_2\}_i$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/biarc_1.svg" width="70%">
+</section>
+
+<section class="ellipsis">
+	<h5 class="">Smooth > Discrete</h5>
+	<ul>
+		<li>Tangent ? Extension ?</li>
+		<li>Curvature ? Torsion ?</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/biarc_1.svg" width="70%">
+</section>
+
+<section class="ellipsis">
+	<h5 class="">Discrete Curvature</h5>
+	<img class="imgfragment" src="./img/eq/discrete_curvature_1.svg" width="80%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/discrete_curvature_1.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/discrete_curvature_2.svg" data-fragment-index="1"></span>
+	</div>
+</section>
+
+<section class="ellipsis">
+	<h5 class="">Discrete Curvature</h5>
+	<table class="imgtable">
+	<tr>
+		<td><img data-src="./img/eq/curvature_vertex.gif" width="100%"></td>
+		<td><img data-src="./img/eq/curvature_edge.gif" width="100%"></td>
+	</tr>
+	<tr style="height:50px;"></tr>
+	<tr>
+		<td><small>circumscribed osculating circle ($\kappa_1$)</small><br></td>
+		<td><small>inscribed osculating circle ($\kappa_3$)</small><br></td>
+	</tr>
+	<tr style="height:15px;"></tr>
+	<tr style="border-top:0px solid black">
+		<td><img data-src="./img/eq/curvature_vertex.svg" width="100%"></td>
+		<td><img data-src="./img/eq/curvature_edge.svg" width="100%"></td>
+	</tr>
+	</table>
+</section>
+
+<section class="ellipsis">
+	<h5 class="">Discrete Curvature</h5>
+	<img class="imgfragment" src="./img/eq/discrete_curvature_4.svg" width="70%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/discrete_curvature_4.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/discrete_curvature_3.svg" data-fragment-index="1"></span>
+	</div>
+</section>
+
+<section class="ellipsis">
+	<h5 class="">Circular Arch</h5>
+	<br>
+	<img class="imgfragment" src="./img/eq/discrete_curvature_arch_1.svg" width="60%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/discrete_curvature_arch_1.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/discrete_curvature_arch_2.svg" data-fragment-index="1"></span>
+	</div>
+</section>
+<section class="ellipsis">
+	<h5 class="">Elastica Arch</h5>
+	<br>
+	<img class="imgfragment" src="./img/eq/discrete_curvature_elastica_1.svg" width="60%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/discrete_curvature_elastica_1.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/discrete_curvature_elastica_2.svg" data-fragment-index="1"></span>
+	</div>
+</section>
+
+<section class="ellipsis">
+		<h5 class="">Circumscribed Curvature</h5>
+		<ul>
+			<li>Good locality (vertex vs. edge quantity)</li>
+			<li>Natural interpolation (circle)</li>
+			<li>Better accuracy in terms of bending energy representation</li>
+		</ul>
+	</section>
+
+<section class="">
+	<h5 class="">Tangent Vector</h5>
+	<img class="imgfragment" src="./img/eq/tangent_circumscribed_current.svg" width="70%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/tangent_circumscribed_current.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/tangent_circumscribed_ends.svg" data-fragment-index="1"></span>
+	</div>
+</section>
+
+<section class="">
+	<h5 class="">Continuity vs. Discontinuity</h5>
+	<img data-src="./img/eq/tangent_1.svg" width="80%">
+	<hr>
+	<img class="imgfragment" src="./img/eq/tangent_2.svg" width="80%" fade="500"/>
+	<hr>
+	<img data-src="./img/eq/tangent_4.svg" width="80%">
+	<div>
+			<span class="imgsrc" data-src="./img/eq/tangent_2.svg" data-fragment-index="0"></span>
+			<span class="fragment imgsrc" data-src="./img/eq/tangent_3.svg" data-fragment-index="1"></span>
+		</div>
+</section>
+
+<section class="">
+	<h5 class="">Discrete Beam</h5>
+	<ul>
+		<li>Segment > $\{\mathbf{x}_{2i},\mathbf{x}_{2i+1},\mathbf{x}_{2i+2}\}$</li>
+		<li>Uniform properties > $E_i,\,G_i,\,S_i,\,I_1,\,I_2,\,J_i$</li>
+		<li>Uniform external distributed loads > $\mathbf{f}^{ext}_i,\;\mathbf{m}^{ext}_i$</li>
+		<li>External concentrated loads at handles > $\mathbf{F}^{ext}_{2i},\;\mathbf{M}^{ext}_{2i}$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/biarc_2.svg" width="70%">
+</section>
+
+<section class="">
+	<h5 class="">Axial Behaviour</h5>
+	<ul>
+		<li>Axial extension > $\epsilon_i$</li>
+		<li>Axial force > $\mathbf{N}_i$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/axial_strain.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/axial_force.svg" width="80%">
+</section>
+
+
+<section class="">
+	<h5 class="">Bending Behaviour</h5>
+	<ul>
+		<li>Geometric curvature > $\mathbf{\kappa b}_i$</li>
+		<li>Material curvature > $\mathbf{\varkappa}_i = (1+\epsilon_i) \mathbf{\kappa b}_i$</li>
+		<li>Bending moment > $\mathbf{M}^{\perp}_i$</li>
+	</ul>
+	<hr>
+	<br>
+	<img class="imgfragment" src="./img/eq/bending_1.svg" width="100%" fade="200"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/bending_1.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_2.svg" data-fragment-index="1"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_3.svg" data-fragment-index="2"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_4.svg" data-fragment-index="3"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_5.svg" data-fragment-index="4"></span>		
+	</div>
+</section>
+
+<section class="">
+	<h5 class="">Bending Behaviour</h5>
+	<img data-src="./img/eq/bending_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/bending_9.svg" width="80%">
+</section>
+
+<section class="">
+	<h5>Bending Behaviour</h5>
+	<h7 class="tag">Biarc</h7>
+	<img data-src="./img/eq/bending_5.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/bending_6.svg" width="80%">
+	<hr>
+	<img class="imgfragment" src="./img/eq/bending_7.svg" width="80%" fade="200"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/bending_7.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_8.svg" data-fragment-index="1"></span>
+	</div>
+</section>
+
+<section class="">
+	<h5 class="">Torsional Behaviour</h5>
+	<ul>
+		<li>Parallel transport > $\Delta \theta_i$</li>
+		<li>Rate of twist > $\tau_i$</li>
+		<li>Twisting moment > $\mathbf{Q}_i$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/torsion_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/torsion_2.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">Shear Behaviour</h5>
+	<ul>
+		<li>Shear force > $\mathbf{F}^{\perp}_i$</li>
+		<li>Reacting parameter</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/shear_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/shear_2.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/shear_3.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">Interpolation</h5>
+	<ul>
+		<li>Linear interpolation : mid-edge > vertex </li>
+		<li>From the equations of motion with inertial terms neglected</li>
+		<li>Particle-spring system</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/interpolation_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/interpolation_2.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/interpolation_3.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">Internal Forces & Moments</h5>
+	<img data-src="./img/eq/interpolation_4.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/interpolation_5.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/interpolation_6.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">Particle-Spring System</h5>
+	<ul>
+		<li>The system is now modeled as a particle-spring system</li>
+		<li>Motion of the particules under resultant forces and moments</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_2.svg" width="80%">
+</section>
+
+<section class="positive">
+	<h5 class="">Benefits</h5>
+	<ul>
+		<li>Discrete beam model as a particle-spring system</li>
+		<li>Axial, Shear, Flexion, Torsion</li>
+		<li>Dynamical equations</li>
+		<li>Everything is well defined</li>
+		<li>Discontinuities at handle vertices</li>
+		<li>Only 4-DOFs</li>
+	</ul>	
+</section>
+
+<section class="">
+	<h5 class="">Dynamic Relaxation</h5>
+	<ul>
+		<li>Static equilibrium as quasi-static response</li>
+		<li>Artificially damped system</li>
+		<li>Ensure stability</li>
+		<li>Optimize convergence speed</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<!-- <hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_2.svg" width="80%"> -->
+</section>
+
+<section class="">
+	<h5 class="">Dynamic Relaxation</h5>
+	<ul>
+		<li>Compute strains from geometry</li>
+		<li>Compute internal forces and moments from strains</li>
+		<li>Compute resultant forces and twisting moment</li>
+		<li>Update acceleration from resultatn forces and moments</li>
+		<li>Update velocity</li>
+		<li>Update position</li>
+		<li>Iterate until convergence ...</li>
+	</ul>
+</section>
+
+<section class="">
+	<h5 class="">DR : Acceleration</h5>
+	<ul>
+		<li>Kinetic damping</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_1.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">DR : Speed</h5>
+	<img data-src="./img/eq/dr_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_2a.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_2b.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">DR : Position</h5>
+	<img data-src="./img/eq/dr_3a.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_3b.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/dr_3c.svg" width="80%">
+</section>
+
+<section class="">
+	<h5 class="">DR : Position</h5>
+	<object id="" width="60%" type="image/svg+xml" data="img/eq/pendulum_anim.svg"></object>	
+	<!-- <img data-src="./img/eq/pendulum_anim.svg" width="60%"> -->
+</section>
