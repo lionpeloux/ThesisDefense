@@ -54,18 +54,6 @@
 		<li>Material deforms elastically</li>
 	</ul>
 </section>
-
-<!-- 
-===============================================================================================
-	REDUCE DOFs REPRESENTATION
-=============================================================================================== 
--->
-<section class="plan center">
-<strong>6-DOFs > 4-DOFs</strong>
-<aside class="notes">
-</aside>
-</section>
-
 <section class="">
 	<h5 class="">Kinematic Description</h5>
 	<ul>
@@ -77,8 +65,18 @@
 	<img data-src="./img/moving_frame.svg" width="80%">
 </section>
 
+<!-- 
+===============================================================================================
+	REDUCE DOFs REPRESENTATION
+=============================================================================================== 
+-->
+<section class="plan center">
+	<strong>6-DOFs > 4-DOFs</strong>
+	<aside class="notes">
+	</aside>
+</section>
 <section class="">
-	<h5 class="">Space Curve</h5>
+	<h5 class="">Frenet Frame</h5>
 	<ul>
 		<li>Curvature $\kappa(s)$ : deviation from being a straight line</li>
 		<li>Torsion $\tau_f(s)$ : deviation from being a planar curve</li>
@@ -87,10 +85,20 @@
 	<img class="imgfragment" src="./img/frenet_trihedron.svg" width="70%"/>
 	<div>
 		<span class="imgsrc" data-src="./img/frenet_trihedron.svg" data-fragment-index="0"></span>
-		<span class="fragment imgsrc" data-src="./img/eq/frenet_5.svg" data-fragment-index="1"></span>
-		<span class="fragment imgsrc" data-src="./img/eq/frenet_7.svg" data-fragment-index="2"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/frenet_7.svg" data-fragment-index="1"></span>
 	</div>
+	<hr>
+	<img class="" src="./img/eq/frenet_5.svg" width="80%"/>
 	<aside class="notes">
+	<ul>
+		<li>Courbure et Torsion, outils fondamentales pour les courbes de l'espace.</li>
+		<li>Invariants par isométrie affine et surtout par changement de paramétrization </li>
+		<li>Introduction du vecteur binormal montrer sur le schéma</li>
+		<li>Saut de kb de pi/2 => on voit qu'il y a une information sur la torsion / la rotation du plan osculateur</li>
+		<li>Point singulier. La courbure s'annule donc n n'est plus défini. Discontinuité de tf.</li>
+		<li>Discontinuité pose un problème de définition pour une élément mécanique, pour lequels les équations sont continues</li>
+	</ul>
+		- outils
 		- Paramétrization par l'abscisse curviligne
 		- Définition des vecteurs
 		- Invariants
@@ -98,11 +106,18 @@
 </section>
 
 
-<section class="ellipsis">
+<section class="">
 	<h5 class="">Moving Frame</h5>
 	<img class="" data-src="./img/eq/moving_frame_5.svg" width="80%">
 	<hr><br>
 	<img class="" data-src="./img/frame_speed.svg" width="80%">
+	<p><cite>There is more than one way to frame a curve [Bishop 1975]</cite></p>
+	<aside class="notes">
+		On peut décrire l'évolution d'un repère othonormé attaché à une courbe avec seulement 3 fonctions scalaires, qui représentent les vitesses de rotation du repère autour de ses axes,
+		L'équation d'évolution, mise sous sa forme vectorielle, fait apparaitre le vecteur de Darboux qui s'interprète comme la vitessse angulaire instantanée du repère.
+		Ce que je viens de dire est vrai à une condition initiale prête, puisqu'on est en présence d'une équyation différentielle du premier ordre.
+		Connaissant le vecteur de Darboux au début de la courbe, en intégrant cette équation, je suis capable de le propager le long de la courbe, à tout abscisse curviligne.
+	</aside>
 </section>
 <section class="ellipsis">
 	<h5 class="">Adapted Moving Frame</h5>
@@ -123,12 +138,12 @@
 		<img class="" data-src="./img/eq/adapted_3.svg" width="80%">
 	</div>
 </section>
-<section class="ellipsis">
-	<h5 class="">Adapted Moving Frame</h5>
+<section class="">
+	<h5 class="">Zero Twisting Frame</h5>
 	<ul>
-		<li>Frenet Frame : $\tau = \tau_f$</li>
-		<li>Bishop Frame : $\tau = 0$</li>
-		<li class="">Material Frame : $\tau = \,?$</li>
+		<li>Frenet Frame $\{\mathbf{t},\mathbf{n},\mathbf{b}\}$ > $\tau = \tau_f$</li>
+		<li>Bishop Frame $\{\mathbf{t},\mathbf{u},\mathbf{v}\}$ > $\tau = 0$</li>
+		<li>Marial Frame $\{\mathbf{d}_3,\mathbf{d}_1,\mathbf{d}_2\}$ > $\tau = \text{rate of material twist}$</li>
 	</ul>
 	<hr>
 	<div class="">
@@ -138,37 +153,8 @@
 		<hr>
 		<img class="" data-src="./img/eq/adapted_3.svg" width="80%">
 	</div>
-</section>
-<section class="ellipsis">
-	<h5 class="">Zero Twisting Frame</h5>
-	<ul>
-		<li>Bishop Frame : $\tau = 0$</li>
-		<div class="fragment">
-			<li>Components $\mathbf{e}_1$ and $\mathbf{e}_2$ are parallel transported at speed $\mathbf{\kappa b}$</li>
-			<li>$\mathbf{e}_1$ and $\mathbf{e}_2$ are relatively parallel normal fields (<sup>*</sup>)</li>
-		</div>
-	</ul>
-	<hr>
-	<div class="">
-		<img class="" data-src="./img/eq/bishop_1.svg" width="80%">
-		<hr>
-		<img class="" data-src="./img/eq/bishop_2.svg" width="80%">
-	</div>
-	<hr>
 	<cite>(<sup>*</sup>) turns only whathever amount is necessary for it to remain normal, so it is as close to being parallel as possible without losing normality [Bishop 1975]</cite>
 </section>
-<section class="ellipsis">
-	<h5 class="">Reference Frame</h5>
-	<ul>
-		<li>Free of geometric torsion : $\tau = 0$</li>
-		<li>Defined everywhere for a regular curve ($\|\mathbf{x}'\| > 0$)</li>
-		<li>Evolves at angular velocity $\mathbf{\kappa b}$</li>
-		<li>Is simply translated when $\mathbf{\kappa b} = \mathbf{0}$</li>
-		<li>Is invariant within an intial condition</li>
-		<li>Any other adapted frame is obtained by a rotation $\theta(s)$ around $\mathbf{t}(s)$</li>
-	</ul>
-</section>
-
 <section class="">
 	<h5 class="">Curve-Angle Representation</h5>
 	<ul>
@@ -181,51 +167,48 @@
 	<!-- <cite>(<sup>*</sup>) to within a constant rotation angle </cite> -->		
 </section>
 <section class="">
-	<h5 class="">Curve-Angle Representation</h5>
+	<h5 class="">Reduced Coordinate Formulation</h5>
 	<ul>
-		<li>$\mathbf{x}\,$ and $\theta$ are independant DOFs</li>
+		<li>$\mathbf{x}\,$ and $\theta$ are independant DOFs (<sup>*</sup>)</li>
 		<li>$\kappa_1 = \mathbf{\kappa b} \cdot \mathbf{d}_1$</li>
 		<li>$\kappa_2 = \mathbf{\kappa b} \cdot \mathbf{d}_2$</li>
 		<li>$\tau = \theta'$</li>
 	</ul>
-	<hr><br><br>
+	<hr><br>
 	<img class="" data-src="./img/eq/curve_angle_2.svg" width="70%">
-	<!-- <cite>(<sup>*</sup>) to within a constant rotation angle </cite> -->		
+	<br><br>
+	<p><cite>(<sup>*</sup>) Since the material frames depend on the rod’s centerline and are not independent degrees of freedom [Bergou 2008]</cite></p>
 </section>
 
+
+<!-- 
+===============================================================================================
+	Variational Approach
+=============================================================================================== 
+-->
+<section class="plan center">
+	<strong>Variational Formulation</strong>
+	<aside class="notes">
+		On cherche les efforts internes quasistatics qui s'exercent sur la poutre.
+		On construit l'énergie élastic du système.
+		Et on déduit les efforts internes comme le gradient de cette énergie vis à vis des DOFs du système.
+	</aside>
+</section>
 <section class="">
 	<h5 class="">Elastic Energy</h5>
 	<ul>
-		<li>Overbars refer to the stress-free configuration</li>
+		<li>Overbars > stress-free configuration</li>
 		<li>Coupling between bending and torsion</li>
-		<li>Special case : naturally straight and isotropic rod</li>
+		<li>Quasi-static out-of-balance internal forces $(\mathbf{f})$ and moments $(\mathbf{m})$</li>
+		<li>Quasistatic assumption [Bergou et al. 2008]</div></li>
 	</ul>
 	<hr>
 	<img class="" data-src="./img/eq/energy_1.svg" width="80%">
-	<div class="fragment">
-		<hr>
-		<img class="" data-src="./img/eq/energy_2.svg" width="80%">
-		<hr>
-		<img class="" data-src="./img/eq/energy_3.svg" width="80%">
-		<img class="" data-src="./img/eq/energy_4.svg" width="80%">
-	</div>
-</section>
-<section class="">
-	<h5 class="">Internal Forces and Moments</h5>
-	<ul>
-		<li>Differentiating bending and twisting elastic energies relatively to the DoFs</li>
-		<li>Leads to quasi-static out-of-balance internal forces and moments</li>
-		<li>Quasistatic assumption [Bergou et al. 2008]</div></li>
-		<li>Variation of Bishop frame (holonomy)</div></li>
-	</ul>
 	<hr>
 	<img class="" data-src="./img/eq/internal_force_1.svg" width="80%">
 	<hr>
 	<img class="" data-src="./img/eq/internal_force_quasistat.svg" width="80%">
-	<div class="fragment">
-		<hr>
-		<img class="" data-src="./img/eq/internal_force_2.svg" width="80%">
-	</div>
+</section>	
 </section>
 <section class="">
 	<h5 class="">Internal Forces and Moments</h5>
@@ -240,21 +223,45 @@
 	<hr>
 	<img class="" data-src="./img/eq/constitutive_law.svg" width="80%">
 </section>
+
+
+<!-- 
+===============================================================================================
+	Dynamic
+=============================================================================================== 
+-->
+<section class="plan center">
+	<strong>Dynamic</strong>
+	<aside class="notes">
+		On a tous les éléments pour 
+	</aside>
+</section>
 <section class="">
 		<h5 class="">Dynamics</h5>
 		<ul>
 			<li>Symplectic Euler integrator (<sup>*</sup>) + Newton : [Bergou et al. 2008] </li>
 			<li>Dynamic relaxation : [Lefevre et al. 2017]</li>
+			<hr>
+			<li>Inextensibility (reprojection vs. penalty)</li>
+			<li>Quasistatic assumption</li>
 		</ul>
-		<hr>
-		<img class="" data-src="./img/eq/dr_2.svg" width="80%">
-		<hr>
-		<img class="" data-src="./img/eq/dr_3.svg" width="80%">
-		<hr>
-		<small>(<sup>*</sup>) Also known as dynamic relaxation, Verlet integration or the semi-implicit Euler, symplectic Euler, semi-explicit Euler, Euler–Cromer or Newton–Størmer–Verlet (NSV) method. [Williams 2011]</small>
+		<br><br>
+		<p><cite>(<sup>*</sup>) Also known as dynamic relaxation, Verlet integration or the semi-implicit Euler, symplectic Euler, semi-explicit Euler, Euler–Cromer or Newton–Størmer–Verlet (NSV) method. [Williams 2011]</cite></p>
 	</section>
+
+<!-- 
+===============================================================================================
+	Results and Limitations
+=============================================================================================== 
+-->
+<section class="plan center">
+		<strong>Results & Limitation</strong>
+		<aside class="notes">
+			On a tous les éléments pour 
+		</aside>
+	</section>	
 <section class="positive">
-	<h5 class="">Benefits</h5>
+	<h5 class="">Results</h5>
 	<ul>
 		<li>Model in the smooth world [Tayeb & Lefevre]</li>
 		<li>Locality of the expressions [du Peloux]</li>
