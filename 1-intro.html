@@ -2,7 +2,7 @@
 	<h5>Concept : what is an elastic gridshell</h5>
 	<ul>
 		<li class="highlight">Concept : what is an elastic gridshell</li>
-		<li > Design Process : issues and challenges</li>
+		<li > Design Process : methodology</li>
 		<hr>
 		<li>Beam model : variational approach</li>
 		<li>Beam model : equilibrium approach</li>
@@ -10,6 +10,9 @@
 		<hr>
 		<li>Implementation & Test case</li>
 	</ul>
+	<aside class="notes">
+		Je me propose maintenant, à partir d'une sélection de projets que j'ai réalisés dans le cadre de mes recherches, de définir et de présenter le concept de gridshell élastique et de souligner les aspects théoriques et techniques qui sont en jeu.
+	</aside>
 </section>
 
 <!-- 
@@ -19,38 +22,54 @@
 -->
 
 <section class="black center" data-background-video="./img/mov/creteil.mp4" data-background-size="contain" data-background-video-muted >
+	<h7 class="">Creteil 2013</h7>
 	<aside class="notes">
-	<ul>
-		<li>Balancer les difficultées</li>
-		<li>taille de la grille 700m2 au sol</li>
-		<li>objet extrement flexible</li>
-		<li>grandes rotations complexité du calcul</li>
-		<li>calcul de forme</li>
-		<li>les détails</li>
-		<li>la couverture</li>
-	</ul>
+	Premier projet, la cathédral de Créteil, réalisée en 2013 pour T/E/S/S.
+	<hr>
+	On voit ici, la préfabrication de la structure faite en tubes composites pultrudés à base de fibre de verre
+	<hr>
+	L'assemblage de la grille au sol sur une surface d'environ 700m2
+	<hr>
+	On devinne la grande légerté et la grande souplesse de cet objet très poreux qui pèse moins de 3kg au m2.
+	<hr>
+	L'ouvrage est soulevé pour être progressivement mis en forme. Au vu de la déformation générée, on imagine sans difficulté qu'on ne peut se contenter de mener de simple calculs linéaires pour dimensionner ces structures.
+	<hr>
+	La structure est ensuite ancrée au sol et l'on obtient l'état de forme définitif de la structure.
+	<hr>
+	L'ajout d'une troisième direction de tube joue une rôle majeur dans la raideur finale de la structure.
+	<hr>
+	Finalement, une toile est développée sur la résille pour assurer le clos couvert du bâtiment
 	</aside>
 </section>
 <section class="black center" data-background-video="./img/mov/booby.mp4" data-background-size="contain" data-background-video-muted >
+	<h7 class="">Hybrid Structural Skin 2015</h7>
 	<aside class="notes">
+		Second projet, un prototype d'enveloppe structurelle hybride, réalisé en début de deuxième année de thèse, couvre environ 10m2 pour une portée de 3m. 
+		<hr>
+		Ici on a tenté de répondre de manière combinée à la question du contreventement et de la couverture des gridshells élastiques. 
+		<hr>
+		Le gridshell est avantageusement utilisé comme coffrage courbe pour une peau mince en béton fibré d'1.5cm d'épaisseur coulée en place. 
+		<hr>
+		Un béton fibré a été spécialement formulé pour obtenir les propriétés réhologiques adaptés à la méthode de mise en oeuvre.
+		<hr>
+		Cette peau offre une enveloppe plus préenne qu'une simple toile PVC comme à créteil. Par ailleurs, c'est elle qui assure le contreventement du gridshell et on espère ansi réduire l'étape fastidieuse de la triangulation.
 	<ul>
-		<li>autre projet plus récent développé pendant ma thèse</li>
-		<li>structure hybrid</li>
-		<li>coffrage souple en gridshell</li>
-		<li>optimiser l'étape de contreventement</li>
-		<li>traiter la question de l'enveloppe courbe d'unbe façon nouvelle</li>
-	</ul>
 	</aside>
 </section>
 <section class="center" data-background-image="./img/montpellier_1.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Montpellier 2016</h7>
 	<aside class="notes">
-	<ul>
-		<li>Gridshell double nappe sur petite portée</li>
-		<li>Car bois bcp moins raid et résitant que GFRP</li>
-		<li>Section rectangulaire (rapport 1 pour 4)</li>
-		<li>Donc couplage flexion-torsion important</li>
-	</ul>
+		Troisième projet, le gridshell de Montpellier est le second d'une série de 2 gridshells en bois réalisés en juin 2016 et d'environ 50m2 chacun.
+		<hr>
+		Le bois est ici utilisé pour des raisons architecturales mais la perte de résitance et de raideur est significative comparativmement au composite utilisé dans les projets précédents.
+		<hr>
+		De fait, le système constructif est sensiblement différent. 
+		<hr>
+		La structure est réalisée sur le principe du gridshell double nape, plus complexe à mettre en oeuvre, bien que la portée soit réduite à seulement quelques mètres.
+		<hr>
+		Les sections employées sont rectangulaires (dans un rapport d'anisotropie de 1 pour 4) ce qui a pour conséquence de développer des contraintes de torsion non négigeables dans les poutres. Celà rend le calcul de recherche de forme plus complexe et demande des modèles qui ne sont pas purement flexionnels. Ce qui est l'objet principal de cette thèse.
+		<hr>
+		Enfin, on voit qu'on a proposé un nouveau système de contreventement par cable. Ce système a été mis en place directement sur la grille au sol puis embarqué au cours de la mise en forme. L'objectif étant à nouveau de simplifier l'étape de contreventement, couteuse en temps et délicate du fait du travail en hauteur.</h>
 	</aside>
 </section>
 
@@ -62,77 +81,80 @@
 <section class="plan center">
 	<strong>Material + Typology + Process</strong>
 	<aside class="notes">
-		- Elastic : material & process
-		- Grid-Shell : typology
+		A l'issu de ces quelques exemples, je propose de comprendre le concept de gridshell élastique comme la combinaison indissociable d'un matériau flexible, d'une typologie structurelle, et d'un processus de construction.
+		<hr>
+		Le terme Grid-Shell fera référence à la typologie structurelle
+		Tandis que le terme élastique fera référence à la flexitié du matériau employé et au procédé de mise en forme.
+		<hr>
+		Revenons de manière plus précise sur cette définition.
 	</aside>
 </section>
 
 <section class="center" data-background-image="./img/creteil_1.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Grid-Shell</h7>
 	<aside class="notes">
-	<ul>
-		<li>Gridshell = Grid + Shell</li>
-		<li>La finesse d'une résille, qu'on lit très bien sur cette image</li>
-		<li>La performance d'une coque, ici seulement 6kg du m2</li>
-		<li>Franchir de grandes portées avec un minimum de matière</li>
-		<li>Efforts transmis de manière membranaire</li>
-		<li>Le mode axial est en général le mode de transmition le plus raid</li>
-	</ul>
+	Le terme gridshell vient de la contraction de grid et shell. Ces structures sont des résilles de poutres qui se comportent mécaniquement comme des coques.
+	<hr>
+	Les coques peuvent franchir de grandes portées avec un minimum de matière car elles transmettent les efforts principalement de manière membranaire.
+	<hr>
+	Ici l'élancement de la structure est proche du centième, ce qui est considérable.
+	Pour de ouvrages classiques du génie civil, on porte plutôt à L/20 ou L/30. L/40 pour les paserelles piétonnes les plus élancées.
+	<hr>
+	On lit très bien cette légerté sur la photo.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_2.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Assembly</h7>
 	<aside class="notes">
-	<ul>
-		<li>Originialité du système, c'est que la forme est obtenue à partir d'une grille régulière et initialement plate</li>
-		<li>On voit la taille de l'objet quand même 700m2 développé</li>
-		<li>L'assemblage est terminé et on s'apprète à la lever, les grues sont en place</li>
-	</ul>
-	</aside>
-</section>
-<section class="center" data-background-image="./img/creteil_2c.jpg" data-background-size="cover" data-state="autohide">
-	<h7 class="">Sleeve</h7>
-	<aside class="notes">
-	<ul>
-		<li>La taille des tubes est limitée à 12m pour des questions de transport</li>
-		<li>Donc bien sur il faut les rabouter</li>
-		<li>Il y a un détail technique assez compliqué ici</li>
-		<li>Maintenir la continuité de la courbure</li>
-		<li>Transférer moment et effort axial</li>
-		<li>Passer du composite à l'acier</li>
-		<li>Un système collé goupillé + une tige acier fusible</li>
-		<li>On retrouvera l'inspiration de ce détail en pied de structure, au niveau des ancrages</li>
-	</ul>
+	La spécificité de ce système est que la structure n'est pas construite à partir d'élément courbes qui seraient alors nécéssairement tous différents, mais à partir d'une grille très standardisée initialement plane.
+	<hr>
+	Cette grille régulière est réalisée en assemblant des poutres rectilignes dans deux directions orthogonales avec un unique type de connexion.
+	<hr>
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_2b.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Swivel Coupler</h7>
 	<aside class="notes">
-	<ul>
-		<li>Autre détail clef de la grille, la noix de connexion</li>
-		<li>On voit d'emblé que la cinématique est complexe</li>
-		<li>3 axes de rotation</li>
-		<li>1 pivot libre et 2 bloqués par frottement</li>
-		<li>Enjeux contradictoires : on voudrait libérer les rotations pour ne pas mettre de torsion</li>
-		<li>En même temps il faut assurer une certaine résistance au glissement et donc frotter</li>
-		<li>C'est cette capacité à faire pivot qui grantie à la grille son abscence de raideur en cisaillement</li>
-	</ul>
+	Element clef du système, la connexion assure la libre rotation des tubes les uns par rapport aux autres selon son axe, tout en maintenant l'equidistance entre les noeuds.
+	<hr>
+	La grille n'a donc pas de raideur en cisaillement et c'est ce qui lui donne sa capacité à se déformer spatialement sans faire de pli (Feuille de Papier).
+	<hr>
+	On voit sur cette image que la cinématique de la connexion est loin d'être aussi simple que celle d'un joint sphérique. En réalité il y trois axes de rotation et une excentricité qui peut générer des moments parasites.
+	<hr>
+	On cherche à prévenir le glissement des coliers le long des tubes, d'où l'ajout de cette couche d'interface en EPDM.
+	En même temps on voudrait libérer la rotation des colliers autour des tubes pour éviter de mettre de la torsion dans les profiles qui sont faibles vis à vis de cette solicitation.
+	<hr>
+	Pour modéliser finement une telle connexion, il faut un modèle qui puisse prendre en compte la flexion et la torsion des poutres ainsi que le transfert d'efforts relativement localisés (auusi bien forces que moments).
 	</aside>
 </section>
-
+<section class="center" data-background-image="./img/creteil_2c.jpg" data-background-size="cover" data-state="autohide">
+	<h7 class="">Sleeve</h7>
+	<aside class="notes">
+	Autre détail sensible du système constructif, le manchon qui permet de reconstituer des poutres de très grande longueur. 
+	<hr>
+	Bien que ce type de tube puisse être produit en continu par le procédé de la pultrusion, il ne peut pas être acheminé dans des longueurs supérieures à 12m pour des raisons évidentes de transportabilité.
+	<hr>
+	L'enjeu est de pouvoir transférer des efforts et d'assurer la continuité de la courbure. On passe du composite à l'acier par un assemblage collé-goupillé. La tige centrale est calculée comme un fusible pour écarter tout risque d'endommagement des tubes composites, difficiles à réparer ou à changer.
+	<hr>
+	C'est un développement important réalisé sur le projet de créteil et qu'on retrouve sur le détail d'ancrage.
+	</aside>
+</section>
 <section class="center" data-background-image="./img/creteil_3.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Elastic-Bending</h7>
 	<aside class="notes">
-	<ul>
-		<li>Utilise la souplesse du materiau & abscence de raideur en cisaillement</li>
-		<li>Pour déformer l'objet dans l'espace</li>
-		<li>Sans faire de pli</li>
-		<li>Feuille de papier</li>
-	</ul>
+	Puis vient l'étape la plus spéctaculaire dans laquelle la grille est mise en forme à l'aide de moyens de levage adaptés, ici deux grues mobiles de 35t utilisées de manière synchrone.
+	<hr>
+	La grille est prise par des élingues en 2 fois 6 points pour éviter une concentration excessive des efforts qui provoqueraient une rupture des tubes.
+	<hr>
+	On comprend mieux sur cette image le principe de déformation spatial de la grille, par mise en parallélogramme des mailles initialement carées grâce au dégré de liberté en rotation du noeud.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_3b.jpg" data-background-size="cover" data-state="autohide">
 	<aside class="notes">
+	Plus le caclul de forme est maîrtisé et plus on peut aller loin dans l'étude de la mise en forme. Par un plan d'élinguage bien choisi on peut d'embléer donner une forme la plus proche possible de la forme cible et simplifier cette étape délicate.
+	<hr>
+	A la vue de cette photo on comprend aussi la nécessité d'être capable de simuler les étapes transitoires et pas seulement de dimensionner la structure dans son état final. Soulever une grille de cette taille ne s'improvise pas. Les risques de casse pour la strucrture sont élevés tout comme les risques d'accident pour les compagnons qui travaillent autour.
+	
 	<ul>
 		<li>On voit bien qu'on va passer par des configurations très déformées</li>
 		<li>Qu'il faut être capable d'anticiper et de prévoir</li>
@@ -163,8 +185,8 @@
 	</ul>
 	</aside>
 </section>
-<section class="center" data-background-image="./img/creteil_5.jpg" data-background-size="cover" data-state="autohide">
-	<h7 class="">Bracing</h7>
+<section class="center" data-background-image="./img/creteil_5b.jpg" data-background-size="cover" data-state="autohide">
+	<h7 class="">Bracing > Shell</h7>
 	<aside class="notes">
 	<ul>
 		<li>Seconde étape clef après la mise en forme</li>
@@ -172,11 +194,6 @@
 		<li>Réseau d'arche => Coque</li>
 		<li>On bloque le degré de liberté en cisaillement qui nous a permis de faire la déformation</li>
 	</ul>
-	</aside>
-</section>
-<section class="center" data-background-image="./img/creteil_5b.jpg" data-background-size="cover" data-state="autohide">
-	<h7 class="">Shell</h7>
-	<aside class="notes">
 	<ul>
 		<li>On gagne enormément en raideur x20 et en résistance au flambement</li>
 		<li>Cependant c'est une étape longue et fastidieuse. Couteuse même dans le projet, comme l'analyse économique a permis de le quantifier.</li>
@@ -196,12 +213,6 @@
 	</ul>
 	</aside>
 </section>
-<section class="center" data-background-image="./img/creteil_7.jpg" data-background-size="cover" data-state="autohide">
-	<!-- <h7 class="">Interior</h7> -->
-</section>
-<section class="center" data-background-image="./img/creteil_8.jpg" data-background-size="cover" data-state="autohide">
-	<!-- <h7 class="">BRACING</h7> -->
-</section>
 
 
 
@@ -217,15 +228,13 @@
 </section>
 
 <section class="center positive">
-	<p style="text-align: center"><strong>Material flexibility for structural rigidity</strong></p>
+	<strong>Material flexibility for structural rigidity</strong>
+	<br><br>
+	<strong>Curved shape from flat and regular grid</strong>
 	<aside class="notes">
 		Miser sur la raideur géométrique, liée à la forme de la structure, et à sa courbure.
 		Et même, on va rechercher la souplesse du matériau pour pouvoir accéder à des formes suffisament courbes.
-	</aside>
-</section>
-<section class="center positive">
-	<p style="text-align: center"><strong>Curved shape from flat and regular grid</strong></p>
-	<aside class="notes">
+
 		Un intéret constructif évident. Construire courbe ça coute cher et ça prend du temps. Ca requiert en général beaucoup de coffrage, de moules, d'étaiement dont on s'affranchit ici tout ou
 	</aside>
 </section>
@@ -237,22 +246,20 @@
 	</aside>
 </section>
 <section class="center negative">
-	<strong class="">Form <> Grid <> Structure | Envelope</strong>
+	<strong>Form <> Grid <> Structure</strong>
+	<br><br>
+	<strong>Nonlinear Formfinding</strong>
+	<br><br>
+	<strong>Detailing & Envelope</strong>
 	<aside class="notes">
 		dimension coneptuelle
 		dimension technologique
-	</aside>
-</section>
-<section class="center negative">
-	<strong class="">Formfinding | NL | Connection | B-T</strong>
-	<aside class="notes">
 		La géométrie finale du projet est le résultat d'un calcul d'équilibre complexe, fortement non linéaire.
 		Avec des phénomène de couplage flexion torsion dans des matériaux qui n'aiment guerent ce type de sollicitation
 		Des conditions d'appuis et de connexion complex
 		Et aussi une certaine exigence pour de l'interactivité.
 	</aside>
 </section>
-
 
 <!-- 
 =============================================================================================== 

@@ -1,0 +1,157 @@
+<section class="plan center">
+	<h5>Beam model : variational approach</h5>
+	<ul>
+		<li>Concept : what is an elastic gridshell</li>
+		<li >Design Process : issues and challenges</li>
+		<hr>
+		<li>Beam model : variational approach</li>
+		<li class="highlight">Beam model : equilibrium approach</li>
+		<li>Beam model : discrete element</li>
+		<hr>
+		<li>Implementation & Test case</li>
+	</ul>
+</section>
+
+<!-- 
+=============================================================================================== 
+	ENJEU
+=============================================================================================== 
+-->
+
+
+<section class="">
+	<h5 class="">Previous Works</h5>
+	<p>"Kirchhoff's theory of rods" > Dill 1992</p>
+	<cite>Kirchhoff, Clebsch, Love XIX<sup>th</sup></cite><br>
+	<hr>
+	<p>"Geometrically Exact Beam" > [Reissner 1992] [Simo & Vu-Quoc 1991]</p>
+	<hr>
+	<p>"Special Theory of Cosserat Rods" > [Antman 2005]</p>
+	<aside class="notes">
+		On repart de l'article discrete elastic rod.
+		On le traite en continu ce qui laisse une liberté pour la discrétization
+	</aside>
+</section>
+	
+<section class="">
+	<h5 class="">Cosserat Rod</h5>
+	<img class="imgfragment" src="./img/eq/cosserat_1.svg" width="50%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/cosserat_1.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/cosserat_2.svg" data-fragment-index="1"></span>
+	</div>
+</section>
+
+<section class="">
+	<h5 class="">Kinematic Description</h5>
+	<ul>
+		<li>arc length of the reference configuration > $s$</li>
+		<li>Centerline  > $\mathbf{x}(s)$</li>
+		<li>Material frame  > $\{\mathbf{d}_3,\mathbf{d}_1,\mathbf{d}_2\}(s)$ </li>
+		<li>Cross-section  > $\mathcal{S}(s)$ </li>		
+		<li>Material point  > $\mathbf{p}(s,X_1,X_2)$</li>
+	</ul>
+	<hr>
+	<div class="fragment">
+		<img data-src="./img/eq/cosserat_4.svg" width="80%">
+		<hr>
+		<img data-src="./img/eq/cosserat_31.svg" width="80%">
+	</div>
+</section>
+<section class="">
+	<h5 class="">Rod Motion</h5>
+	<ul>
+		<li>Translational velocity > $\mathbf{\dot{x}}(s,t)$</li>
+		<li>Angular velocity > $\mathbf{\omega}(s,t)$</li>
+		<li>Force strains > $\mathbf{\eta}(s,t)$</li>
+		<li>Moment strains > $\mathbf{\varkappa}(s,t)$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/motion_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/motion_2.svg" width="80%">
+</section>
+
+
+<section class="">
+	<h5 class="">Kirchhoff Rod Assumptions</h5>
+	<ul>
+		<li>Slender</li>
+		<li>Shear center = Centroid</li>
+		<li>Small strains but finite displacements/rotations allowed</li>
+		<li>Negligible shear</li>
+		<li>Cross-sections are free to warp</li>
+		<li>Complete first order theory in $\alpha$ [Dill 1992]</li>
+	</ul>
+	<hr>
+	<div class="fragment">
+		<img data-src="./img/eq/kirchhoff_1.svg" width="80%">
+		<hr>
+		<img data-src="./img/eq/kirchhoff_2.svg" width="80%">
+		<!-- <hr> -->
+		<!-- <img data-src="./img/eq/cosserat_31.svg" width="80%"> -->
+	</div>
+</section>
+<section class="">
+	<h5 class="">Kirchhoff Deformations</h5>
+	<img data-src="./img/eq/kirchhoff_3.svg" width="65%">
+</section>
+<section class="">
+	<h5 class="">Strains</h5>
+	<ul>
+		<li>Extension > $\mathbf{\epsilon}(s,t)$</li>
+		<li>Force strains > $\mathbf{\eta}(s,t)$</li>
+		<li>Moment strains > $\mathbf{\varkappa}(s,t)$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/strains_force_1.svg" width="80%">
+	<img data-src="./img/eq/strains_force_2.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/strains_moment.svg" width="80%">
+</section>
+<section class="">
+	<h5 class="">Balance on a Slice</h5>
+	<img data-src="./img/eq/balance_1.svg" width="70%">
+	<hr>
+	<img data-src="./img/eq/balance_2.svg" width="80%">
+</section>
+<section class="">
+	<h5 class="">Constitutive Equations</h5>
+	<ul>
+		<li>They are deduced from 3D elasticity</li>
+		<li>For an isotropic and linear elastic material</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/constitutive_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/constitutive_2.svg" width="80%">
+</section>
+<section class="">
+	<h5 class="">Dynamical Equations</h5>
+	<ul>
+		<li>Already focused on 4-DOFs</li>
+		<li>Shear force is a reacting parameter</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/dynamic_equations.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/constitutive_1.svg" width="80%">
+</section>
+
+<section class="positive">
+	<h5 class="">Benefits</h5>
+	<ul>
+		<li>Straightforward approach</li>
+		<li>Complete theory</li>
+		<li>Dynamical equations</li>
+		<li>External distributed loads</li>
+		<li>Physical meaning & Geometric interpretation</li>
+	</ul>	
+</section>
+<section class="negative">
+	<h5 class="">Limitations</h5>
+	<ul>
+		<li>Discontinuities & Jumps</li>
+		<li>External concentrated loads</li>
+	</ul>	
+</section>

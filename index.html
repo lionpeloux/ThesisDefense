@@ -37,9 +37,13 @@
 				<hr>
 				<h2>Application to the design of elastic gridshells</h2>
 				<aside class="notes">
-					Thank you for coming. It's been 3 weeks I'm here now. My english is emproving slowly but and I hope wou will understand me.
-					Please feel free to interrupt me if something is not clear in what I am saying.
-				</aside>
+						Merci M. le président du Jury.
+						<hr>
+						Bonjour à toutes et à tous,
+						<hr>
+						Je vais aujourd'hui vous présenter mon travail de recherche sur les structures de type gridshell élastique. En m'intéressant plus spécifiquement aux modèles de calcul dédiés à l'analyse de ces structures, qui sont fortement précontraintes du fait de leur mise en forme. On parlera de précontrainte de flexion.
+						<hr>
+						On verra que ces ouvrages sont complexes à concevoir pour un certain nombre de raisons, et que les outils d'analyse existants ne permettent pas de répondre de manière efficace aux besoins des architectes et des ingénieurs dans un contexte de projet.
 			</section>
 
 			<section class="center">
@@ -48,7 +52,11 @@
 				<br>
 				<p><small>Focus : discrete beam models for nonlinear formfinding and structural analysis</small></p>
 				<aside class="notes">
-					
+					L'objectif principal de ma thèse aura donc été de mettre au point des outils d'analyse pour faciliter et enrichir le processus de conception de ces structures.
+					<hr>
+					L'absence d'outil de design adapté est d'ailleurs souvent donné comme l'un des principaux obstacles à leur diffusion.
+					<hr>
+					Au coeur de ce travail, on trouve la mise au point d'un élement de poutre discret original, à 4 degrés de liberté et 3 noeuds qui permet de modéliser plus finement les couplages flexion-torsion ainsi que certaines discontinuités dans ces résilles de poutres.
 				</aside>
 			</section>
 
@@ -59,35 +67,39 @@
 					<td><img data-src="./img/logo/navier.svg" ></td>
 					<td><img data-src="./img/logo/tess.svg" ></td>
 				</tr>
-				<!-- <tr>
-					<td><small>research</small><br></td>
-					<td><small>engineering</small><br></td>
-				</tr> -->
 				</table>
 				<p style="text-align:center"><cite>(<sup>*</sup>) Douthe 2007, Bouhaya 2010, Kotelnikova 2012, Tayeb 2015, du Peloux 2017</cite>	</p>				
 				<aside class="notes">
-					<ul>
-						<li>A mi-chemin entre recherche et ingénierie</li>
-						<li>Démarrée en 2010 = 8 ans</li>
-						<li>S'intègre dans un projet débuté en 2002</li>
-						<li>5 thèses</li>
-					</ul>
+					Avant de rentrer dans le vif du sujet, je voudrais rappeler ou souligner ce qui me semble être un aspect central de mon approche, qui est d'avoir souhaité rentrer dans cette problématique avec une double casquette. 
+					<hr>
+					La casquette de chercheur par mon activité au sein laboratoire Navier, 
+					<br>
+					Et la casquette d'ingénieur structure par mon activité sein du bureau d'étude T/E/S/S.
+					<hr>
+					Je crois que mon travail s'est beaucoup enrichi de ces aller-retours permanents entre théorie et pratique. Et qu'il lui donne un coloration particulière.
 				</aside>
 			</section>
 
 			<section class="plan center">
 				<h5>Plan</h5>
 				<ul>
-					<li>Concept : what is an elastic gridshell</li>
-					<li> Design Process : issues and challenges</li>
+					<li>Introduction to the concept</li>
+					<li>Design process : overview</li>
 					<hr>
 					<li>Beam model : variational approach</li>
 					<li>Beam model : equilibrium approach</li>
-					<li>Beam model : discrete element</li>
+					<li>New discrete beam element</li>
 					<hr>
 					<li>Implementation & Test case</li>
 				</ul>
 				<aside class="notes">
+				Ma présentation s'organise de la façon suivante.
+				<hr>
+				Dans une première partie je vais présenter le concept de gridshell élastique à partir de projets que j'ai réalisés. Je donnerai quelques éléments sur la méthode de conception que j'ai mise en place pour le porjet de Créteil.
+				<hr>
+				Dans une seconde partie je présenterai deux approches pour construire un modèle de poutre enrichi bien adapté au formfinding et à la prise en compte des couplages flexion-torsion dans les gridshells élastiques. Je traiterai le passage du continu au discret et celà m'amènera à formuler un élément de poutre discret original dit biarc. 
+				<hr>
+				Enfin, je parlerai de son implémentation et présenterai un cas test.
 				</aside>
 			</section>
 
@@ -98,6 +110,7 @@
 		<section data-external="1-intro.html"> </section>
 		<section data-external="2-creteil.html"> </section>
 		<section data-external="3-model_1.html"> </section>
+		<section data-external="4-model_2.html"> </section>
 
 		<!-- APPENDIX -->
 		<section data-external="A1-creteil.html"> </section>

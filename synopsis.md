@@ -1,3 +1,12 @@
+
+Intro :      2min
+Concept :    7min
+Créteil :    4min
+            12min
+
+
+
+
 -------
 # INTRO
 -------
