@@ -1,16 +1,19 @@
 <section class="plan center">
-	<h5>Beam model : variational approach</h5>
-	<ul>
-		<li>Concept : what is an elastic gridshell</li>
-		<li >Design Process : issues and challenges</li>
-		<hr>
-		<li class="highlight">Beam model : variational approach</li>
-		<li>Beam model : equilibrium approach</li>
-		<li>Beam model : discrete element</li>
-		<hr>
-		<li>Implementation & Test case</li>
-	</ul>
-</section>
+		<h5>Design Process : issues and challenges</h5>
+		<ul>
+			<li>Introduction to the concept</li>
+			<li>Design process : overview</li>
+			<hr>
+			<li class="highlight">Beam model : variational approach</li>
+			<li>Beam model : equilibrium approach</li>
+			<li>New discrete beam element</li>
+			<hr>
+			<li>Implementation & Test case</li>
+		</ul>
+		<aside class="notes">
+			J'entre donc maintenant dans le second volet de ma présentation et vais vous présenter une première approche pour contruire un modèle de poutre avec une cinématique plus riche que le modèle à 3 degrés de liberté employé à créteil.
+		</aside>
+	</section>
 
 <!-- 
 =============================================================================================== 
@@ -18,30 +21,61 @@
 =============================================================================================== 
 -->
 
+<section class="">
+		<h5 class="">Previous Works</h5>
+		<p>4-DOFs Kirchhoff beam model
+			<br> <cite>du Peloux et al., IASS Symp., 2015</cite>
+			<br> <cite>Tayeb, PhD thesis, 2015</cite>
+			<br> <cite>Lefevre et al., IJSS, 2017</cite>
+		</p>
+		<div class="fragment">
+			<hr>
+			<p >Discrete elastic rod
+				<br> <cite>Bergou et al., ACM Transactions on Graphics, 2008</cite>
+				<br><cite>Nabaei et al., IJSS, 2013</cite>
+			</p>
+		</div>
+		<div class="fragment">
+			<hr>
+			<p>Natural frames and the curve angle representation
+				<br> <cite>Bishop, The American Mathematical Monthly, 1975</cite>
+				<br> <cite>Langer & Singer, SIAM Review, 1996</cite>
+			</p>
+		</div>
+		<aside class="notes">
+		 Ce travail a été inité en 2013 par Frédéric Tayeb avec une forte contribution de Baptiste Lefevre.
+		 <hr>
+		 J'ai collaboré à ce travail au cours de ma première année de thèse et je tacherai de souligner clairement mes contributions propres pendant l'exposé.
+		 <hr>
+		 Pour développer ce modèle nous sommes aller piocher dans des travaux récents dans le domaine des Computer Graphics, en regardant principalement ce qui a été fait par Bergou et al. en 2008. 
+		 <hr> 
+		 Un travail également repris par Nabaei en 2013 pour simuler des structures tressées en bois.
+		 <hr>
+		 Ces travaux utilisent de manière astucieuse un repère mobile de référence sans torsion (introduit par Bishop en 75) pour constuire une représentation dite curve-angle de la poutre avec un nombre réduit de degré de libertés (et introduite par Langer eet Singer en 1996)
+		</aside>
+	</section>
+
 <section class="black center" data-background-video="./img/mov/hair.mp4" data-background-size="contain" data-background-video-muted >
 	<!-- <h7 class="">Hair Animation</h7> -->
 	<aside class="notes">
-		Sur les pas de l'anmiation 3D
-		- représentation physico réaliste de la chevelure
-		- chaque mèche est représentée par une tige élastique avec une géométrie au repos
-		- pas de liaison entre les cheveux mais gestion du contact (self + extérieur)
-		- simulation dynamique avec exigence de temps réel (jeux)
-		- même types de travaux dans l'univers 2D avec les drapés
+	Dans le domaine des Computeurs Graphics il y a un intérêt très fort pour la mise au point de modèles mécaniques physiques ou pseudo-physiques pour enrichir les rendus des jeux et des films d'animation, tout en gardant une vrai exigeance en terme de rapidité de calcul.
+	<hr>
+	Sur cette vidéo des studios Pixar on voit comment la chevelure d'un personnage est simulée à partir de tiges élastiques qui représentent des mèches. Les tiges ne sont pas connectéss les unes aux autres comme ce serait le cas dans nos gridshells, mais en revanche il faut pouvoir gérer les collisions.
+	<hr>
+	On retrouve des travaux de même nature sur les objets 2D ou 3D comme les textiles pour modéliser les vêtements.
 	</aside>
 </section>
 
 
-<section class="">
-	<h5 class="">Previous Works</h5>
-	<p>"Discrete Elastic Rod" > Bergou et al. 2008</p>
-	<p>
-	<cite>Langer & Singer 1996 | Pai 2002 | Grégoire & Schömer 2007 | Spillmann & Teschner 2007</cite><br>
-	<cite>Bergou, Grinspun, Audoly, Bertails, Neukirch, Clauvelin 2006</cite><br>
-	<cite>Nabaei 2014</cite>
-	</p>
+<!-- 
+=============================================================================================== 
+	Intro
+=============================================================================================== 
+-->
+<section class="plan center">
+	<strong>Building the model</strong>
 	<aside class="notes">
-		On repart de l'article discrete elastic rod.
-		On le traite en continu ce qui laisse une liberté pour la discrétization
+		Regardons maintenant comment nous avons construit ce premier modèle de poutre
 	</aside>
 </section>
 
@@ -51,8 +85,17 @@
 		<li>Inextensibility</li>
 		<li>Cross-sections remain planar</li>
 		<li>Cross-sections remain normal to the centerline</li>
-		<li>Material deforms elastically</li>
+		<li>Material deforms in the linear-elastic domaine</li>
 	</ul>
+	<aside class="notes">
+		Le modèle est bâti sous les hypothèses suivantes, bien adaptées aux poutres élancées.
+		<hr>
+		La poutre est considérée comme inextensible.
+		<hr>
+		Les sections droites restent planes et normales à la fibre neutre (connu sous le nom d'hyptohèse de Navier-Bernoulli)
+		<hr>
+		Le matériau se déforme dans le domaine linéaire élastique.
+	</aside>
 </section>
 <section class="">
 	<h5 class="">Kinematic Description</h5>
@@ -63,6 +106,9 @@
 	</ul>
 	<hr>
 	<img data-src="./img/moving_frame.svg" width="80%">
+	<aside class="notes">
+		
+	</aside>
 </section>
 
 <!-- 

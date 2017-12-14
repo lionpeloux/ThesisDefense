@@ -100,12 +100,13 @@ body {
   color:rgb(110, 110, 110);
 }
 .reveal .plan li {
+  font-weight: bold; 
   list-style-type: none;
   font-size: 1.4em;
 }
 .reveal .plan .highlight {
   color:white;
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: bold; 
 }
 
