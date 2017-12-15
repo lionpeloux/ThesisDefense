@@ -117,6 +117,12 @@ body {
 }
 
 
+/*********************************************
+ * RED THEME
+ *********************************************/
+ .reveal .red {
+  color:red;
+}
 
 
 /*********************************************
@@ -231,14 +237,14 @@ body {
   margin: 20px 0;
   line-height: 1.3;
   font-weight: 200;
-  font-size: 1.0em;
+  font-size: .75em;
   text-align: center;
 }
 
 .reveal cite{
   margin-top: 100%;
   color: grey;
-  font-size: 0.5em;
+  font-size: 0.6em;
 }
 
 .reveal i{

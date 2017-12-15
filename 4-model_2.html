@@ -11,7 +11,11 @@
 			<li>Implementation & Test case</li>
 		</ul>
 		<aside class="notes">
-			Envisageons maintenant une autre façon de construire un tel modèle qui réponde à ces limitations.
+			Dans le modèle précédent, nous avons montré que les efforts quasi-statiques qui s'appliquent sur la poutre sont identiques à ceux obtenus par les équations de Kirchhoff pour les tiges élastiques.
+			<hr>
+			Ce constat sugère qu'une autre approche est possible, directement à partir des équations d'équilibre de la poutre. Nous verrons que cette approche est plus directe et plus générale que la précédente puisque elle traite naturellement la déformation axiale et la dynamique de la poutre.
+			<hr>
+			C'est cette approche que je me propose maintenant de présenter.
 		</aside>
 	</section>
 
@@ -20,7 +24,6 @@
 	ENJEU
 =============================================================================================== 
 -->
-
 
 <section class="">
 	<h5 class="">Previous Works</h5>
@@ -39,104 +42,147 @@
 		</p>
 	</div>
 	<aside class="notes">
-		On repart de l'article discrete elastic rod.
-		On le traite en continu ce qui laisse une liberté pour la discrétization
+		Je vais donc réécrire les équations de Kirchhoff en m'appuyant sur l'excellente présentation qu'en a faite Dill en 1992.
+		<hr>
+		Par ailleurs, j'ai adopté le formalisme des tiges de cosserat tel que présenté par Antman pour décrire la cinématique de la poutre le plus généralement possible.
+		<!-- <hr>
+		J'ai fait cela dans le but de pouvoir changer de théorie de poutre (en passant par exemple de Kirchhoff à Timoshenko) sans pour autant changer le formalisme de description de la poutre. -->
 	</aside>
 </section>
-	
-<section class="">
-	<h5 class="">Cosserat Rod</h5>
-	<img class="imgfragment" src="./img/eq/cosserat_1.svg" width="50%"/>
-	<div>
-		<span class="imgsrc" data-src="./img/eq/cosserat_1.svg" data-fragment-index="0"></span>
-		<span class="fragment imgsrc" data-src="./img/eq/cosserat_2.svg" data-fragment-index="1"></span>
-	</div>
-</section>
 
+<section class="">
+	<h5 class="">Assumptions</h5>
+	<ul>
+		<li>Slender</li>
+		<li>Shear center = Centroid</li>
+		<li>Small strains but finite rotations allowed</li>
+		<li>Negligible shear</li>
+		<li>Cross-sections are free to warp</li>
+		<li>The material is isotropic and linear-elastic</li>
+	</ul>
+	<hr>
+	<div class="fragment">
+		<p class="red">"The deformed state differs by small deformations from a motion in which cross sections remain plane, undistorted, and normal to the axis."</p>
+		<hr>
+		<p class="red">The rod is not strictly inextensible but its extension must remain small.</p>
+		<p class="red">Cross-sections do not remain strictly planar.</p>
+	</div>
+	<p><cite>[Dill 1992]</cite></p>
+	<aside class="notes">
+		Les hypothèses faites dans le cadre de la théorie de Kirchhoff des tiges élastiques sont les suivantes :
+		<ul>
+			<li>La poutre est considérée comme élancée</li>
+			<li>Le centre de masse et le centre de torsion sont confondus</li>
+			<li>Les déformations restent petites bien que les rotations puissent être grandes</li>
+			<li>Le cisaillement est négigeable</li>
+			<li>Les sections sont libres de gauchires</li>
+			<li>Le matériau est considéré isotrope et dans le domaine linéaire élastique.</li>
+		</ul>
+		<hr>
+		Ainsi on ne considèrera plus la poutre comme strictement inextensible mais comme faiblement extensible.
+		<hr>
+		De même, on ne considèrera plus que les sections se déforment selon un mouvement de corps rigide mais que leur état déformé est proche d'une déformation de corps rigide.
+	</aside>
+
+
+</section>
+<section class="">
+	<h5 class="">Deformation Modes</h5>
+	<img data-src="./img/eq/kirchhoff_3.svg" width="65%">
+	<aside class="notes">
+	 Ce schéma montre les 4 modes de déformation d'une tige de Kirchhoff.
+	 <ul>
+		 <li>L'extension axiale, qui conduit à une contraction de la section du fait de l'effet Poisson</li>
+		 <li>Les flexions circulaires d'axes 1 et 2, qui conduisent à une dilatation de la section du côté de la fibre comprimée et à une contraction de la section du côté de la fibre tendu</li>
+		 <li>La torsion pure d'axe 3 qui engendre une déforamtion hors plan de la section appellée gauchissement</li>
+	 </ul>
+	</aside>
+</section>
 <section class="">
 	<h5 class="">Kinematic Description</h5>
 	<ul>
 		<li>arc length of the reference configuration > $s$</li>
 		<li>Centerline  > $\mathbf{x}(s)$</li>
 		<li>Material frame  > $\{\mathbf{d}_3,\mathbf{d}_1,\mathbf{d}_2\}(s)$ </li>
-		<li>Cross-section  > $\mathcal{S}(s)$ </li>		
+		<li>$\mathbf{d}_1,\mathbf{d}_2$ are the principal axis of the cross-section </li>
+		<li>$\mathbf{d}_3$ is tangent to $\mathbf{x}(s)$</li>
 		<li>Material point  > $\mathbf{p}(s,X_1,X_2)$</li>
 	</ul>
 	<hr>
-	<div class="fragment">
-		<img data-src="./img/eq/cosserat_4.svg" width="80%">
-		<hr>
-		<img data-src="./img/eq/cosserat_31.svg" width="80%">
+	<img width="80%" src="./img/eq/cosserat_31.svg">
+	<div class="fragment red">
+	<hr>
+	<p>Similary to the previous model, the curve-angle representation can be leveraged to adopt a reduced coordinates formulation with only 4-DOFs.</p>
 	</div>
+	<aside class="notes">
+		La cinématique de la poutre reste sensiblement la même que celle présentée dans l'approche variationelle.
+		<hr>
+		La poutre est représentée par sa fibre neutre paramétrée par l'abscisse curviligne de la configuration au repos.
+		<hr>
+		A cette fibre neutre on associe un repère materiel adapté à la courbe pour décrire la section.
+		Un point matériel est repéré par ses coordonnées s, X1 et X2 dans la configuration de référence.
+		<hr>
+		Dans la configuration déformée, la position du point est donnée relativement à un mouvement solide de la section, que l'on mesure par le vecteur des déformations locales de la section notée u.
+	</aside>
 </section>
 <section class="">
 	<h5 class="">Rod Motion</h5>
 	<ul>
 		<li>Translational velocity > $\mathbf{\dot{x}}(s,t)$</li>
 		<li>Angular velocity > $\mathbf{\omega}(s,t)$</li>
-		<li>Force strains > $\mathbf{\eta}(s,t)$</li>
-		<li>Moment strains > $\mathbf{\varkappa}(s,t)$</li>
+		<li>Force strains > $\mathbf{\eta}(s,t) = (1+\epsilon(s,t))\mathbf{d}_3$</li>
+		<li>Moment strains > $\mathbf{\varkappa}(s,t) = (1+\epsilon) \mathbf{\Omega}(s,t)$</li>
 	</ul>
 	<hr>
 	<img data-src="./img/eq/motion_1.svg" width="80%">
 	<hr>
 	<img data-src="./img/eq/motion_2.svg" width="80%">
-</section>
-
-
-<section class="">
-	<h5 class="">Kirchhoff Rod Assumptions</h5>
-	<ul>
-		<li>Slender</li>
-		<li>Shear center = Centroid</li>
-		<li>Small strains but finite displacements/rotations allowed</li>
-		<li>Negligible shear</li>
-		<li>Cross-sections are free to warp</li>
-		<li>Complete first order theory in $\alpha$ [Dill 1992]</li>
-	</ul>
-	<hr>
-	<div class="fragment">
-		<img data-src="./img/eq/kirchhoff_1.svg" width="80%">
+	<aside class="notes">
+		Cette fois-ci, le mouvement de la poutre est suivi temporellement à l'aide des dérivées premières de la fibre neutre et du repère matériel, qui font apparaitre la vitesse de translation de la fibre neutre et la vitesse angulaire du repère matériel.
 		<hr>
-		<img data-src="./img/eq/kirchhoff_2.svg" width="80%">
-		<!-- <hr> -->
-		<!-- <img data-src="./img/eq/cosserat_31.svg" width="80%"> -->
-	</div>
+		Quant aux déformations, elles sont mesurées par les dérivées première de la fibre neutre et du repère matériel, qui font apparaitre le vecteur des déformations noté ETA et le vecteur des courbures matérielles noté Varkappa.
+		<hr>
+		
+		<small>
+		Du fait de l'extension epsilon de la poutre, qui je le rappelle n'est pas supposée strictement inextensible dans la théorie de Kirchhoff, les courbures materielles diffèrent désormais des courbures géométriques de la fibre neutre.
+		<hr>
+		Les composantes transverses du vecteur des déformations ETA sont négligées conformément aux hypothèses. Il ne reste donc que la composante qui caractérise la déformation axiale de la poutre.
+		</small>
+	</aside>
 </section>
-<section class="">
-	<h5 class="">Kirchhoff Deformations</h5>
-	<img data-src="./img/eq/kirchhoff_3.svg" width="65%">
-</section>
-<section class="">
-	<h5 class="">Strains</h5>
-	<ul>
-		<li>Extension > $\mathbf{\epsilon}(s,t)$</li>
-		<li>Force strains > $\mathbf{\eta}(s,t)$</li>
-		<li>Moment strains > $\mathbf{\varkappa}(s,t)$</li>
-	</ul>
-	<hr>
-	<img data-src="./img/eq/strains_force_1.svg" width="80%">
-	<img data-src="./img/eq/strains_force_2.svg" width="80%">
-	<hr>
-	<img data-src="./img/eq/strains_moment.svg" width="80%">
-</section>
-<section class="">
-	<h5 class="">Balance on a Slice</h5>
-	<img data-src="./img/eq/balance_1.svg" width="70%">
-	<hr>
-	<img data-src="./img/eq/balance_2.svg" width="80%">
-</section>
+
 <section class="">
 	<h5 class="">Constitutive Equations</h5>
 	<ul>
-		<li>They are deduced from 3D elasticity</li>
-		<li>For an isotropic and linear elastic material</li>
+		<li>They are deduced from 3D elasticity for an isotropic and linear elastic material</li>
+		<li>They now include the axial component of the </li>
+		<li>The torsion constant $J\;$ depends on the warping function $\varphi_s$</li>
 	</ul>
 	<hr>
 	<img data-src="./img/eq/constitutive_1.svg" width="80%">
 	<hr>
 	<img data-src="./img/eq/constitutive_2.svg" width="80%">
+	<aside class="notes">
+		Dill montre que les équations constitutives qui relient les efforts et moments internes aux déformations et courbures matérielles sont en fait déduites de l'élasticité 3D pour une matériau linéaire élastique isotrope.
+		<hr>
+		Ces relations ne sont donc pas des hypothèses dans la théorie de Kirchhoff.
+		<hr>
+		Remarquons également que la constante de torsion est distincte du moment polaire de la section et dépend de sa fonction de gauchissement notée phi.
+	</aside>
 </section>
+
+<section class="">
+	<h5 class="">Dynamical Equations</h5>
+	<img data-src="./img/eq/balance_2.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/balance_1.svg" width="70%">
+	<aside class="notes">
+		En écrivant les conditions d'équilibre dynamique d'une tranche de poutre d'épaisseur infinitésimale, soumise aux efforts et aux moment internes F et M ainsi qu'à des efforts et des moments distribuées (f et m)
+		<hr>
+		on obtient les équations de Kirchhoff dynamiques pour une tige élastique sous leur forme classique, avec les termes inertiels.
+	</aside>
+</section>
+
 <section class="">
 	<h5 class="">Dynamical Equations</h5>
 	<ul>
@@ -147,22 +193,45 @@
 	<img data-src="./img/eq/dynamic_equations.svg" width="80%">
 	<hr>
 	<img data-src="./img/eq/constitutive_1.svg" width="80%">
+	<aside class="notes">
+		Finalement, ont peut écrire les équations scalaires qui régissent la dynamique de la poutre.
+		<hr>
+		La géométrie de la poutre étant connue, je peux calculer les courbures matérielles et l'extension de la poutre.
+		<hr>
+		Celà me permet de déterminer les moments de flexion et de torsion ainsi que l'effort axial à l'aide des équations constitutives.
+		<hr>
+		Les équations 4 et 5 me permettent de calculer l'effort tranchant à partir de la variation de moment interne.
+		<hr>
+		Connaissant les efforts internes et la géométire de la poutre, les équations 1,2,3 et 6 me permettront d'accéder au comportement dynamique de la poutre. 
+		<hr>
+		On voit par ailleur que se comportement est déjà formé pour une cinématique à 4 degrés de liberté car seules les 3 translations et la rotation du repère matériel d'axe d3 sont considérées dans les équations.
+	</aside>
 </section>
 
 <section class="positive">
 	<h5 class="">Benefits</h5>
 	<ul>
-		<li>Straightforward approach</li>
+		<li>Straightforward</li>
 		<li>Complete theory</li>
 		<li>Dynamical equations</li>
 		<li>External distributed loads</li>
 		<li>Physical meaning & Geometric interpretation</li>
-	</ul>	
+	</ul>
+	<aside class="notes">
+		En conclusion nous avons montré que l'approche par les équations de Kirchhoff permet de construire un modèle à 4 degrés de libertés de manière plus directe et plus complète que l'approche variationnelle.
+		<hr>
+		Elle intègre de manière rigoureuse la dynamique de la poutre et les chargements distribués.
+	</aside>	
 </section>
 <section class="negative">
 	<h5 class="">Limitations</h5>
 	<ul>
 		<li>Discontinuities & Jumps</li>
 		<li>External concentrated loads</li>
-	</ul>	
+	</ul>
+	<aside class="notes">
+		A ce stade, nous n'avons toujours pas montré comment le modèle pouvait prendre en compte des discontinuités et des charges concentrée.
+		<hr>
+		Ces aspects seront traités par le nouvel élément bi-arc que j'ai mis au point et que je vais présenter maintenant. 
+	</aside>
 </section>
