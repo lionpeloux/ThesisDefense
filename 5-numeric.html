@@ -1,0 +1,415 @@
+<section class="plan center">
+		<h5>Design Process : issues and challenges</h5>
+		<ul>
+			<li>Introduction to the concept</li>
+			<li>Design process : overview</li>
+			<hr>
+			<li>Beam model : variational approach</li>
+			<li>Beam model : equilibrium approach</li>
+			<li class="highlight">New discrete beam element</li>
+			<hr>
+			<li>Implementation & Test case</li>
+		</ul>
+		<aside class="notes">
+			Je vais maintenant présenter le nouvel élément de poutre dicret développé au cours de ma thèse.
+			<hr>
+			Cet élément est construit directement à partir des équations de Kirchhoff telles que présentées dans la partie précédente, et qu'on aura discrétisées.
+			<hr>
+			Grâce à une cinématique que j'ai appelée bi-arc, il permet de rendre compte des sauts d'efforts internes lorsque le modèle est soumis à des charges concentrées ou à des sauts de propriétés materielles.
+			<hr>
+			Ce qui répond ainsi aux dernières limitations identifiées.
+		</aside>
+	</section>
+
+<!-- 
+=============================================================================================== 
+	Curvature
+=============================================================================================== 
+-->
+
+<section class="">
+	<h5 class="">Previous Works</h5>
+	<p>Discrete Cruvature (DDG)
+		<br> <cite>Vouga, Lectures in discrete differential geometry, 2014</cite>
+		<br> <cite>Romon, Introduction à la géométrie différentielle discrète, 2013</cite>
+		<br> <cite>Hoffmann, Math-for-Industry lecture note series, 2008</cite>
+		<br> <cite>Bobenko, Discrete differential geometry, 2007</cite>
+	</p>
+	<hr>
+	<div class="fragment red">
+	<ul>
+		<li>There is more than one way to define the discrete curvature</li>
+		<li>Definitions are not equivalents</li>
+		<li>We shall rely the one that suites our needs best</li>
+		<li>Bending energy benchmark > $\int_{[O,L]} \kappa^2$</li>
+	</ul>
+	</div>
+	<aside class="notes">
+		La construction de cet élément s'est faite à partir d'une discussion approfondie sur la notion de courbure discrète. C'est elle qui nous a servi de base à la mise au point de la cinématique bi-arc.
+		<hr>
+		En passant au discret la définition de la courbure perd son univocité et il faut donc faire un choix.
+		<hr>
+		Les éléments de comparaison existant dans la littérature sont peu nombreux et portent essentiellement sur les aspects géométriques.
+		<hr>
+		Au cours de notre travail, nous avons donc fait un inventaire des définitions existantes. Nous avons étendues ces définitions aux extrémitées des courbes, ce qui est essentiel pour la modélisations des conditions aux limites. 
+		<hr>
+		Nous avons proposé de les comparer par leur capacité à représenter l'énergie de flexion pour certaines formes d'équilibre typiques de tiges élastiques (le cercle et l'elastica)
+	</aside>
+</section>
+
+<section class="plan center">
+	<strong>Discrete Curvature</strong>
+	<aside class="notes">
+		Je vais présenter brièvement les résultats de cette discussion, avant de passer à la présentation de l'élément bi-arc.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Discrete Curvature</h5>
+	<img class="imgfragment" src="./img/eq/discrete_curvature_1.svg" width="80%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/discrete_curvature_1.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/discrete_curvature_2.svg" data-fragment-index="1"></span>
+	</div>
+	<aside class="notes">
+		La courbure d'une courbe discrete est construite par analogie avec celle d'une courbre continue à partir d'un cercle osculateur.
+		<hr>
+		Ce cercle peut être construit de diverses manières. J'en présente les trois principales :
+		<ul>
+			<li>L'unique cercle qui passe par 3 noeuds successifs</li>
+			<li>L'unique cercle tangent à 3 arrêtes successives, mais qui n'a d'existence possibble que si les arrêtes sont coplanaires, c'est à dire si la courbe est plane </li>
+			<li>On peut relacher cette contrainte de planarité en construisant le cercle bi-tangent deux arrêtes successives, mais alors ce cercle n'est pas unique et dépend de la distance entre le sommet et le point de tangence. On perd donc l'univocité de la définition.</li>
+		</ul>
+	</aside>
+</section>
+<section class="">
+	<h5 class="">Discrete Curvature</h5>
+	<ul>
+		<li>The edge-based curvature diverges when the curve kinks</li>
+		<li>This is interesting for penalyzing kinked configurations</li>
+		<li>However in our case such configurations are not likely to arise</li>
+	</ul>
+	<hr style="margin-bottom: -0.5em;">
+	<table class="imgtable">
+	<tr>
+		<td height="400px"><img data-src="./img/eq/curvature_vertex.gif"></td>
+		<td height="400px"><img data-src="./img/eq/curvature_edge.gif"></td>
+	</tr>
+	<tr>
+		<td><small>circumscribed osculating circle ($\kappa_1$)</small><br></td>
+		<td><small>inscribed osculating circle ($\kappa_3$)</small><br></td>
+	</tr>
+	<!-- <tr style="height:15px;"></tr> -->
+	<tr style="border-top:0px solid black">
+		<td><img data-src="./img/eq/curvature_vertex.svg" width="100%"></td>
+		<td><img data-src="./img/eq/curvature_edge.svg" width="100%"></td>
+	</tr>
+	</table>
+	<aside class="notes">
+		L'intéret de la courbure par les arrêtes est qu'elle affiche un bon comportement lorsque la courbe se replie sur elle même. Le rayon du cercle tend vers 0 et donc la courbure tend vers l'infini au fur et à mesure que l'on referme le compas.
+		<hr>
+		Ce n'est pas le cas de la courbure par les noeuds dont la courbure tend vers une valeur finie.
+	</aside>
+</section>
+<section class="">
+	<h5 class="">Discrete Curvature</h5>
+	<img data-src="./img/eq/discrete_curvature_3.svg" width="70%"/>
+	<aside class="notes">
+		Sur ce graphique on a tracé les deux courbures précédentes en fonction de l'angle d'ouverture du compas.
+		<hr>
+		On a également étudié la sensibilité des définition vis à vis à vis de la différence de longueur entre les arrêtes, noté alpha.
+		<hr>
+		On retrouve la différence de comportement pour des angles d'ouvertures faibles.
+		<hr>
+		Tandis que pour des angles d'ouverture proche de pi les deux courbures se comportent sensiblement de la même façon.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Bending Energy</h5>
+	<p>The vertex-based curvature is more accurate in terms of bending energy representativity</p>
+	<!-- <ul>
+		<li>The vertex-based curvature is more accurate in terms of bending energy representativity</li>
+	</ul> -->
+	<hr>
+	<table class="imgtable">
+		<tr style="border-bottom:1px solid black">
+			<td style="border-right:1px solid black"><img data-src="./img/eq/discrete_curvature_arch_1.svg"></td>
+			<td><img data-src="./img/eq/discrete_curvature_arch_2.svg"></td>
+		</tr>
+		<tr style="border-top:0px solid black">
+			<td style="border-right:1px solid black"><img data-src="./img/eq/discrete_curvature_elastica_1.svg"></td>
+			<td><img data-src="./img/eq/discrete_curvature_elastica_2.svg"></td>
+		</tr>
+	</table>
+	<aside class="notes">
+		Enfin, nous avons comparé ces deux types de courbures vis à vis de leur capacité à représenter l'énergie de flexion en fonction de la finesse de la discrétization. 
+		<hr> Sur le cas typique du cercle d'adord
+		<hr> Puis sur le cas typique de l'élastica ensuite pour différentes configurations
+		<hr> Dans tous les cas, la courbure par les noeuds est celle qui approche le mieux l'énergie élastique de la courbre continue, pour une finesse de discrétization données.
+		<hr> C'est donc celle là que nous retiendrons pour notre modèle.
+	</aside>
+</section>
+
+
+<section class="plan center">
+	<strong>Discrete Tangent</strong>
+	<aside class="notes">
+		Nous allons voir maintenant comment la courbure par les noeuds conduit naturellement à la définition du vecteur tangent à la courbe.
+		<hr>
+		Et comment, réciproquement, en jouant sur l'orientation du vecteur tangent on peut modéliser une discontinuité de courbure locale au niveau d'un noeud en faisant apparaitre un bi-arc.
+	</aside>
+</section>
+
+
+<!-- 
+=============================================================================================== 
+	Tangent
+=============================================================================================== 
+-->
+
+
+<section class="">
+<h5 class="">Tangent Vector</h5>
+<ul>
+	<li>Curvature and tangent vectors are prescribe at $\mathbf{x}_i$ by the osculating circle</li>
+	<li>Consequently, we have assumed the curvature is continuous in the vicinity of $\mathbf{x}_i$</li>
+</ul>
+<hr>
+	<!-- <table class="imgtable">
+		<tr style="border-bottom:1px solid black">
+			<td><img data-src="./img/eq/tangent_circumscribed_current.svg"></td>
+			<td><img data-src="./img/eq/tangent_circumscribed_ends.svg"></td>
+		</tr>
+		<tr style="border-top:0px solid black">
+			<td style="border-right:1px solid black"><img data-src="./img/eq/discrete_curvature_elastica_1.svg"></td>
+			<td><img data-src="./img/eq/discrete_curvature_elastica_2.svg"></td>
+		</tr>
+	</table> -->
+	<img class="imgfragment" src="./img/eq/tangent_circumscribed_current.svg" width="65%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/tangent_circumscribed_current.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/tangent_circumscribed_ends.svg" data-fragment-index="1"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/vertex_curvature_biarc_b.svg" data-fragment-index="2"></span>
+	</div>
+	<aside class="notes">
+		Le cercle osculateur est par définition le cercle qui approche le mieu la courbe.
+		Il est donc naturel de définir le vecteur tangent à la coubre discrète comme le vecteur tangent au cercle osculateur.
+		<hr>
+		En faisant se raisonnement nous avons supposé que la courbure était localement continue au voisinage de Xi.
+		<hr>
+		Cette approche peut être étendue aux extrémités de la courbe en définisaant le cercle osculateur comme l'unique cercle passant par deux noeuds voisins et une tangente.
+		<hr>
+		Ici, on retombe sur l'indétermination classique en bout de poutre. Si le moment est préscrit, alors c'est la tangente qui est donnée par la courbure. Si la tangente est préscrite, alors c'est le moment qui est donné par la courbure.
+		<hr>
+		Enfin, on remarquera que cette définition s'intègre parfaitement avec la définition donnée précedement en partie courante.
+		En effet, 
+		<ul>
+			<li>le cercle défini par les noeuds xi-1, xi et xi+1</li>
+			<li>le cercle défini par ti et les noeuds xi-1 et xi</li>
+			<li>et le cercle défini par ti et les noeuds xi et xi+1</li>	
+		</ul>
+		sont identiques.
+		<hr> On comprend alors qu'en jouant sur la tangent ti, on pourra créer une discontinuité de courbure en xi, et c'est ce mécanisme qui est au coeur de notre nouvel élément que je peux désormais présenter.
+	</aside>
+</section>
+
+<!-- 
+=============================================================================================== 
+	Discrete Beam
+=============================================================================================== 
+-->
+
+<section class="plan center">
+	<strong>Discrete biarc beam element</strong>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Discrete Beam</h5>
+	<ul>
+		<li>Discrete centerline > $\mathbf{x}_i$</li>
+		<li>Discrete material frame > $\{\mathbf{d}_3,\mathbf{d}_1,\mathbf{d}_2\}_i$</li>
+		<li>Segment > $\{\mathbf{x}_{2i},\mathbf{x}_{2i+1},\mathbf{x}_{2i+2}\}$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/biarc_1.svg" width="65%">
+	<aside class="notes">
+		De manière analogue au cas continu la poutre est représentée par une fibre neutre discrete définie comme une suite de noeuds xi auxquels sont attachés des répères matériels.
+		<hr>
+		La différence c'est que nous allons considérer les noeuds 3 par groupes de trois pour former des segments (repérés par les triangles gris). Chaque segments sera composé de deux noeuds poignés à ses extrémitées et d'un noeud fantome en son milieu. 
+		<hr>
+		Ce noeud supplémentaire va permettre d'enrichir l'ordre d'interpolation de l'élement. Ce pendant il sera inaccessible à l'utilisateur, d'où la dénomination de noeud fantôme.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Discrete Beam</h5>
+	<ul>
+		<li>Uniform properties > $E_i,\,G_i,\,S_i,\,I_1,\,I_2,\,J_i$</li>
+		<li>Uniform external distributed loads > $\mathbf{f}^{ext}_i,\;\mathbf{m}^{ext}_i$</li>
+		<li>External concentrated loads at handles > $\mathbf{F}^{ext}_{2i},\;\mathbf{M}^{ext}_{2i}$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/biarc_1.svg" width="70%">
+	<aside class="notes">
+		Les propriétés matériels et de section seront supposées uniformes sur chaque segement mais peuvent diférrer d'un segment à l'autre
+		<hr>
+		Les segments pourront subir un chargement distribué uniforme
+		<hr>
+		Et les noeuds poignés pourront subir des efforts concentrés, aussi bien des forces que des moments.
+		<hr>
+		Cette représentation permet une définition rigoureuse de l'ensemble des paramétres descriptifs tout en respectant leur nature propre.
+		<hr>
+		Les grandeures locales sont définies aux noeuds tandis que les grandeurs distribuées sont définies sur les arrêtes.
+	</aside>
+</section>
+
+
+<!-- 
+=============================================================================================== 
+	Internal Forces
+=============================================================================================== 
+-->
+
+<section class="plan center">
+	<strong>Internal Forces and Moments</strong>
+	<aside class="notes">
+		Le calcul des efforts internes se conduit naturellement à partir du calcul des déformations et courbures matérielles discrètes et des équations de kirchhoff.
+	</aside>
+</section>
+	
+<section class="">
+	<h5 class="">Axial Behaviour</h5>
+	<ul>
+		<li>Axial extension > $\epsilon_i$</li>
+		<li>Axial force > $\mathbf{N}_i$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/axial_strain.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/axial_force.svg" width="80%">
+	<aside class="notes">
+		L'extension de la fibre neutre conduit à l'évaluation de l'effort axial au milieu des arrêtes
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Torsional Behaviour</h5>
+	<ul>
+		<li>Parallel transport > $\Delta \theta_i$</li>
+		<li>Rate of twist > $\tau_i$</li>
+		<li>Twisting moment > $\mathbf{Q}_i$</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/torsion_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/torsion_2.svg" width="80%">
+	<aside class="notes">
+		La mesure de la torsion mécanique s'effectue à l'aide du transport parallèle entre deux repère matériels consécutifs.
+		<hr>
+		Elle conduit à l'évaluation du moment de torsion au milieu des arrêtes
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Bending Behaviour</h5>
+	<ul>
+		<li>Geometric curvature > $\mathbf{\kappa b}_i$</li>
+		<li>Material curvature > $\mathbf{\varkappa}_i = (1+\epsilon_i) \mathbf{\kappa b}_i$</li>
+		<li>Bending moment > $\mathbf{M}^{\perp}_i$</li>
+	</ul>
+	<hr>
+	<img class="imgfragment" src="./img/eq/bending_4.svg" width="80%" fade="200"/>
+	<div>
+		<!-- <span class="imgsrc" data-src="./img/eq/bending_1.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_2.svg" data-fragment-index="1"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_3.svg" data-fragment-index="2"></span> -->
+		<span class="imgsrc" data-src="./img/eq/bending_4.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/bending_5.svg" data-fragment-index="1"></span>		
+	</div>
+	<hr>
+	<div class="fragment">
+		<img data-src="./img/eq/bending_6.svg" width="80%">
+		<img data-src="./img/eq/bending_7.svg" width="80%">
+	</div>
+	<aside class="notes">
+		Le calcul du moment de flexion concentre toutes les difficultées.
+		<hr>
+		Au niveau des noeuds fantômes, il est calculé simplement à partir de la mesure de la courbure discrète continue.
+		<hr>
+		Au niveau des noeuds poignées, la définition de la tangent est relachée pour pouvoir créer une discontinuité de courbure.
+		<hr> 
+		La position de la tangente est calculée à partir de la courbure moyenne des segments adjacents. En pratique celà revient à controler l'orientation du vecteur tangent au niveau des noeuds poignées par la position des noeuds fantômes adjacents.
+		<hr>
+		La tangente étant défini, on peut calculer les courbures à gauche et à droite du noeuds poignés. On voit appratire le biarc.
+		<hr>
+		Ces courbures sont finalement corrigées pour tenir compte d'un éventuellement moment extérieur. Elles conduisent à l'expression finale du moment de flexion à droite et à gauche du noeud.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Shear Behaviour</h5>
+	<ul>
+		<li>Shear force > $\mathbf{F}^{\perp}_i$</li>
+		<li>Reacting parameter</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/shear_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/shear_2.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/shear_3.svg" width="80%">
+	<aside class="notes">
+		Finalement, l'effort tranchant est évalué au milieu des arrêtes par la variation de moment interne selon les équations de kirchhoff
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Interpolation</h5>
+	<ul>
+		<li>Linear interpolation : mid-edge > vertex </li>
+		<li>From the equations of motion with inertial terms neglected</li>
+		<li>Particle-spring system</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/interpolation_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/interpolation_2.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/interpolation_3.svg" width="80%">
+	<aside class="notes">
+		Enfin, les efforts évalués au milieu des arrêtes sont interpolés pour être exprimés au niveau des noeuds, toujours à partir des équations de kirchhoff.
+		<hr>
+		A ce stade, nous avons tous les éléments pour décrire notre poutre comme un système masse ressort et simuler son mouvement.
+	</aside>
+</section>
+
+<!-- 
+=============================================================================================== 
+	Particle Spring System
+=============================================================================================== 
+-->
+
+<section class="plan center">
+	<strong>Particle-Spring System</strong>
+	<aside class="notes">
+		Après interpolation de tous les efforts aux niveaux des noeuds
+	</aside>
+</section>
+
+
+<section class="">
+	<h5 class="">Particle-Spring System</h5>
+	<ul>
+		<li>The system is now modeled as a particle-spring system</li>
+		<li>Motion of the particules under resultant forces and moments</li>
+	</ul>
+	<hr>
+	<img data-src="./img/eq/ps_motion.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_1.svg" width="80%">
+	<hr>
+	<img data-src="./img/eq/resultant_2.svg" width="80%">
+</section>
