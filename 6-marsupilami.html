@@ -11,7 +11,7 @@
 		<li class="highlight">Implementation & Test case</li>
 	</ul>
 	<aside class="notes">
-		Dans le temps qui nous reste, je vais vous présenter l'implémentation que j'ai fait de ce modèle dans un code de calcul que j'ai baptisé Marsupilami.
+		Dans le temps qui me reste, je vais vous présenter l'implémentation que j'ai fait de ce modèle dans un code de calcul que j'ai baptisé Marsupilami.
 		<hr>
 		Ce code m'a permi de valider le modèle sur un certain nombre de cas tests que je vous présenterai également.
 		<hr>
@@ -31,9 +31,103 @@
 </section>
 
 <section class="">
-	<h5 class="">Context</h5>
+	<h5 class="">environment</h5>
 	<ul>
-		<li>C# / Open source / Portable (Mono / Roslyn)</li>
+		<li>Rhino : (proprietary) versatile 3D modeler, powered by NURBS</li>
+		<li>Grasshopper : multipurpose graphical algorithm editor for Rhino</li>
+		<li>Well established tools in the field of architetural and structural design of complex envelopes</li>
+	</ul>
+	<hr>
+	<img class="stretch" data-src="./img/case/rhgh.png"/>
+	</div>
+	<aside class="notes">
+		Marsupilami a été développé dans l'idée d'être employé dans l'ecosystème Rhino & Grasshopper.
+		<hr>
+		Rhino est un modeleur 3D bien implanté auprès des architectes et des ingénieurs qui travaillent sur des formes complexes (Fenêtre de gauche)
+		<hr>
+		Il est fourni avec le plugin Grasshopper qui permet de générer des algorithmes de manière graphique (fenêtre de droite).
+		<hr>
+		En combinant des composants l'utilisateur peu créer des logiques très complexes. De nombreux composants sont déjà mis à disposition par des tierses parties et l'on peut développer son propre jeu de composants en language C#.
+		<hr>
+		A la manière d'excel, Grasshopper devient un outil à faire des outils et rend facile la diffusion et la combinaison d'algorithmes quels qu'ils soient.
+		<hr>
+		En outre, la logique interne de rhino est exposée au développeur via l'API RhinoCommon ce qui lui offre tous les outils nécessaires pour manipuler et afficher de la géométrie et s'éviter le développement d'une interface graphique indépendante.
+		<hr>
+	</aside>
+</section>
+
+<section class="">
+		<h5 class="">Coding Language</h5>
+		<ul>
+			<li>C# is an ECMA standard (top five language)</li>
+			<li>Garbage collection</li>
+			<li>.Net Framework > .Net Core / Mono (open source)</li>
+			<li>Portability : Windows, Linux, macOS, and mobile devices</li>
+			<li>Few existing scientific librairies (C++, Python, Julia)</li>
+		</ul>
+		</div>
+		<aside class="notes">
+			Marsupilami est donc développé en C# pour pouvoir s'intégrer san heurt à l'environnement Rhino & Grasshopper. Ce choix n'est pas neutre mais possède de sérieux avantages.
+			<ul>
+				<li>C# est un language mature et robuste, très largement utilisé.</li>
+				<li>Bien qu'initialement développé par Microsoft sur un mode propriétaire, son développement s'effectue sur le mode de l'opensource depuis 3 ans.</li>
+				<li>Le code est en outre facilement portable sur d'autre plateformes ce qui est un avantage indéniable</li>
+				<li>En revanche, on peu déplorer le manque de bibliothèques scientifiques existantes par rapport à d'autres languages mieux implantés dans la communauté scientifique</li>
+			</ul>
+		</aside>
+	</section>
+
+<section class="">
+	<h5 class="">Architecture : API</h5>
+	<ul>
+		<li>Application Programming Interface (portable)</li>
+		<li>Dependence-Free</li>
+		<hr>
+		<li>Marsupilami.MathLib : Point, Vector, Frame, Centerline</li>
+		<li>Marsupilami.CoreLib : Element, Material, Section, Solver</li>
+		<li>Marsupilami.Gh : Grasshopper interface</li>
+	</ul>
+	<hr>
+	<img class="stretch" data-src="./img/case/github.png"/>
+	</div>
+	<aside class="notes">
+		Bien que destinée à être utilisée premièrement dans Rhino Grasshopper, Marsupilami est pensé comme une API sans dépendance avec des programmes tierces, autres que ceux nécesssaires à la compilation et l'exécution du language.
+		<hr>
+		Cette API portable est scindée en deux bibliothèques : une de math et une de mécanique
+		<hr>
+		Marsupilami est exposé à Rhino Grasshopper via l'interface Marsupilami.Gh qui ajoute une barre d'outil dans la fenêtre de Grasshopper.
+		<hr>
+		A l'avenir, grâce à cette architecture, d'autres interfaces pourraient voir le jour sans changer le fonctionnement de l'API, par exemple pour excel, revit, etc.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Architecture : CODE</h5>
+	<ul>
+		<li>Object-Oriented Programming > Modularity & Abstraction</li>
+		<li>Sequential vs. Event-driven Programming</li>
+		<li>Parallel Programing</li>
+	</ul>
+	<hr>
+	<img class="stretch" data-src="./img/case/github.png"/>
+	</div>
+	<aside class="notes">
+		Le code de Marsupilami tire parti des concepts de programmation orientée objet pour gagner en modularité et offrir un bon niveau d'abstraction. Par exemple, celà nous permet de mixer des éléments à 3, 4 et 6 degrés de libertés dans un même modèle.
+		<hr>
+		Par ailleurs, nous avons aussi fait usage de la programmation par évènement qui permet des usages nouveaux difficiles voir impossibles à implémenter avec un mode de programmation séquentiel.
+		<hr>
+		Par exemple, cela nous a permis d'implémenter des fonctionnalités de raffinement automatique des éléments de manière très simple, une piste intéressanre pour augmenter la rapidité des calculs.
+		<hr>
+		Enfin, notons que C# offre des mécanismes de base pour faire du calcul parallèle dont Marsupilami tire parti.
+	</aside>
+</section>
+	
+
+<section class="">
+	<h5 class="">Architecture</h5>
+	<ul>
+		<li>.Net Core is open source (>4.6)</li>
+		<li>Roslyn compiler is open source</li>
 		<li>Rhino & Grasshoper</li>
 		<li>DLL</li>
 		<li>API</li>
@@ -44,9 +138,10 @@
 		<li> mixed DOF</li>
 		<li>Modularity Orher types of elements</li>
 		<li>Serialization / Vizualization</li>
+		<li>In the browser Javascript</li>
 	</ul>
 	</div>
-	<aside class="notes">
+	<aside class="notes">	
 	</aside>
 </section>
 
@@ -161,3 +256,17 @@
 		Idem pour l'effort tranchant.
 	</aside>
 </section>
+
+<!-- 
+=============================================================================================== 
+	Conclusions
+=============================================================================================== 
+-->
+
+<section class="plan center">
+		<strong>Conclusion</strong>
+		<aside class="notes">
+			Le manuscrit ne comporte pas beaucoup d'exemples. Il faut les détailler rigoureusement.
+			Icic je montre juste quelques ilages de calcules pour donner une idée plus fidèle de ce qu'il est possible de faire.
+		</aside>
+	</section>
