@@ -11,7 +11,7 @@
 		<li>Implementation & test case</li>
 	</ul>
 	<aside class="notes">
-		Je vais maintenant présenter de manière très condensée la méthode de conception que j'ai employée pour la cathédrale éphémère de créteil.
+		Je vais maintenant présenter de manière très condensée la méthode de conception que j'ai employée pour la cathédrale de créteil.
 	</aside>
 </section>
 
@@ -24,17 +24,7 @@
 	<!-- <img data-src="img/anim/form-grid-structure.svg" width="60%"> -->
 	<object id="" width="60%" type="image/svg+xml" data="img/anim/form-grid-structure.svg"></object>
 	<aside class="notes">
-	Je l'ai souligné précédement, l'enjeu central du processus de conception d'un gridshell élastique est de maitriser l'interaction forme-maillage-structure. L'objectif est de parvenir à définir une structure qui réponde à la fois aux enjeux architecturaux et structurels du projet.
-	</aside>
-</section>
-<section class="center" data-background-image="./img/hanging.jpg" data-background-size="cover" data-state="autohide">
-	<h7 class="">Mannheim 1975</h7>
-	<aside class="notes">
-	En son temps, Frei Otto avait développé au fil de ses recherches un processus de conception complet basé sur la manipulation de maquettes physiques et la prise de mesure par photogrammétrie.
-	<hr>
-	Très à la pointe dans les années 60 ces techniques sont aujourd'hui tombées en désuétudes et restent limitées au regard des possibilitées apportées par les outils numériques modernes, tant sur le plan de la géométrie que sur celui de la mécanique.
-	<hr>
-	Par ailleurs la méthode de Frei Otto était basée sur la recherche de forme à partir d'un fillet pesant, ce qui contraignait notablement l'espace de design accessible en terme de liberté formelle et qui par ailleurs ne permettait pas de prendre en compte la vrai raideur en flexion de la grille à construire.
+	Comme je l'ai montré, l'enjeu central du processus de conception d'un gridshell élastique c'est de maitriser l'interaction forme-maillage-structure. L'objectif est de parvenir à définir une structure qui réponde à la fois aux enjeux architecturaux et structurels du projet.
 	</aside>
 </section>
 <section class="center positive">
@@ -46,9 +36,9 @@
 	<aside class="notes">
 		A créteil, la méthode que nous avons mise en oeuvre vise à remettre la forme au centre du processus de conception pour redonner plus de place à l'expression de l'intention architecturale.
 		<hr>
-		Au lieu de raisonner sur une grille, nous raisonnons à partir d'une forme 3D sur laquel nous recherchons des maillages admissibles par la méthode du compas.
+		Au lieu de raisonner sur une grille, nous raisonnons à partir d'une forme 3D déssinée par l'architecte, et sur laquelle nous recherchons des maillages admissibles par la méthode du compas.
 		<hr>
-		On a également cherché à reduire autant que possible la duré d'un cycle d'analyse pour se donner les moyens d'explorer plus largement l'espace de design. 
+		On a également cherché à reduire autant que possible la duré d'un cycle d'analyse pour se donner les moyens d'explorer plus largement l'espace de design.
 	</aside>
 </section>
 
@@ -60,7 +50,77 @@
 <section class="plan center">
 	<strong>Design Process</strong>
 	<aside class="notes">
-		Je vais maintenant décrire en trois étapes la méthode de conception telle que je l'ai mise en oeuvre.
+		Je vais maintenant décrire très rapidement les étapes de ma méthode
+	</aside>
+</section>
+
+<section class="">
+	<h5>Curvature Analysis</h5>
+	<table class="imgtable" width="100%" style="text-align:left; vertical-align:middle;">
+	
+	<tr style="border-top:0px solid black">
+		<td  colspan = "2" width="" style="text-align:left; vertical-align:middle;">
+			<img data-src="./img/curvature_analysis.jpg" width="800px">
+		</td>
+		<td width="" style="text-align:center; vertical-align:middle;">
+			NURBS Modeling<br>+<br>Surface Curvature Evaluation
+		</td>
+	</tr>
+	<tr style="height:20px;"><td colspan="3" style="border-top:0px solid black"><hr></td></tr>
+	<tr style="height:20px;"></tr>
+	<tr style="border-top:0px solid black">
+		<td width="" style="text-align:left; vertical-align:middle;">
+			<img data-src="./img/compass.gif" width="400px">
+		</td>
+		<td width="" style="text-align:left; vertical-align:middle;">
+			<img data-src="./img/compass_grids.png" width="400px">
+		</td>
+		<td width="" style="text-align:center; vertical-align:middle">
+			Compass Method<br>+<br>
+			Spline Curvature Evaluation<br>
+			<cite>[Otto 1971], [Masson 2017]</cite>
+		</td>
+	</tr>
+	</table>
+	<aside class="notes">
+		La première étape de la méthode consiste à évaluer la possibilité de plaquer une grille sur la surface de l'architecte.
+		<hr>
+		Cette évaluation est menée à l'aune du critère précédement établi en prenant comme courbure la courbure principale maximale de la surface.
+	</aside>
+</section>
+
+<section class="">
+	<h5>Structural Analysis</h5>
+	<table class="imgtable" width="100%" style="text-align:left; vertical-align:middle;">
+	
+	<tr style="border-top:0px solid black">
+		<td width="" style="text-align:left; vertical-align:middle;">
+			<!-- <img data-src="./img/douthe.svg" width="200%"> -->
+			<object width="600px" type="image/svg+xml" data="img/douthe.svg"></object>
+		</td>
+		<td width="" style="text-align:center; vertical-align:middle;">
+			Formfinding<br>
+			<cite>[Wakefield 1980]</cite><br>
+			<cite>[Adriaenssens, Barnes, Williams 2001]</cite><br>
+			<cite>[Douthe 2007]</cite>
+		</td>
+	</tr>
+	<tr style="height:20px;"><td colspan="3" style="border-top:0px solid black"><hr></td></tr>
+	<tr style="height:20px;"></tr>
+	<tr style="border-top:0px solid black">
+		<td width="" style="text-align:left; vertical-align:middle;">
+			<img data-src="./img/gsa.jpg" width="700px">
+		</td>
+		<td width="" style="text-align:center; vertical-align:middle">
+			Structural Analysis <br>
+			<cite>[Oasys GSA]</cite>
+		</td>
+	</tr>
+	</table>
+	<aside class="notes">
+		La première étape de la méthode consiste à évaluer la possibilité de plaquer une grille sur la surface de l'architecte.
+		<hr>
+		Cette évaluation est menée à l'aune du critère précédement établi en prenant comme courbure la courbure principale maximale de la surface.
 	</aside>
 </section>
 

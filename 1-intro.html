@@ -121,87 +121,99 @@
 	<hr>
 	On voit sur cette image que la cinématique de la connexion est loin d'être aussi simple que celle d'un joint sphérique. En réalité il y trois axes de rotation et une excentricité qui peut générer des moments parasites.
 	<hr>
+	Pour décrire finement une telle connexion il faut un modèle qui soit riche.
+	<!-- <hr>
 	On cherche à prévenir le glissement des coliers le long des tubes, d'où l'ajout de cette couche d'interface en EPDM.
-	En même temps on voudrait libérer la rotation des colliers autour des tubes pour éviter de mettre de la torsion dans les profiles qui sont faibles vis à vis de cette solicitation.
-	<hr>
-	Pour modéliser finement une telle connexion, il faut un modèle qui puisse prendre en compte la flexion et la torsion des poutres ainsi que le transfert d'efforts relativement localisés (auusi bien forces que moments).
+	En même temps on voudrait libérer la rotation des colliers autour des tubes pour éviter de mettre de la torsion dans les profiles qui sont faibles vis à vis de cette solicitation. -->
+	<!-- <hr>
+	Pour modéliser finement une telle connexion, il faut un modèle qui puisse prendre en compte la flexion et la torsion des poutres ainsi que le transfert d'efforts relativement localisés (auusi bien forces que moments). -->
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_2c.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Sleeve</h7>
 	<aside class="notes">
-	Autre détail sensible du système constructif, le manchon qui permet de reconstituer des poutres de très grande longueur. 
+	Autre détail sensible du système constructif, le manchon permet de reconstituer des poutres de très grande longueur.
 	<hr>
-	Bien que ce type de tube puisse être produit en continu par le procédé de la pultrusion, il ne peut pas être acheminé dans des longueurs supérieures à 12m pour des raisons évidentes de transportabilité.
+	<!-- Bien que ce type de tube puisse être produit en continu par le procédé de la pultrusion, il ne peut pas être acheminé dans des longueurs supérieures à 12m pour des raisons évidentes de transportabilité.
 	<hr>
 	L'enjeu est de pouvoir transférer des efforts et d'assurer la continuité de la courbure. On passe du composite à l'acier par un assemblage collé-goupillé. La tige centrale est calculée comme un fusible pour écarter tout risque d'endommagement des tubes composites, difficiles à réparer ou à changer.
-	<hr>
+	<hr> -->
 	C'est un développement important réalisé sur le projet de créteil et qu'on retrouve sur le détail d'ancrage.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_3.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Elastic-Bending</h7>
 	<aside class="notes">
-	Puis vient l'étape la plus spéctaculaire dans laquelle la grille est mise en forme à l'aide de moyens de levage adaptés, ici deux grues mobiles de 35t utilisées de manière synchrone.
+	Puis vient l'étape spéctaculaire dans laquelle la grille est mise en forme à l'aide de moyens de levage adaptés.
 	<hr>
+	<!-- , ici deux grues mobiles de 35t utilisées de manière synchrone. -->
+	<!-- <hr>
 	La grille est prise par des élingues en 2 fois 6 points pour éviter une concentration excessive des efforts qui provoqueraient une rupture des tubes.
-	<hr>
-	On comprend mieux sur cette image le principe de déformation spatial de la grille, par mise en parallélogramme des mailles initialement carées grâce au dégré de liberté en rotation du noeud.
+	<hr> -->
+	On comprend mieux sur cette image le principe de déformation de la grille par mise en parallélogramme des mailles carées, grâce au dégré de liberté en rotation du noeud.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_3b.jpg" data-background-size="cover" data-state="autohide">
 	<aside class="notes">
-	Plus le caclul de forme est maîrtisé et plus il est possible d'aller loin dans l'étude de la mise en forme. Par un plan d'élinguage bien choisi on peut d'emblé donner une forme la plus proche possible de la forme cible et simplifier cette étape délicate.
+	Plus le calcul de forme est maîtrisé et plus il est possible d'aller loin dans l'étude de la mise en forme. Par un plan de levage bien choisi on peut d'emblé donner à la grille une forme la plus proche possible de la forme finale.
 	<hr>
-	A la vue de cette photo on comprend aussi la nécessité d'être capable de simuler les étapes transitoires et pas seulement de dimensionner la structure dans son état final. 
+	On comprend aussi la nécessité de pouvoir simuler les étapes transitoires. Soulever une grille de cette taille ne s'improvise pas et les risques de casse sont élevés.
 	<hr>
-	Soulever une grille de cette taille ne s'improvise pas. Les risques de casse pour la structure sont élevés tout comme les risques d'accident pour les compagnons qui travaillent autour.
-	<hr>
-	On voit également que le niveau de déformation de la structure est très important, et que donc les calculs seront à traité en non linéaire, ce qui est là encore un point essentiel de cette thèse.
+	On voit également que le niveau de déformation de la structure est très important, et que donc les calculs seront à traiter en non linéaire, ce qui est là encore un point essentiel de cette thèse.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_4.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Anchoring</h7>
 	<aside class="notes">
-	Une fois la grille positionnée au dessus de ses appuis les tubes sont fixés un à un aux ancrages préalablement scéllés dans la dalle.
+	Une fois la grille positionnée au dessus de ses appuis les tubes sont fixés un à un aux ancrages préalablement scellés dans la dalle.
 	<hr>
 	L'hyperstaticité de la structure rend cette étape compliquée et difficile à prévoir. Celà nécessiterait un grand nombre de calculs pour définir en amont la séquence de montage et l'ordre optimal dans lequel fixer les tubes.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_4b.jpg" data-background-size="cover" data-state="autohide">
 	<aside class="notes">
-	Au niveau des appuis les efforts se concentrent et il faut pouvoir transférer toutes les charges aux fondations.
+	On retrouve au niveau de l'ancrage une complexité équivalente à celle de la connexion en partie courante.
+	<!-- Au niveau des appuis les efforts se concentrent et il faut pouvoir transférer toutes les charges aux fondations.
 	On retrouve dans le détail d'appuis le dispositif de transfert composite-acier utilisé pour le manchon.
 	<hr>
 	La cinématique de l'ancrage doit pouvoir accomoder toutes les directions de l'espace en restant le plus proche possible de la rotule.
 	<hr>
-	Ici, 3 axes de rotation combinés permettent d'orienter le détail dans toutes les directions de l'espace et également d'assurer une certaine reprise de jeu par des réglages.
+	Ici, 3 axes de rotation combinés permettent d'orienter le détail dans toutes les directions de l'espace et également d'assurer une certaine reprise de jeu par des réglages. -->
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_5b.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Bracing > Shell</h7>
 	<aside class="notes">
-	Puis la grille primaire est contreventé, ici par l'ajout d'une troisième direction de tubes. Moins spectaculaire que l'étape précédente pour un néophite, c'est pourtant à ce moment précis que l'on donne à la structure sa pleine performance mécanique. Et que quelque par la magie s'opère.
+	La grille primaire est ensuite contreventée, ici par l'ajout d'une troisième direction de tubes. Moins spectaculaire que l'étape précédente, c'est pourtant à ce moment précis que l'on donne à la structure sa pleine performance mécanique.
 	<hr>
-	On a profité jusqu'ici du degré de liberté en cisaillement de la grille pour la déformer spatialement. Et on a obtenu une structure courbe qui fonctionne plutôt comme un réseau d'arches précontraintes en flexion. Donc très peu raide au vu de la section des poutres qui la constituent.
+	On a profité jusqu'ici du degré de liberté en cisaillement de la grille pour la déformer spatialement.
+	<br>
+	En bloquant ce degré de liberté on active le comportement membranaire de la structure et elle se comporte alors comme une coque. Le différentiel de raideur est de l'ordre de 15.
+	<!-- Et on a obtenu une structure courbe qui fonctionne plutôt comme un réseau d'arches précontraintes en flexion.
+	<hr> -->
+	<!-- En bloquant ce degré de liberté on active le comportement membranaire de la structure et elle se comporte alors comme une coque. Le différentiel de raideur calculé est de l'ordre de 15. -->
 	<hr>
-	En bloquant ce degré de liberté on active le comportement membranaire de la structure et elle se comporte alors comme une coque. Le différentiel de raideur calculé est de l'ordre de 15.
-	<hr>
+	L'optimisation de cette étape fastidieuse reste toujours ouverte et j'ai montré en introduction de ma présentation deux pistes que j'ai eu l'occasion d'explorer : le système à cable et la peau en béton.
+	<!-- <hr>
 	Cependant, cette étape requière un travail minutieux et délicat car effectué en hauteur. Il contraste avec l'efficacité des autres étapes et pénalise le coût global de l'ouvrage comme l'a montré le bilan économique dréssé dans ma thèse.
 	<hr>
-	L'optimisation de cette étape reste toujours ouverte et j'ai montré en introduction de ma présentation deux pistes que j'ai eu l'occasion d'explorer : le système à cable et la peau en béton.
+	L'optimisation de cette étape reste toujours ouverte et j'ai montré en introduction de ma présentation deux pistes que j'ai eu l'occasion d'explorer : le système à cable et la peau en béton. -->
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_6.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Roofing</h7>
 	<aside class="notes">
 	Pour finir la structure est couverte, ici par une toile en PVC précontraint.
-	<hr> 
+	<hr>
+	La toile est façonnée sur mesure à partir de la géométrie calculé. Il n'y a pas de prise d'information sur la structure réèlle.
+	<hr>
+	En principe, c'est l'étape de vérité. Si la toile fait des plis, c'est que la forme obtenue ne correspond pas précisément à la forme calculée. On ne peut pas tricher.
+	<!-- <hr> 
 	Cette toile n'est finalement rien d'autre qu'un grand vêtement, patroné sur mesure, avec lequel on vient habiller le gridshell.
 	<hr>
 	La toile est façonée sur la base d'une surface 3D NURBS reconstruite à partir du resultat du calcul de recherche de forme. Il n'y a pas de prise d'information sur la structure réèlle.
 	<hr>
-	En principe, c'est l'étape de vérité quant à la précision des études. Si la toile fait des plis, c'est que la forme obtenue ne correspond pas précisément à la forme calculée. On ne peut pas tricher.
+	En principe, c'est l'étape de vérité quant à la précision des études. Si la toile fait des plis, c'est que la forme obtenue ne correspond pas précisément à la forme calculée. On ne peut pas tricher. -->
 	</aside>
 </section>
 
@@ -213,7 +225,7 @@
 <section class="plan center">
 	<strong>Summary</strong>
 	<aside class="notes">
-		Résumons les avantages de ces structures ainsi que les difficultées de conception que nous venons d'identifier
+		Résumons les avantages et les complexités de ces structures.
 	</aside>
 </section>
 
@@ -226,14 +238,16 @@
 	<hr>
 	Premièrement on titre partie de la souplesse du matériau pour générer de la forme, c'est à dire de la courbure, afin de développer de la raideur géométrique.
 	<hr>
-	Deuxièmement on accède à une manière particuliérement efficace sur le plan constructif de créer une enveloppe courbe à partir d'une résille complètement standardisée et initialement plane. On s'épargne ainsi la fabrication d'objets courbes, de moules, de coffrages, de dispositifs d'étaiement qui sont en général complexes et couteux à réaliser.
+	Deuxièmement on accède à une manière efficace sur le plan constructif de créer une enveloppe courbe à partir d'une résille complètement standardisée et initialement plane. <br>On s'épargne ainsi la fabrication d'objets courbes, de moules, de coffrages, de dispositifs d'étaiement, qui sont en général complexes et couteux à réaliser et utilisés seulement de manière temporaire.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/pekin.jpg" data-background-size="cover">
 	<!-- <h5 style="color:white">Application</h5> -->
 	<h7 class="">Beijing Opera 2007</h7>
 	<aside class="notes">
-	Elles ont semble-t-il un certain potentiel pour l'architecture contemporaine pour laquelle l'expression formelle est une composante prédominante.
+	Les gridshells ont semble-t-il un certain potentiel pour l'architecture contemporaine,  pour laquelle l'expression formelle est une composante prédominante. 
+	<hr>
+	Le gridshell élastique serait tout à fait adapté pour matérialiser une forme comme celle-là.
 	</aside>
 </section>
 <section class="center negative">
@@ -243,11 +257,11 @@
 	<br><br>
 	<strong>Detailing & Envelope</strong>
 	<aside class="notes">
-	On a vu cependant que cette efficacité n'est possible qu'au prix d'une complexité certaine.
+	On a vu cependant que cette efficacité n'est possible qu'au prix d'une vraie complexité.
 	<hr>
-	Cette complexité se manifeste principalement dans l'interaction forme-résille-structure qui demande de maitriser des calculs non linéaires complexes pour pouvoir prédire la forme d'équilibre de la structure.
+	Cette complexité se manifeste principalement dans l'interaction forme-résille-structure qui demande de maitriser des calculs non linéaires complexes, pour pouvoir prédire la forme d'équilibre de la structure.
 	<hr>
-	Que par ailleurs se posent un certain nombre de questions technologiques liées aux détails du système constructif (connexions, ancrages, manchons) et à la matérialité de l'enveloppe.
+	Et que par ailleurs se posent un certain nombre de questions technologiques délicates liées aux détails du système constructif (connexions, ancrages, manchons) et à la matérialité de l'enveloppe.
 	</aside>
 </section>
 
@@ -265,9 +279,28 @@
 <section class="center" data-background-image="./img/mannheim_1.jpg" data-background-size="cover" data-state="autohide" data-autoslide="">
 	<h7 class="">Mannheim 1975</h7>
 	<aside class="notes">
-	Enfin, je ne pourrais pas terminer de bonne fois cette partie introductive sans mentionner l'architecte et ingénieur allemand Frei Otto, qui a inventé et étudié ces structures dans les années 60, et à qui ont doit la multihalle de Mannheim, un gridshell double nape en bois d'environ 8000m2 construit en 1975.
+	Enfin, je ne pourrais pas terminer de bonne fois cette partie introductive sans mentionner Frei Otto, qui a inventé et étudié ces structures dans les années 60, et à qui on doit la multihalle de Mannheim, un gridshell double nape en bois d'environ 8000m2 construit en 1975.
 	</aside>
 </section>
+
+<section class="center" data-background-image="./img/hanging.jpg" data-background-size="cover" data-state="autohide">
+	<h7 class="">Hanging Net</h7>
+	<aside class="notes">
+	En son temps, Frei otto avait développé des outils de recherche de forme pour concevoir ces structures.
+	<hr>
+	On voit ici une maquette d'étude du projet et le principe du filet inverse.
+	<hr>
+	La question des outils se présentait déjà comme un élément central de la réflexion de Frei Otto. 
+	<br>Plus que jamais, cette question reste d'actualité, et j'ai tenté de la revisiter au cours de ma thèse en utilisant les possibilités offertes par les outils numériques.
+	<!-- En son temps, Frei Otto avait développé au fil de ses recherches un processus de conception complet basé sur la manipulation de maquettes physiques et la prise de mesure par photogrammétrie.
+	<hr>
+	Très à la pointe dans les années 60 ces techniques sont aujourd'hui tombées en désuétudes et restent limitées au regard des possibilitées apportées par les outils numériques modernes, tant sur le plan de la géométrie que sur celui de la mécanique.
+	<hr>
+	Par ailleurs la méthode de Frei Otto était basée sur la recherche de forme à partir d'un fillet pesant, ce qui contraignait notablement l'espace de design accessible en terme de liberté formelle et qui par ailleurs ne permettait pas de prendre en compte la vrai raideur en flexion de la grille à construire.
+	</aside> -->
+</section>
+
+
 <!-- <section class="">
 	<h5>Legacy</h5>
 		<ul>

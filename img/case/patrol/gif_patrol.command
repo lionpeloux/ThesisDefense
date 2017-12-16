@@ -17,5 +17,5 @@ echo "image list :"
 echo $IMG
 
 # create gif animation :
-convert -dispose Background -delay 50 $IMG simple.gif
+convert -dispose Background -delay 100 $IMG simple.gif
 convert simple.gif -coalesce -duplicate 1,-2-1 -loop 0 patrol.gif
