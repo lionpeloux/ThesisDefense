@@ -21,43 +21,38 @@
 
 <!-- 
 =============================================================================================== 
-	Curvature
+	Marsupilami
 =============================================================================================== 
 -->
+<section class="plan center">
+	<strong>Marsupilami</strong>
+	<aside class="notes">
+	</aside>
+</section>
 
 <section class="">
-	<h5 class="">Marsupilami</h5>
-	<p>Discrete Cruvature (DDG)
-		<br> <cite>Vouga, Lectures in discrete differential geometry, 2014</cite>
-		<br> <cite>Romon, Introduction à la géométrie différentielle discrète, 2013</cite>
-		<br> <cite>Hoffmann, Math-for-Industry lecture note series, 2008</cite>
-		<br> <cite>Bobenko, Discrete differential geometry, 2007</cite>
-	</p>
-	<hr>
-	<div class="fragment red">
+	<h5 class="">Context</h5>
 	<ul>
-		<li>There is more than one way to define the discrete curvature</li>
-		<li>Definitions are not equivalents</li>
-		<li>We shall rely the one that suites our needs best</li>
-		<li>Bending energy benchmark > $\int_{[O,L]} \kappa^2$</li>
+		<li>C# / Open source / Portable (Mono / Roslyn)</li>
+		<li>Rhino & Grasshoper</li>
+		<li>DLL</li>
+		<li>API</li>
+		<li>Independante Mathlib</li>
+		<li>OOP + EVENT</li>
+		<li>Auto Refine</li>
+		<li>Parallel loop / SIMD GPU computing vs reduced DOF model</li>
+		<li> mixed DOF</li>
+		<li>Modularity Orher types of elements</li>
+		<li>Serialization / Vizualization</li>
 	</ul>
 	</div>
 	<aside class="notes">
-		La construction de cet élément s'est faite à partir d'une discussion approfondie sur la notion de courbure discrète. C'est elle qui nous a servi de base à la mise au point de la cinématique bi-arc.
-		<hr>
-		En passant au discret la définition de la courbure perd son univocité et il faut donc faire un choix.
-		<hr>
-		Les éléments de comparaison existant dans la littérature sont peu nombreux et portent essentiellement sur les aspects géométriques.
-		<hr>
-		Au cours de notre travail, nous avons donc fait un inventaire des définitions existantes. Nous avons étendues ces définitions aux extrémitées des courbes, ce qui est essentiel pour la modélisations des conditions aux limites. 
-		<hr>
-		Nous avons proposé de les comparer par leur capacité à représenter l'énergie de flexion pour certaines formes d'équilibre typiques de tiges élastiques (le cercle et l'elastica)
 	</aside>
 </section>
 
 <!-- 
 =============================================================================================== 
-	Benchmark
+	Test Case
 =============================================================================================== 
 -->
 
@@ -70,47 +65,99 @@
 <section class="">
 	<h5 class="">Constrained Arch</h5>
 	<ul>
-		<li>Uniform properties > $E_i,\,G_i,\,S_i,\,I_1,\,I_2,\,J_i$</li>
-		<li>Uniform external distributed loads > $\mathbf{f}^{ext}_i,\;\mathbf{m}^{ext}_i$</li>
-		<li>External concentrated loads at handles > $\mathbf{F}^{ext}_{2i},\;\mathbf{M}^{ext}_{2i}$</li>
+		<li>Naturally straight beam with rectangular cross-section $4\times6cm$</li>
+		<li>$E=25\,GPa \;,\; G=10\,GPa \;  $</li>
+		<li>$L=10.0\,m\;,\;a = 2.0\,m$</li>
+		<li>Discretization (number of edges) : $n=6,12,24,48,96$ </li>
 	</ul>
 	<hr>
-	<table class="imgtable">
-		<tr>
-			<td height="400px" style="border-right:1px solid black"><img data-src="./img/eq/bench_drawing.svg"></td>
-			<td height="400px"><img data-src="./img/eq/bench_abaqus_anim.gif"></td>
-		</tr>
-		<!-- <tr style="height:15px;"></tr> -->
-	</table>
-	<!-- <img data-src="./img/eq/bench_drawing.svg" width="40%"> -->
+	<img data-src="./img/eq/bench_drawing.svg">
 	<aside class="notes">
 	</aside>
+</section>
+
+<section class="black center">
+	<h5 class="">Abaqus</h5>
+	<img class="stretch" data-src="./img/eq/bench_abaqus_anim.gif" />
+</section>
+
+<section class="black center">
+	<h5 class="">Marsupilami</h5>
+	<video data-autoplay class="stretch" data-src="./img/mov/bench_marsupilami.mp4"></video>
 </section>
 
 <section class="">
 	<h5 class="">Constrained Arch</h5>
 	<ul>
-		<li>The edge-based curvature diverges when the curve kinks</li>
-		<li>This is interesting for penalyzing kinked configurations</li>
-		<li>However in our case such configurations are not likely to arise</li>
+		<li>CPU Time for Marsupilami (ST) : 80 - 160 - 320 - 740 - 1480 ms</li>
+		<li>CPU Time for Abaqus (MT) : 4200 - 5400 - 6400 - 6400 - 9700 ms</li>
+		<li>Relative error for apex position (M/A) : 12.6 - 3.2 - 0.8 - 0.2 - 0.0 %</li>
 	</ul>
-	<object width="120%" type="image/svg+xml" data="img/eq/bench_diagram.svg"></object>
-	<hr style="margin-bottom: -0.5em;">
-	<table class="imgtable">
-	<tr>
-		<td height="400px"><img data-src="./img/eq/bench_abaqus_anim.gif"></td>
-		<td height="400px"><img data-src="./img/eq/bench_abaqus_anim.gif"></td>
-	</tr>
-	<tr>
-		<td><small>circumscribed osculating circle ($\kappa_1$)</small><br></td>
-		<td><small>inscribed osculating circle ($\kappa_3$)</small><br></td>
-	</tr>
-	<!-- <tr style="height:15px;"></tr> -->
-	<tr style="border-top:0px solid black">
-		<td><img data-src="./img/eq/curvature_vertex.svg" width="100%"></td>
-		<td><img data-src="./img/eq/curvature_edge.svg" width="100%"></td>
-	</tr>
-	</table>
+	<hr>
+	<object width="50%" type="image/svg+xml" data="img/eq/bench_diagram.svg"></object>
 	<aside class="notes">
+	</aside>
+</section>
+
+<!-- 
+=============================================================================================== 
+	Other Examples
+=============================================================================================== 
+-->
+
+<section class="plan center">
+	<strong>Other Examples</strong>
+	<aside class="notes">
+		Le manuscrit ne comporte pas beaucoup d'exemples. Il faut les détailler rigoureusement.
+		Icic je montre juste quelques ilages de calcules pour donner une idée plus fidèle de ce qu'il est possible de faire.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">CLAMPED-PINNED</h5>
+	<p>$F_x=3000\,N \;,\; f_x=1000\,N \;,\; F_y=0/1000\,N \;,\; M_3=1000\,Nm \;,\; m_3=500\,Nm$</p>
+	<hr>
+	<img class="imgfragment" src="./img/case/cp.gif" width="90%"/>
+	<aside class="notes">
+		Ajout d'un effort tranchant.
+		Effet de catène qui fait remonter l'effort normal.
+		Saut d'effort tranchant.
+		Développe du moment de flexion.
+		On retrouve les CL : clamped et pin.
+		Efforts linéiques.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">CANTILEVER A</h5>
+	<p>$M_2=0/1000/5000/10000/20000/30000/40000\,Nm$</p>
+	<hr>
+	<img class="imgfragment" src="./img/case/cantilever_B.gif" width="90%"/>
+	<aside class="notes">
+		Flexion pure dans le plan. La poutre s'enroule sur elle même à courbure constante
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">CANTILEVER B</h5>
+	<p>$F_z=-500\,N \;,\; M_1=100\,Nm \;,\; M_3=0/500/1000/2000/30000\,Nm$</p>
+	<hr>
+	<img class="imgfragment" src="./img/case/cantilever_C.gif" width="90%"/>
+	<aside class="notes">
+		Déversement progressif par augmentation du moment de torsion.
+		Transfert de moment de flexion de l'axe 1 vers 2 dufait de la rotation de la section.
+		Idem pour l'effort tranchant.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">GRIDSHELL B</h5>
+	<p>3x3 gridshell</p>
+	<hr>
+	<img class="imgfragment" src="./img/case/gs.gif" width="90%"/>
+	<aside class="notes">
+		Déversement progressif par augmentation du moment de torsion.
+		Transfert de moment de flexion de l'axe 1 vers 2 dufait de la rotation de la section.
+		Idem pour l'effort tranchant.
 	</aside>
 </section>
