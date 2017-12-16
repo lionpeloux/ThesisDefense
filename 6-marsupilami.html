@@ -84,7 +84,7 @@
 		<li>Dependence-Free</li>
 		<hr>
 		<li>Marsupilami.MathLib : Point, Vector, Frame, Centerline</li>
-		<li>Marsupilami.CoreLib : Element, Material, Section, Solver</li>
+		<li>Marsupilami.CoreLib : Element, Material, Section, Load, Solver</li>
 		<li>Marsupilami.Gh : Grasshopper interface</li>
 	</ul>
 	<hr>
@@ -109,39 +109,16 @@
 		<li>Parallel Programing</li>
 	</ul>
 	<hr>
-	<img class="stretch" data-src="./img/case/github.png"/>
+	<img class="stretch" data-src="./img/case/refine.gif"/>
 	</div>
 	<aside class="notes">
-		Le code de Marsupilami tire parti des concepts de programmation orientée objet pour gagner en modularité et offrir un bon niveau d'abstraction. Par exemple, celà nous permet de mixer des éléments à 3, 4 et 6 degrés de libertés dans un même modèle.
+		Le code de Marsupilami tire parti des concepts de programmation orientée objet pour gagner en modularité et offrir un bon niveau d'abstraction. Par exemple, celà nous permet de mixer des éléments à 3, 4 et 6 degrés de libertés dans un même modèle. A l'avenir, celà nous permettra d'implémenter d'autres types d'éléments comme des cables ou des barres.
 		<hr>
-		Par ailleurs, nous avons aussi fait usage de la programmation par évènement qui permet des usages nouveaux difficiles voir impossibles à implémenter avec un mode de programmation séquentiel.
+		Par ailleurs, nous avons aussi fait usage de la programmation par évènement qui permet d'apporter de nouvelles fonctionalités difficiles voir impossibles à implémenter avec un mode de programmation séquentiel.
 		<hr>
-		Par exemple, cela nous a permis d'implémenter des fonctionnalités de raffinement automatique des éléments de manière très simple, une piste intéressanre pour augmenter la rapidité des calculs.
+		Par exemple, cela nous a permis d'implémenter des méthodes de raffinement automatique des éléments de manière très simple, une piste prometteuse pour augmenter la rapidité des calculs en conservant une bonne précision.
 		<hr>
-		Enfin, notons que C# offre des mécanismes de base pour faire du calcul parallèle dont Marsupilami tire parti.
-	</aside>
-</section>
-	
-
-<section class="">
-	<h5 class="">Architecture</h5>
-	<ul>
-		<li>.Net Core is open source (>4.6)</li>
-		<li>Roslyn compiler is open source</li>
-		<li>Rhino & Grasshoper</li>
-		<li>DLL</li>
-		<li>API</li>
-		<li>Independante Mathlib</li>
-		<li>OOP + EVENT</li>
-		<li>Auto Refine</li>
-		<li>Parallel loop / SIMD GPU computing vs reduced DOF model</li>
-		<li> mixed DOF</li>
-		<li>Modularity Orher types of elements</li>
-		<li>Serialization / Vizualization</li>
-		<li>In the browser Javascript</li>
-	</ul>
-	</div>
-	<aside class="notes">	
+		Enfin, notons que C# offre des mécanismes de base pour faire du calcul parallèle et dont Marsupilami tire parti.
 	</aside>
 </section>
 
@@ -154,6 +131,7 @@
 <section class="plan center">
 	<strong>Test Case</strong>
 	<aside class="notes">
+		Regardons maintenant sur un cas test les performances de Marsupilami 
 	</aside>
 </section>
 
@@ -168,29 +146,55 @@
 	<hr>
 	<img data-src="./img/eq/bench_drawing.svg">
 	<aside class="notes">
+		Le problème considéré est le flambage d'une poutre naturellement droite, de longeur 10m et de section rectangulare 4x6 centimètres.
+		<hr>
+		Cette poutre est fléchie selon son inertie forte ce qui provoque un déplacement hors plan.
+		<hr> 
+		La distance entre les appuis est fixée à 2 mètres et l'angle d'ouverture à pi/3
+		<hr>
+		On compare les résultats obtenus par Marsupilami et Abaqus pour différentes discrétizations de la poutre.
 	</aside>
 </section>
 
 <section class="black center">
 	<h5 class="">Abaqus</h5>
 	<img class="stretch" data-src="./img/eq/bench_abaqus_anim.gif" />
+	<aside class="notes">
+		Ce problème parait simple mais est difficile à simuler dans un logiciel comme Abaqus.
+		Il faut considérer pas moins de 4 étapes pour faire converger le calcul.
+		<hr>
+		Une telle séquence est difficielement envisageable pour un réseau de poutre.
+	</aside>
 </section>
 
 <section class="black center">
 	<h5 class="">Marsupilami</h5>
 	<video data-autoplay class="stretch" data-src="./img/mov/bench_marsupilami.mp4"></video>
+	<aside class="notes">
+		On voit sur cette courte vidéo le calcul du problème avec Marsupilami en temps réel.
+	</aside>
 </section>
 
 <section class="">
 	<h5 class="">Constrained Arch</h5>
 	<ul>
+		<li>Relative error for apex position (M/A) : 12.6 - 3.2 - 0.8 - 0.2 - 0.0 %</li>
 		<li>CPU Time for Marsupilami (ST) : 80 - 160 - 320 - 740 - 1480 ms</li>
 		<li>CPU Time for Abaqus (MT) : 4200 - 5400 - 6400 - 6400 - 9700 ms</li>
-		<li>Relative error for apex position (M/A) : 12.6 - 3.2 - 0.8 - 0.2 - 0.0 %</li>
 	</ul>
 	<hr>
 	<object width="50%" type="image/svg+xml" data="img/eq/bench_diagram.svg"></object>
 	<aside class="notes">
+		Voici une synthèse des résultats qui sont présentés de manière beaucoup plus détaillés dans le manuscrit.
+		<hr>
+		On mesure l'écart relatif de la position du sommet entre Marsupilami et Abaqus.
+		Pour une discrétisation de 24 l'écart est inférieur à 1%. Pour la discrétization maximale il est inférieur à 0.05%.
+		<hr>
+		Sur la figure, on a supperposé les diagrammes normalisés des efforts internes pour la discrétization maximale obtenus par Abaqus (en gris) et par Marsupilami (en bleu). On constate une très grande proximité.
+		<hr>
+
+		On voit que les temps de calcul de Marsupilami sont très inférieurs à ceux d'Abaqus sur ce cas précis. Ce résultat est à relativiser et il faudrait élargir les tests à des structures avec plus de degrés de liberté pour les confirmer.
+		<hr> 
 	</aside>
 </section>
 
@@ -203,8 +207,8 @@
 <section class="plan center">
 	<strong>Other Examples</strong>
 	<aside class="notes">
-		Le manuscrit ne comporte pas beaucoup d'exemples. Il faut les détailler rigoureusement.
-		Icic je montre juste quelques ilages de calcules pour donner une idée plus fidèle de ce qu'il est possible de faire.
+		Je passe ici très rapidement quelques images de calcul pour compléter l'apperçu que j'ai donné de Marsupilami.
+		Je pourrai y revenir au moment des questions.
 	</aside>
 </section>
 
@@ -214,12 +218,15 @@
 	<hr>
 	<img class="imgfragment" src="./img/case/cp.gif" width="90%"/>
 	<aside class="notes">
-		Ajout d'un effort tranchant.
-		Effet de catène qui fait remonter l'effort normal.
-		Saut d'effort tranchant.
-		Développe du moment de flexion.
-		On retrouve les CL : clamped et pin.
-		Efforts linéiques.
+		Ici on a une poutre encastrée-rotulée à ses extrémitées.
+		<hr>
+		On montre la prise en compte d'efforts d'efforts distribués sur la poutre qui donne leur pente aux diagrammes
+		<hr>
+		On montre la prise en compte d'efforts concentrés qui provoquent des sauts dans les diagrammes.
+		<hr>
+		L'ajout d'un effort tranchant en milieu de poutre relève le niveau d'effort normal par un effet de catène.
+		<hr>
+		Les moments viennent mourir au niveau de l'appui rotulé tandis qu'ils s'accumulent au niveau de l'encastrement.
 	</aside>
 </section>
 
@@ -229,7 +236,7 @@
 	<hr>
 	<img class="imgfragment" src="./img/case/cantilever_B.gif" width="90%"/>
 	<aside class="notes">
-		Flexion pure dans le plan. La poutre s'enroule sur elle même à courbure constante
+		Ici on voit l'enroulement circulaire d'une poutre encastrée soumise à un moment de flexion croissant à mi-porté.
 	</aside>
 </section>
 
@@ -239,9 +246,7 @@
 	<hr>
 	<img class="imgfragment" src="./img/case/cantilever_C.gif" width="90%"/>
 	<aside class="notes">
-		Déversement progressif par augmentation du moment de torsion.
-		Transfert de moment de flexion de l'axe 1 vers 2 dufait de la rotation de la section.
-		Idem pour l'effort tranchant.
+		Autre exemple de poutre encastrée qui montre l'influence du couplage flexion-torsion
 	</aside>
 </section>
 
@@ -251,9 +256,7 @@
 	<hr>
 	<img class="imgfragment" src="./img/case/gs.gif" width="90%"/>
 	<aside class="notes">
-		Déversement progressif par augmentation du moment de torsion.
-		Transfert de moment de flexion de l'axe 1 vers 2 dufait de la rotation de la section.
-		Idem pour l'effort tranchant.
+		Enfin, bien qu'encore en chantier Marsupilami permet déjà de calculer des poutres interconnectées.
 	</aside>
 </section>
 
@@ -264,9 +267,49 @@
 -->
 
 <section class="plan center">
-		<strong>Conclusion</strong>
-		<aside class="notes">
-			Le manuscrit ne comporte pas beaucoup d'exemples. Il faut les détailler rigoureusement.
-			Icic je montre juste quelques ilages de calcules pour donner une idée plus fidèle de ce qu'il est possible de faire.
-		</aside>
-	</section>
+	<strong>Conclusion</strong>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Conclusion</h5>
+	<ul>
+		<li>New 4-DOFs & 3-noded discrete beam element</li>
+		<li>Marsupilami : lightweight dependence-free API for nonlinear formfinding of structures</li>
+		<li>Validation against Abaqus shows very good results</li>
+		<li>Enhance the analysis toolchain for the design of elastic gridshells</li>
+	</ul>
+	</div>
+	<aside class="notes">
+		Nous avons mis au point un élément de poutre discret original à 4 degrés de liberté et 3 noeuds bien adapté à la modélisation des structures de type gridshell élastique dans un contexte de projet.
+		<hr>
+		Nous avons implémenté cet élement dans un code de calcul baptisé Marsupilami qui prend la forme d'une API et d'une interface pour le logiciel Rhino-Grasshopper. 
+		<hr>
+		Nous avons validé la précision de notre modèle sur un cas test par comparaison avec Abaqus. Et les résultats sont très satisfaisant.
+		<hr>
+		Combiné à notre outil de maillage par la méthode du compas, il offrira des moyens d'analyse renforcés pour concevoir des gridshells élastiques.
+	</aside>
+</section>
+
+<section class="">
+	<h5 class="">Perspectives</h5>
+	<ul>
+		<li>Marsupilami is still in progress > collaborative development</li>
+		<li>Not limited to the design of elastic gridshells</li>
+		<li>Marsupilami n'est pas limité au design des gridshells. </li>
+		<li>Grishell : research > commercial effort</li>
+	</ul>
+	</div>
+	<aside class="notes">
+		Bien qu'un effort important est été consacré au développement de Marsupilami cet outil reste encore en chantier. Une façon de poursuivre son développement serait d'ouvrir le code à d'autres laboratoires. Ces aspects sont en discussion.
+		<hr>
+		Marsupilami n'est pas limité au design des gridshells. 
+		<hr>
+		Il pourrait par exemple être utilisé pour simuler la position des flexibles sur les bras robotisés, afin de prévenir d'éventuels clash.
+		<hr>
+		Il est par ailleurs déjà utilisé, dans une version sans torsion pour simuler des fillets de protection par bloc.
+		<hr>
+		Enfin, je crois que beaucoup a été fait en terme de recherche sur ces structures mais peu en terme de développement technico-commercial. Si l'on veut en construire à l'avenir, il faut sans doute se remonter un peu les manches de ce côté là.
+	</aside>
+</section>

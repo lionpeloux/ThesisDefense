@@ -8,12 +8,16 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/thesis.css" id="theme">
+		<!-- <link rel="stylesheet" href="css/theme/white.css" id="theme"> -->
 		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">		
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="./lib/css/zenburn.css">
-		<script src="./js/tether.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+		
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/gsap/TweenMax.min.js"></script>
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script> -->
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -32,21 +36,44 @@
 
 		<!-- FRONMATTER -->
 		<section>
-			<section class="cover center" data-state="no-title-footer">
+			<section class="cover center" data-state="no-title-footer" data-background-transition="fade" data-transition="fade">
 				<h1>Modeling of bending-torsion couplings<br>in active-bending structures</br></h1>
-				<hr>
+				<br>
 				<h2>Application to the design of elastic gridshells</h2>
-				<aside class="notes">
-						Merci M. le président du Jury.
-						<hr>
-						Bonjour à toutes et à tous,
-						<hr>
-						Je vais aujourd'hui vous présenter mon travail de recherche sur les structures de type gridshell élastique. En m'intéressant plus spécifiquement aux modèles de calcul dédiés à l'analyse de ces structures, qui sont fortement précontraintes du fait de leur mise en forme. On parlera de précontrainte de flexion.
-						<hr>
-						On verra que ces ouvrages sont complexes à concevoir pour un certain nombre de raisons, et que les outils d'analyse existants ne permettent pas de répondre de manière efficace aux besoins des architectes et des ingénieurs dans un contexte de projet.
+				<hr style="margin:2em;">
+				
+				<table class="" width="100%" style="text-align:left; vertical-align:middle;">
+					<!-- <tr style="height:15px;"></tr> -->
+					<tr style="border-top:0px solid black">
+						<td width="35%" style="text-align:left; vertical-align:middle;">
+							<img data-src="./img/logo/enpc.svg" width="100%">
+						</td>
+						<td width="30%" style="text-align:center; vertical-align:middle;">
+							<small>Thèse de doctorat présentée le 20/12/2017 par</small>		
+							<br>
+							<br>
+							<h6>Lionel du Peloux</h6>
+						</td>
+						<td width="35%" style="text-align:center; vertical-align:middle;">
+							<small>Olivier Baverel (Dir.)</small>
+							<br>
+							<small>Jean-François Caron</small>
+							<br>
+							<small>Cyril Douthe</small>
+						</td>
+					</tr>
+				</table>
+			<aside class="notes">
+					Merci M. le président du Jury.
+					<hr>
+					Bonjour à toutes et à tous,
+					<hr>
+					Je vais aujourd'hui vous présenter mon travail de recherche sur les structures de type gridshell élastique. En m'intéressant plus spécifiquement aux modèles de calcul dédiés à l'analyse de ces structures, qui sont fortement précontraintes du fait de leur mise en forme. On parlera de précontrainte de flexion.
+					<hr>
+					On verra que ces ouvrages sont complexes à concevoir pour un certain nombre de raisons, et que les outils d'analyse existants ne permettent pas de répondre de manière efficace aux besoins des architectes et des ingénieurs dans un contexte de projet.
 			</section>
 
-			<section class="center">
+			<section class="center"  data-background-transition="fade" data-transition="fade-in fade-out">
 				<!-- <h3> Brief </h3> -->
 				<p><strong>Provide new tools to help architects and engineers<br>to design and build elastic gridshells</strong></p>
 				<br>
@@ -59,8 +86,8 @@
 					Au coeur de ce travail, on trouve la mise au point d'un élement de poutre discret original, à 4 degrés de liberté et 3 noeuds qui permet de modéliser plus finement les couplages flexion-torsion ainsi que certaines discontinuités dans ces résilles de poutres.
 				</aside>
 			</section>
-
-			<section class="center">
+ 
+			<section class="center" data-background-transition="none"  data-transition="slide-in slide-out">
 				<h5>Context</h5>
 				<table class="imgtable" width="100%">
 				<tr>
@@ -72,15 +99,15 @@
 				<aside class="notes">
 					Avant de rentrer dans le vif du sujet, je voudrais rappeler ou souligner ce qui me semble être un aspect central de mon approche, qui est d'avoir souhaité rentrer dans cette problématique avec une double casquette. 
 					<hr>
-					La casquette de chercheur par mon activité au sein laboratoire Navier, 
+					La casquette de chercheur par mon activité au sein du laboratoire Navier, 
 					<br>
-					Et la casquette d'ingénieur structure par mon activité sein du bureau d'étude T/E/S/S.
+					Et la casquette d'ingénieur structure par mon activité au sein du bureau d'étude T/E/S/S.
 					<hr>
-					Je crois que mon travail s'est beaucoup enrichi de ces aller-retours permanents entre théorie et pratique. Et qu'il lui donne un coloration particulière.
+					Mon travail s'est beaucoup enrichi de ces aller-retours répétés entre théorie et pratique.
 				</aside>
 			</section>
 
-			<section class="plan center" data-background-transition="none" data-transition="fade">
+			<!-- <section class="plan center" data-background-transition="" data-transition="">
 				<h5>Plan</h5>
 				<ul>
 					<li>Introduction to the concept</li>
@@ -90,13 +117,13 @@
 					<li>Beam model : equilibrium approach</li>
 					<li>New discrete beam element</li>
 					<hr>
-					<li>Implementation & Test case</li>
+					<li>Implementation & test case</li>
 				</ul>
 				<aside class="notes">
-				Ma présentation s'organise de la façon suivante.
+				
 				</aside>
-			</section>
-			<section class="plan center" data-background-transition="none" data-transition="fade">
+			</section> -->
+			<section class="plan center" data-background-transition="none" data-transition="">
 				<h5>Plan</h5>
 				<ul>
 					<li class="highlight">Introduction to the concept</li>
@@ -106,13 +133,15 @@
 					<li>Beam model : equilibrium approach</li>
 					<li>New discrete beam element</li>
 					<hr>
-					<li>Implementation & Test case</li>
+					<li>Implementation & test case</li>
 				</ul>
 				<aside class="notes">
+				Ma présentation s'organise de la façon suivante
+				<hr>
 				Dans une première partie je vais présenter le concept de gridshell élastique à partir de projets que j'ai réalisés. Je donnerai ensuite quelques éléments sur la méthode de conception que j'ai mise en place pour le projet de la cathédrale éphémère de créteil en 2013.
 				</aside>
 			</section>
-			<section class="plan center" data-background-transition="none" data-transition="fade">
+			<section class="plan center" data-background-transition="none" data-transition="none">
 				<h5>Plan</h5>
 				<ul>
 					<li>Introduction to the concept</li>
@@ -122,7 +151,7 @@
 					<li class="highlight">Beam model : equilibrium approach</li>
 					<li class="highlight">New discrete beam element</li>
 					<hr>
-					<li>Implementation & Test case</li>
+					<li>Implementation & test case</li>
 				</ul>
 				<aside class="notes">
 				Dans une seconde partie je présenterai deux approches pour construire un modèle de poutre enrichi bien adapté au formfinding et à la prise en compte des couplages flexion-torsion dans les gridshells élastiques. 
@@ -130,9 +159,9 @@
 				Je traiterai le passage du continu au discret et celà m'amènera à formuler un élément de poutre discret original dit biarc.
 				</aside>
 			</section>
-			<section class="plan center" data-background-transition="none" data-transition="fade">
+			<section class="plan center" data-background-transition="none" data-transition="none">
 				<h5>Plan</h5>
-				<ul>
+			<ul>
 					<li>Introduction to the concept</li>
 					<li>Design process : overview</li>
 					<hr>
@@ -140,10 +169,11 @@
 					<li>Beam model : equilibrium approach</li>
 					<li>New discrete beam element</li>
 					<hr>
-					<li class="highlight">Implementation & Test case</li>
+					<li class="highlight">Implementation & test case</li>
 				</ul>
 				<aside class="notes">
-				Pour finir, je parlerai de l'implémentation de cette élément dans un code de relaxation dynamique appelé Marsupilami. Je présenterai un comparatif avec ABAQUS sur un cas test.
+				Pour finir, je parlerai de l'implémentation de cette élément dans un code de relaxation dynamique appelé Marsupilami. 
+				<hr>Je présenterai un comparatif avec ABAQUS sur un cas test.
 				</aside>
 			</section>
 
@@ -151,7 +181,7 @@
 		</section>
 		
 		<!-- MAINMATTER -->
-		<section data-external="1-intro.html"> </section>
+		<section data-external="1-intro.html" data-background-transition="none" data-transition="none"> </section>
 		<section data-external="2-creteil.html"> </section>
 		<section data-external="3-model_1.html"> </section>
 		<section data-external="4-model_2.html"> </section>
@@ -159,11 +189,11 @@
 		<section data-external="6-marsupilami.html"> </section>
 
 		<!-- APPENDIX -->
-		<section data-external="A1-creteil.html"> </section>
+		<!-- <section data-external="A1-creteil.html"> </section>
 		<section data-external="A2-model_1.html"> </section>
 		<section data-external="A3-model_2.html"> </section>
 		<section data-external="A4-numeric.html"> </section>
-		<section data-external="A5-marsupilami.html"> </section>
+		<section data-external="A5-marsupilami.html"> </section> -->
 
 		</div>
 		</div>
@@ -200,11 +230,27 @@
 					hideMissingTitles: false,
         			markers: true,
 					custom: false,
-					themes:false,
 					transitions: false,
 					openButton: false,
 					openSlideNumber: true,
-					keyboard: true
+					keyboard: true,
+
+					// Specifies the themes that will be available in the themes
+					// menu panel. Set to 'false' to hide themes panel.
+					themes: [
+						{ name: 'Thesis', theme: 'css/theme/thesis.css' },
+						{ name: 'Black', theme: 'css/theme/black.css' },
+						{ name: 'White', theme: 'css/theme/white.css' },
+						{ name: 'League', theme: 'css/theme/league.css' },
+						{ name: 'Sky', theme: 'css/theme/sky.css' },
+						{ name: 'Beige', theme: 'css/theme/beige.css' },
+						{ name: 'Simple', theme: 'css/theme/simple.css' },
+						{ name: 'Serif', theme: 'css/theme/serif.css' },
+						{ name: 'Blood', theme: 'css/theme/blood.css' },
+						{ name: 'Night', theme: 'css/theme/night.css' },
+						{ name: 'Moon', theme: 'css/theme/moon.css' },
+						{ name: 'Solarized', theme: 'css/theme/solarized.css' }
+					],
 				},
 
 				// More info https://github.com/hakimel/reveal.js#dependencies

@@ -1,17 +1,17 @@
 <section class="plan center">
-	<h5>Concept : what is an elastic gridshell</h5>
+	<h5>Introduction to the concept</h5>
 	<ul>
-		<li class="highlight">Concept : what is an elastic gridshell</li>
-		<li > Design Process : methodology</li>
+		<li class="highlight">Introduction to the concept</li>
+		<li>Design process : overview</li>
 		<hr>
 		<li>Beam model : variational approach</li>
 		<li>Beam model : equilibrium approach</li>
-		<li>Beam model : discrete element</li>
+		<li>New discrete beam element</li>
 		<hr>
-		<li>Implementation & Test case</li>
+		<li>Implementation & test case</li>
 	</ul>
 	<aside class="notes">
-		Je me propose maintenant, à partir d'une sélection de projets que j'ai réalisés dans le cadre de mes recherches, de définir et de présenter le concept de gridshell élastique et de souligner les aspects théoriques et techniques qui sont en jeu.
+		Je me propose maintenant de définir et de présenter le concept de gridshell élastique et de souligner les aspects théoriques et techniques qui sont en jeu.
 	</aside>
 </section>
 
@@ -24,33 +24,31 @@
 <section class="black center" data-background-video="./img/mov/creteil.mp4" data-background-size="contain" data-background-video-muted >
 	<h7 class="">Creteil 2013</h7>
 	<aside class="notes">
-	Premier projet, la cathédral de Créteil, réalisée en 2013 pour T/E/S/S.
+	Premier projet, la cathédral éphémère de Créteil, réalisée en 2013 pour T/E/S/S.
 	<hr>
-	On voit ici, la préfabrication de la structure faite en tubes composites pultrudés à base de fibre de verre
+	On voit ici la préfabrication de la structure faite en tubes pultrudés à base de fibre de verre
 	<hr>
-	Et l'assemblage de la grille au sol sur une surface d'environ 700m2
+	Ainsi que l'assemblage de la grille au sol sur une surface d'environ 700m2
 	<hr>
-	On devinne la grande légerté et la grande souplesse de cet objet très poreux qui pèse moins de 3kg au m2.
+	On devinne la grande légerté et la grande souplesse de cet objet qui pèse moins de 3 kilogrames au m2.
 	<hr>
 	L'ouvrage est soulevé pour être progressivement mis en forme. Au vu de la déformation générée, on imagine sans difficulté qu'on ne peut se contenter de mener de simple calculs linéaires pour dimensionner ces structures.
 	<hr>
-	La structure est ensuite ancrée au sol et l'on obtient l'état de forme définitif.
+	La grille est ensuite ancrée au sol et l'on obtient l'état de forme définitif.
 	<hr>
-	L'ajout d'une troisième direction de tube joue une rôle majeur dans la raideur finale de la structure.
-	<hr>
-	Finalement, une toile est développée sur la résille pour assurer le clos couvert du bâtiment
+	Elle est finalement triangulée puis couverte d'une toile pour assurer le clos couvert du bâtiment
 	</aside>
 </section>
 <section class="black center" data-background-video="./img/mov/booby.mp4" data-background-size="contain" data-background-video-muted >
 	<h7 class="">Hybrid Structural Skin 2015</h7>
 	<aside class="notes">
-		Second projet, un prototype d'enveloppe structurelle hybride, réalisé en début de deuxième année de thèse, couvre environ 10m2 pour une portée de 3m. 
+		Second projet, un prototype d'enveloppe structurelle hybride, réalisé en deuxième année de thèse. Il est visible sur le campus. Il couvre environ 10m2 pour une portée de 3m. 
 		<hr>
 		Ici on a tenté de répondre de manière combinée à la question du contreventement et de la couverture des gridshells élastiques. 
 		<hr>
-		Le gridshell est avantageusement utilisé comme coffrage courbe pour une peau mince en béton fibré d'1.5cm d'épaisseur coulée en place. 
+		Le gridshell est utilisé comme coffrage courbe pour une peau mince en béton fibré d'1.5cm d'épaisseur coulée en place. 
 		<hr>
-		Un béton fibré a été spécialement formulé pour obtenir les propriétés réhologiques adaptés à la méthode de mise en oeuvre.
+		Un béton fibré a été spécialement formulé pour obtenir les bonnes propriétés réhologiques.
 		<hr>
 		Cette peau offre une enveloppe plus préenne qu'une simple toile PVC comme à créteil. Par ailleurs, c'est elle qui assure le contreventement du gridshell et on espère ansi réduire l'étape fastidieuse de la triangulation.
 	<ul>
@@ -61,15 +59,13 @@
 	<aside class="notes">
 		Troisième projet, le gridshell de Montpellier est le second d'une série de 2 gridshells en bois réalisés en juin 2016 et d'environ 50m2 chacun.
 		<hr>
-		Le bois est ici utilisé pour des raisons architecturales mais la perte de résitance et de raideur est significative comparativmement au composite utilisé dans les projets précédents.
+		Le bois est utilisé pour des raisons architecturales mais la perte de performance mécanique est significative comparé au matériau composite, et le système constructif s'en trouve sensiblement modifié.
+		<!-- <hr>
+		La structure est réalisée sur le principe du gridshell double nape, plus complexe à mettre en oeuvre, bien que la portée soit réduite à seulement quelques mètres. -->
 		<hr>
-		De fait, le système constructif est sensiblement différent. 
+		Les sections employées sont rectangulaires ce qui a pour conséquence de développer des contraintes de torsion non négigeables dans les poutres. Celà rend le calcul de recherche de forme plus complexe et demande des modèles qui ne sont pas purement flexionnels, ce qui est l'objet principal de cette thèse.		
 		<hr>
-		La structure est réalisée sur le principe du gridshell double nape, plus complexe à mettre en oeuvre, bien que la portée soit réduite à seulement quelques mètres.
-		<hr>
-		Les sections employées sont rectangulaires (dans un rapport d'anisotropie de 1 pour 4) ce qui a pour conséquence de développer des contraintes de torsion non négigeables dans les poutres. Celà rend le calcul de recherche de forme plus complexe et demande des modèles qui ne sont pas purement flexionnels. Ce qui est l'objet principal de cette thèse.
-		<hr>
-		Enfin, on voit qu'on a proposé un nouveau système de contreventement par cable. Ce système a été mis en place directement sur la grille au sol puis embarqué au cours de la mise en forme. L'objectif étant à nouveau de simplifier l'étape de contreventement, couteuse en temps et délicate du fait du travail en hauteur.</h>
+		Enfin, on voit qu'on a proposé un nouveau système de contreventement par cable. Ce système a été mis en place directement sur la grille au sol puis embarqué au cours de la mise en forme. Il permet de simplifier l'étape de contreventement, couteuse en temps et délicate du fait du travail en hauteur.</h>
 	</aside>
 </section>
 
@@ -81,10 +77,15 @@
 <section class="plan center">
 	<strong>Material + Typology + Process</strong>
 	<aside class="notes">
-		A l'issu de ces quelques exemples, je propose de comprendre le concept de gridshell élastique comme la combinaison indissociable d'un matériau flexible, d'une typologie structurelle, et d'un processus de construction.
-		<hr>
+		A l'issue de ces quelques exemples, on abordera le concept de gridshell élastique comme la combinaison indissociable :
+		<ul>
+			<li>d'un matériau flexible</li>
+			<li>d'une typologie structurelle (le gridshell)</li>
+			<li>et d'un processus de construction (la mise en forme)</li>
+		</ul>
+		<!-- <hr>
 		Le terme Grid-Shell fera référence à la typologie structurelle
-		Tandis que le terme élastique fera référence aussi bien à la flexitié du matériau employé qu'au procédé de mise en forme qiu en tire parti.
+		Tandis que le terme élastique fera référence aussi bien à la flexitié du matériau employé qu'au procédé de mise en forme qiu en tire parti. -->
 		<hr>
 		Revenons de manière plus précise sur cette définition.
 	</aside>
@@ -95,10 +96,10 @@
 	<aside class="notes">
 	Le terme gridshell vient de la contraction de grid et shell. Ces structures sont des résilles de poutres qui se comportent mécaniquement comme des coques.
 	<hr>
-	Les coques peuvent franchir de grandes portées avec un minimum de matière car elles transmettent les efforts principalement de manière membranaire.
+	Les coques peuvent franchir de grandes portées avec un minimum de matière car elles transmettent les efforts de manière membranaire.
 	<hr>
 	Ici l'élancement de la structure est proche du centième, ce qui est considérable.
-	Pour de ouvrages classiques du génie civil, on porte plutôt à L/20 ou L/30. L/40 pour les paserelles piétonnes les plus élancées.
+	<!-- Pour de ouvrages classiques du génie civil, on porte plutôt à L/20 ou L/30. L/40 pour les paserelles piétonnes les plus élancées. -->
 	<hr>
 	On lit très bien cette légerté sur la photo.
 	</aside>
@@ -106,10 +107,9 @@
 <section class="center" data-background-image="./img/creteil_2.jpg" data-background-size="cover" data-state="autohide">
 	<h7 class="">Assembly</h7>
 	<aside class="notes">
-	La spécificité de ce système est que la structure n'est pas construite à partir d'élément courbes qui seraient alors nécéssairement tous différents, mais à partir d'une grille très standardisée initialement plane.
+	La structure n'est pas construite à partir d'élément courbes, qui seraient alors nécéssairement tous différents, mais à partir d'une grille plane et très standardisée.
 	<hr>
-	Cette grille régulière est réalisée en assemblant des poutres rectilignes dans deux directions orthogonales avec un unique type de connexion.
-	<hr>
+	Cette grille régulière est réalisée en assemblant des poutres rectilignes avec un unique type de connexion.
 	</aside>
 </section>
 <section class="center" data-background-image="./img/creteil_2b.jpg" data-background-size="cover" data-state="autohide">
