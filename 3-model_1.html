@@ -11,7 +11,9 @@
 		<li>Implementation & test case</li>
 	</ul>
 	<aside class="notes">
-		J'entre donc maintenant dans le second volet de ma présentation et je vais vous présenter une première approche pour contruire un modèle de poutre avec une cinématique plus riche que le modèle à 3 degrés de liberté employé à créteil.
+		J'entre donc maintenant dans le second volet de ma présentation.
+		<hr> 
+		Je vais présenter une  première approche pour contruire un modèle de poutre avec une cinématique plus riche que le modèle à 3 degrés de liberté employé à créteil.
 	</aside>
 </section>
 
@@ -28,14 +30,14 @@
 			<br> <cite>Tayeb, PhD thesis, 2015</cite>
 			<br> <cite>Lefevre et al., IJSS, 2017</cite>
 		</p>
-		<div class="fragment">
+		<div class="">
 			<hr>
 			<p >Discrete elastic rod
 				<br> <cite>Bergou et al., ACM Transactions on Graphics, 2008</cite>
 				<br><cite>Nabaei et al., IJSS, 2013</cite>
 			</p>
 		</div>
-		<div class="fragment">
+		<div class="">
 			<hr>
 			<p>Natural frames and the curve angle representation
 				<br> <cite>Bishop, The American Mathematical Monthly, 1975</cite>
@@ -45,22 +47,24 @@
 		<aside class="notes">
 		 Ce travail a été inité en 2013 par Frédéric Tayeb avec une forte contribution de Baptiste Lefevre.
 		 <hr>
-		 J'ai collaboré à ce travail au cours de ma première année de thèse et je tacherai de souligner clairement mes contributions propres pendant l'exposé.
+		 J'ai collaboré à ce travail au cours de ma première année de thèse et je soulignerai mes contributions propres en fin d'exposé.
 		 <hr>
 		 Pour développer ce modèle nous sommes aller piocher dans des travaux récents dans le domaine des Computer Graphics, en regardant principalement ce qui a été fait par Bergou et al. en 2008. 
 		 <hr> 
-		 Un travail également repris par Nabaei en 2013 pour simuler des structures tressées en bois.
+		 Un travail également repris par Nabaei en 2013, pour simuler des structures tressées en bois.
 		 <hr>
-		 Ces travaux utilisent de manière astucieuse un repère mobile de référence sans torsion (introduit par Bishop en 75) pour constuire une représentation dite curve-angle de la poutre avec un nombre réduit de degré de libertés (et introduite par Langer eet Singer en 1996)
+		 Ces travaux utilisent de manière astucieuse un repère mobile de référence sans torsion (introduit par Bishop en 75) pour constuire une représentation dite curve-angle de la poutre avec un nombre réduit de degré de libertés.
+		 <hr>
+		 Cette réprésentation a été introduite par Langer et Singer en 1996.
 		</aside>
 	</section>
 
 <section class="black center" data-background-video="./img/mov/hair.mp4" data-background-size="contain" data-background-video-muted >
 	<!-- <h7 class="">Hair Animation</h7> -->
 	<aside class="notes">
-	Dans le domaine des Computeurs Graphics il y a un intérêt très fort pour la mise au point de modèles mécaniques physiques ou pseudo-physiques pour enrichir les rendus des jeux et des films d'animation, tout en gardant une vrai exigeance en terme de rapidité de calcul.
+	Dans le domaine des Computeurs Graphics il y a un intérêt très fort pour la mise au point de modèles mécaniques, physiques ou pseudo-physiques, pour enrichir les rendus des jeux et des films d'animation, tout en gardant une vraie exigeance en terme de rapidité de calcul.
 	<hr>
-	Sur cette vidéo des studios Pixar on voit comment la chevelure d'un personnage est simulée à partir de tiges élastiques qui représentent des mèches. Les tiges ne sont pas connectéss les unes aux autres comme ce serait le cas dans nos gridshells, mais en revanche il faut pouvoir gérer les collisions.
+	Sur cette vidéo des studios Pixar on voit comment la chevelure d'un personnage est simulée à partir de tiges élastiques qui représentent des mèches. Ce modèle ne comporte pas de connexion, une limitation qu'il faudra dépasser dans le cadre de notre objectif.
 	</aside>
 </section>
 
@@ -83,14 +87,14 @@
 		<li>Inextensibility</li>
 		<li>Cross-sections remain planar</li>
 		<li>Cross-sections remain normal to the centerline</li>
-		<li>Material deforms in the linear-elastic domaine</li>
+		<li>Material deforms in the linear-elastic domain</li>
 	</ul>
 	<aside class="notes">
 		Le modèle est bâti sous les hypothèses suivantes, bien adaptées aux poutres élancées.
 		<hr>
 		La poutre est considérée comme inextensible.
 		<hr>
-		Les sections droites restent planes et normales à la fibre neutre (connu sous le nom d'hyptohèse de Navier-Bernoulli)
+		Les sections droites restent planes et normales à la fibre neutre. Ce sont les hypothèses classiques de Navier-Bernoulli.
 		<hr>
 		Le matériau se déforme dans le domaine linéaire élastique.
 	</aside>
@@ -107,7 +111,11 @@
 	<hr>
 	<img data-src="./img/moving_frame.svg" width="65%">
 	<aside class="notes">
-	Sous ces hypothèses, la géométrie de la poutre est décrite de manière assez classique comme un milieu curviligne, à l'aide d'une courbre paramétrique (notée x) et d'un repère matériel (d3, d1, d2) attaché à la courbe pour décrire son extension latérale, c'est à dire sa section.
+	Sous ces hypothèses, la géométrie de la poutre est décrite de manière assez classique comme un milieu curviligne, à l'aide : 
+	<ul>
+		<li>d'une courbre paramétrique (notée x)</li>
+		<li>et d'un repère matériel attaché à la courbe (d3, d1, d2), pour décrire son extension latérale, c'est à dire sa section.</li>
+	</ul> 
 	<hr>
 	Je tiens à souligner que du fait de l'hypothèse d'inextensibilité on peut adopter la même paramétrisation pour toutes les configurations de la poutre. Par la suite, nous choisirons l'abscisse curviligne comme paramètre pour repérer un point matériel de la fibre neutre.
 	</aside>
@@ -123,7 +131,7 @@
 	<aside class="notes">
 		A priori une telle représentation est entièrement définie par 6 degrés de libertés. 3 en translation et 3 en rotation pour l'orientation du repère matériel.
 		<hr> 
-		Nous allons voir maintenant comment le repère de Bishop peut nous permettre de réduire à 4 le nombre de degrés de libertés nécessaires pour décrire la configuration géométrique de la poutre.
+		Nous allons voir maintenant comment le repère de Bishop peut nous permettre de réduire à 4 le nombre de degrés de libertés nécessaires pour décrire la configuration de la poutre.
 	</aside>
 </section>
 <section class="">
@@ -132,38 +140,48 @@
 		<li>Curvature & Torsion > $\kappa(s)\;,\;\tau_f(s)$</li>
 		<li>Frame > $\{\mathbf{t},\mathbf{n},\mathbf{b}\}\;,\; \mathbf{b} = \mathbf{t} \times \mathbf{n}$</li>
 		<li>Curvature binormal : $\mathbf{\kappa b} = \kappa * \mathbf{b}$</li>
-		<li>Note suitable for modeling material frames</li>
 	</ul>
-	<!-- <hr>
-	<img class="" src="./img/eq/frenet_5.svg" width="80%"/> -->
 	<hr>
-	<img class="imgfragment" src="./img/frenet_trihedron.svg" width="65%"/>
-	<div>
+	<img class="imgfragment" src="./img/frenet_trihedron.svg" width="80%"/>
+	<!-- <div>
 		<span class="imgsrc" data-src="./img/frenet_trihedron.svg" data-fragment-index="0"></span>
 		<span class="fragment imgsrc" data-src="./img/eq/frenet_7.svg" data-fragment-index="1"></span>
-	</div>	
+	</div>	 -->
 	<aside class="notes">
-	Commençons par rappeler qu'une courbe de l'espace est entièrement caractérisée par sa courbure et sa torsion géométriques. Connaissant kappa et tau, je suis capable de reconstruire la courbe à un mouvement solide pret, en intégrant les équations dite de Serre-Frenet.
+	Commençons par rappeler qu'une courbe de l'espace est entièrement caractérisée par sa courbure et sa torsion géométriques. Connaissant kappa et tau, je suis capable de reconstruire la courbe, à un mouvement solide pret, en intégrant les équations dites de Serret-Frenet.
 	<hr>
-	Le reprère de frenet est composé des vecteurs t,n,b, les vecteurs tangent, normal et binormal à la courbe.
+	Le reprère de frenet est composé des vecteurs t,n et b, les vecteurs tangent, normal et binormal à la courbe.
 	b est obtenu par produit vectoriel de t et n pour former un trièdre orthonormé direct.
 	<hr>
 	t et n forment le plan osculateur, le plan local dans lequel la courbe prend sa courbure. La courbure se calcule comme l'inverse du rayon du cercle osculateur, ici en bleu.
 	<hr>
-	On introduit dès à présent le vecteur courbure binormale, qui est colinéaire à b mais de norme kappa.
+	On introduit dès à présent le vecteur courbure binormale, qui est colinéaire à b mais de norme kappa. Il est normal au plan osculateur.
 	Ce vecteur sera un outil fondamental pour la suite de notre étude.
-	<hr>
-	La torsion mesure la façon dont la courbe se gauchie dans l'espace. Elle s'interprète comme la vitesse de rotation instannée du plan osculateur autour de la courbe.
-	<hr>
-	Sur ce schéma on a représenté l'évolution du repère de Frenet le long d'une courbe qui présente une inflexion.
-	En ce point, la défintiion du vecteur tangent est continue mais la courbure s'annule et le vecteur normal n'est plus défini. Par ailleurs, le plan osculateur subit une discontinuité angulaire de pi/2.
-	<hr>
-	Pourtant, une tige élastique intialement droite pourrait tout à fait être contrainte à ce type de parcours sans montrer de discontinuité dans l'orientation de sa section au niveau du point d'inflexion. On voit donc sur cet exemple que le repère de Frenet, bien qu'essentiel pour la caractérisation géométrique de la ligne neutre, n'est pas adapté à la définition du repère matériel.
-	<hr>
-	Autre exemple. Pour une poutre droite en torsion pure le repère de Frenet n'est défini null part car la courbure de la poutre est nulle partout.
 	</aside>
 </section>
 
+<section class="">
+	<h5 class="">Frenet Frame</h5>
+	<ul>
+		<li>Torsion $\tau_f(s)$ > rotation of the osculating plane around $\mathbf{t}$</li>
+		<li>Undefined and jumps where $\kappa = 0$,  &ensp; even for $\mathcal{C}^1$ curves</li>
+		<li>Note suitable for modeling material frames</li>
+	</ul>
+	<hr>
+	<img class="imgfragment" src="./img/eq/frenet_7.svg" width="65%"/>
+	<aside class="notes">
+	La torsion mesure la façon dont la courbe se gauchie dans l'espace. Elle s'interprète comme la vitesse de rotation instannée du plan osculateur autour de la courbe.
+	<hr>
+	Sur ce schéma on a représenté l'évolution du repère de Frenet le long d'une courbe qui présente une inflexion.
+	En ce point, la définition du vecteur tangent est continue mais la courbure s'annule et le vecteur normal n'est plus défini.
+	<hr>
+	On observe également une discontinuité angulaire du plan osculateur, qui tourne brusquement de pi/2.
+	<hr>
+	Pourtant, une tige élastique intialement droite et contrainte à ce type de parcours ne présenterait pas de discontinuité matérielle au niveau du point d'inflexion. On voit donc que le repère de Frenet, bien qu'essentiel pour la caractérisation géométrique de la ligne neutre, n'est pas adapté à la définition du repère matériel.
+	<hr>
+	Autre exemple. Pour une poutre droite en torsion pure la courbure est nulle et le repère de Frenet n'est pas défini.
+	</aside>
+</section>
 
 <section class="">
 	<h5 class="">Bishop Frame</h5>

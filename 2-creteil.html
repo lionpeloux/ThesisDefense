@@ -12,6 +12,8 @@
 	</ul>
 	<aside class="notes">
 		Je vais maintenant présenter de manière très condensée la méthode de conception que j'ai employée pour la cathédrale de créteil.
+		<hr>
+		Nous pourrons y revenir au moment des questions.
 	</aside>
 </section>
 
@@ -24,7 +26,9 @@
 	<!-- <img data-src="img/anim/form-grid-structure.svg" width="60%"> -->
 	<object id="" width="60%" type="image/svg+xml" data="img/anim/form-grid-structure.svg"></object>
 	<aside class="notes">
-	Comme je l'ai montré, l'enjeu central du processus de conception d'un gridshell élastique c'est de maitriser l'interaction forme-maillage-structure. L'objectif est de parvenir à définir une structure qui réponde à la fois aux enjeux architecturaux et structurels du projet.
+	Comme je l'ai montré, l'enjeu central du processus de conception d'un gridshell élastique c'est de maitriser l'interaction forme-maillage-structure. 
+	<hr>
+	L'objectif est de parvenir à définir une structure qui réponde à la fois aux enjeux architecturaux et structurels du projet.
 	</aside>
 </section>
 <section class="center positive">
@@ -36,7 +40,7 @@
 	<aside class="notes">
 		A créteil, la méthode que nous avons mise en oeuvre vise à remettre la forme au centre du processus de conception pour redonner plus de place à l'expression de l'intention architecturale.
 		<hr>
-		Au lieu de raisonner sur une grille, nous raisonnons à partir d'une forme 3D déssinée par l'architecte, et sur laquelle nous recherchons des maillages admissibles par la méthode du compas.
+		Au lieu de raisonner sur une grille, nous raisonnons à partir d'une forme 3D déssinée par l'architecte, et sur laquelle nous recherchons des maillages admissibles, par la méthode du compas.
 		<hr>
 		On a également cherché à reduire autant que possible la duré d'un cycle d'analyse pour se donner les moyens d'explorer plus largement l'espace de design.
 	</aside>
@@ -83,11 +87,18 @@
 	</tr>
 	</table>
 	<aside class="notes">
-		La première étape de la méthode consiste à évaluer la possibilité de plaquer une grille sur la surface de l'architecte.
+		Pour réduire au maximum les temps d'analyse liés à la complexité de la recherche de forme, nous raisonnons premièrement à partir de critères géométriques.
 		<hr>
-		Cette évaluation est menée à l'aune du critère précédement établi en prenant comme courbure la courbure principale maximale de la surface.
+		Lorsqu'on en vient à dimensionner ces structures, on cherche d'abord à s'assurer qu'elles pourront supporter les contraintes induites par l'étape de mise en forme et qui sont principalement des contraintes de flexion.
+		<hr>
+		La courbure géométrique est l'indicateur pertinant qui nous permet d'estimer le niveau de précontraine dans la structure à chaque étape.
+		<hr>
+		Pour les formes compatibles, on génère des maillages de tchébychev par la méthode du compas à partir de deux directrices seccantes. La grille obtenue est alors reconstruite dans le plan horizontal.
+		<hr>
+		Les maillages obtenus sont analysés selon leur courbure. Ce processus est répété en boucle jusqu'à ce qu'un maillage candidat soit identifié.
 	</aside>
 </section>
+
 
 <section class="">
 	<h5>Structural Analysis</h5>
@@ -95,14 +106,15 @@
 	
 	<tr style="border-top:0px solid black">
 		<td width="" style="text-align:left; vertical-align:middle;">
-			<!-- <img data-src="./img/douthe.svg" width="200%"> -->
 			<object width="600px" type="image/svg+xml" data="img/douthe.svg"></object>
 		</td>
 		<td width="" style="text-align:center; vertical-align:middle;">
-			Formfinding<br>
-			<cite>[Wakefield 1980]</cite><br>
-			<cite>[Adriaenssens, Barnes, Williams 2001]</cite><br>
-			<cite>[Douthe 2007]</cite>
+			Formfinding<br>+<br>Bending Stress Analysis<br>
+		</td>
+	</tr>
+	<tr style="">
+		<td colspan="3" style="border-top:0px solid black">
+			<cite>[Wakefield 1980], [Adriaenssens, Barnes, Williams 2001], [Douthe 2007]</cite>
 		</td>
 	</tr>
 	<tr style="height:20px;"><td colspan="3" style="border-top:0px solid black"><hr></td></tr>
@@ -112,19 +124,20 @@
 			<img data-src="./img/gsa.jpg" width="700px">
 		</td>
 		<td width="" style="text-align:center; vertical-align:middle">
-			Structural Analysis <br>
-			<cite>[Oasys GSA]</cite>
+			Structural Analysis<br>+<br>Eurocode<br>
 		</td>
 	</tr>
 	</table>
 	<aside class="notes">
-		La première étape de la méthode consiste à évaluer la possibilité de plaquer une grille sur la surface de l'architecte.
+		On recherche alors la vraie forme d'équilibre mécanique de la structure à partir de la géométrie de la grille au repos, des propriétés des poutres, et des conditions d'appui. A ce stade on vérifie si la précontrainte induite dans les poutres est admissible.
 		<hr>
-		Cette évaluation est menée à l'aune du critère précédement établi en prenant comme courbure la courbure principale maximale de la surface.
+		Pour ce projet j'ai mis au point un code de relaxation dynamique basé sur l'élément à 3 degrés de liberté d'Adriaenssens et le modèle de connexion de Douthe.
+		<hr>
+		Finalement, on effectue le dimensionnement de la structure avec un logiciel du commerce pour dialoguer avec les instances de contrôle, ici le logiciel GSA.
 	</aside>
 </section>
 
-<section class="">
+<!-- <section class="">
 	<h5>Design Criteria</h5>
 	<ul>
 		<li>Most of the stress in the grid is induced by the forming process</li>
@@ -143,8 +156,9 @@
 		<hr>
 		A gauche on reconnait l'expresion de la contrainte de flexion dans un profil de section circulaire de rayon r et de courbure R. Contrainte qui doit être inférieure à la contrainte caractérisdtique diminuée d'un coefficient de sécurité de l'ordre de 3 pour ce type de chargement dans les composites GFRP.
 	</aside>
-</section>
-<section class="">
+</section> -->
+
+<!-- <section class="">
 	<h5>Curvature Analysis</h5>
 	<img src="./img/curvature_analysis.jpg" width="80%"/>
 	<aside class="notes">
@@ -153,17 +167,17 @@
 		Cette évaluation est menée à l'aune du critère précédement établi en prenant comme courbure la courbure principale maximale de la surface.
 	</aside>
 </section>
+
 <section class="">
 	<h5>Compass Method</h5>
-	<!-- <h7 class="">Compass Methode</h7> -->
 	<img class="imgfragment" src="./img/compass_5.png" width="60%"/>
 	<p><cite>[Otto IL10]</cite></p>
 	<aside class="notes">
 		Pour les formes compatibles, on génère des maillages de tchébychev par la méthode du compas à partir de deux directrices seccantes tracées sur la surface. Une méthode décrite par Frei Otto lui même.
 	</aside>
-</section>
+</section> -->
 
-<section class="">
+<!-- <section class="">
 	<h5>Gridfinding</h5>
 	<img class="imgfragment" src="./img/compass_grids.svg" width="130%"/>
 	<p><cite>[Masson 2017]</cite></p>
@@ -177,9 +191,9 @@
 		<hr>
 		Les grilles sont évalués à l'aune du critère précédement établi en prenant comme courbure la courbure des courbes du maillage tracées sur la surface.
 	</aside>
-</section>
+</section> -->
 
-<section class="">
+<!-- <section class="">
 	<h5>Formfinding</h5>
 	<h7 class="tag">3-DOFs Spline Beam</h7>
 	<img src="./img/douthe.png" width="50%"/>
@@ -189,9 +203,9 @@
 		<hr>
 		Pour ce projet j'ai mis au point un code de relaxation dynamique basé sur l'élément à 3 noeuds et 3DOF d'Adriaenssens et le modèle de connexion de Douthe.
 	</aside>
-</section>
+</section> -->
 
-<section class="">
+<!-- <section class="">
 	<h5>Structural Analysis</h5>
 	<h7 class="tag">GSA</h7>
 	<img src="./img/gsa.jpg" width="100%"/>
@@ -200,7 +214,7 @@
 		<hr>
 		Ici on voit le modèle reconstruit dans GSA et dans lequel on a réinjecté les données sur la précontrainte de flexion.
 	</aside>
-</section>
+</section> -->
 
 <!-- 
 =============================================================================================== 
@@ -210,24 +224,24 @@
 <section class="plan center">
 	<strong>Results & Limitations</strong>
 	<aside class="notes">
-		Regard critique sur cette méthode
+		Regardons de manière critique cette méthode
 	</aside>
 </section>
 
 <section class="center positive">
 	<h5>Results</h5>
 	<ul>
-		<li>Agility</li>
-		<li>Pre-analysis with curvature >faster cyles</li>
+		<li>Agility > enhanced exploration of the design space</li>
 		<li>Gridfinding > architectural freedom</li>
+		<li>Pre-analysis with curvature > faster cyles</li>
 		<li>Formfinding > real-time mechanical insights</li>
 	</ul>
 	<aside class="notes">
-		La méthode de coneption mise en oeuvre nous a donné une certaine agilité et permis d'explorer l'espace de design an termes de formes et de maillages.
+		La méthode de conception mise en oeuvre nous a donné une certaine agilité et permis d'explorer plus largement l'espace de design en termes de formes et de maillages.
 		<hr>
 		Pour celà le critère de courbure a été d'une grande utilité.
 		<hr>
-		Le code de relaxation dynamique a aussi permi de bénéficier de retours relativement rapides sur les modèles calculés.
+		Plus en aval, le code de relaxation dynamique a permis d'évaluer rapidement la forme finale de la structure et son niveau de précontrainte, avant de se lancer dans la justification complète de la structure.
 	</aside>
 </section>
 
@@ -236,11 +250,10 @@
 	<ul>
 		<li>Beam model is only 3-DOFs</li>
 		<li>No torsion</li>
-		<li>No transfert of moment</li>
 		<li>No anisotropic cross-section</li>
+		<li>No transfert of moment</li>
 		<li>No complex connection kinematics</li>
 		<li>No concentrated applied loads</li>
-		<li>Slowdown : bridge with GSA</li>
 	</ul>
 	<aside class="notes">
 	Cependant, le modèle de poutre employé reste relativement limité à cause de sa description cinématique trop pauvre.
@@ -248,18 +261,14 @@
 	En particulier, il ne permet pas 
 	<ul>
 		<li>de prendre en compte la torsion dans les poutres</li>
-		<li>de transférer du moment aux noeuds</li>
-		<li> de modéliser des poutres de section anisotrope</li>
-		<li>de modéliser des connexions avec des cinématiques complexes proches des conditions réélles</li>
+		<li>de modéliser des poutres de section anisotrope</li>
+		<!-- <li>de transférer du moment aux noeuds</li> -->
+		<li>de modéliser des connexions avec des cinématiques complexes proches des conditions réelles</li>
 		<li>d'appliquer des efforts extérieurs concentrés ou distribués</li>
-		<li>la boucle par GSA est comlexe et ralentie le cycle de design</li>
 	</ul>
 	<hr>
-	Ce sont ces limitations mises en lumière par l'expérience acquise sur les projets précédement présentés, qui nous ont conduit à vouloir développer un élément de poutre plus riche qui nous permettre de modéliser plus fidèlement le comportement mécanique des gridshells élastiques, sans sacrifier pour autant au niveau d'agilité déjà atteint.
+	Ce sont ces limitations, mises en lumière par l'expérience acquise sur les projets réalisés, qui nous ont conduit à vouloir développer un élément de poutre plus riche.
+	<hr>
+	Et cela pour permettre de modéliser plus fidèlement le comportement mécanique des gridshells élastiques, sans sacrifier pour autant au niveau d'agilité déjà atteint par cette méthode.
 </aside>
 </section>
-
-<!-- 
-<section>
-	<object id="circle-svg" width="80%" type="image/svg+xml" data="img/projects.svg"></object>		
-</section> -->
