@@ -31,7 +31,7 @@
 		<br> <cite>Kirchhoff, Clebsch, Love, XIX<sup>th</sup></cite>
 		<br> <cite>Dill, Archive for History of Exact Sciences, 1992</cite>
 	</p>
-	<div class="fragment">
+	<div class="">
 		<hr>
 		<p>Geometrically Exact Beam
 			<br><cite>Simo & Vu-Quoc, International Journal of Solids and Structures, 1991</cite>
@@ -42,11 +42,9 @@
 		</p>
 	</div>
 	<aside class="notes">
-		Je vais donc réécrire les équations de Kirchhoff en m'appuyant sur l'excellente présentation qu'en a faite Dill en 1992.
+		Je vais donc réécrire les équations de Kirchhoff en m'appuyant sur l'excellente présentation qu'en a faite Dill en 92.
 		<hr>
-		Par ailleurs, j'ai adopté le formalisme des tiges de cosserat tel que présenté par Antman pour décrire la cinématique de la poutre le plus généralement possible.
-		<!-- <hr>
-		J'ai fait cela dans le but de pouvoir changer de théorie de poutre (en passant par exemple de Kirchhoff à Timoshenko) sans pour autant changer le formalisme de description de la poutre. -->
+		Par ailleurs, j'ai adopté le formalisme des tiges de cosserat tel que présenté par Antman pour décrire la cinématique de la poutre le plus généralement possible. Je ne détaillerai pas cet aspect.
 	</aside>
 </section>
 
@@ -61,21 +59,25 @@
 		<li>The material is isotropic and linear-elastic</li>
 	</ul>
 	<hr>
-	<div class="fragment">
+	<div class="">
 		<p class="red">"The deformed state differs by small deformations from a motion in which cross sections remain plane, undistorted, and normal to the axis."</p>
-		<hr>
-		<p class="red">The rod is not strictly inextensible but its extension must remain small.</p>
-		<p class="red">Cross-sections do not remain strictly planar.</p>
+		<!-- <hr> -->
+		<ul>
+			<li class="red">Centerline is almost inextensible</li>
+			<li class="red">Cross-section remains almost planar</li>
+		</ul>
+		<!-- <p class="">The rod is not strictly inextensible but its extension must remain small.</p>
+		<p class="">Cross-sections do not remain strictly planar but only almost planar.</p> -->
 	</div>
 	<p><cite>[Dill 1992]</cite></p>
 	<aside class="notes">
-		Les hypothèses faites dans le cadre de la théorie de Kirchhoff des tiges élastiques sont les suivantes :
+		Les hypothèses faites dans le cadre de la théorie de Kirchhoff sont les suivantes :
 		<ul>
 			<li>La poutre est considérée comme élancée</li>
 			<li>Le centre de masse et le centre de torsion sont confondus</li>
 			<li>Les déformations restent petites bien que les rotations puissent être grandes</li>
 			<li>Le cisaillement est négigeable</li>
-			<li>Les sections sont libres de gauchires</li>
+			<li>Les sections sont libres de gauchire</li>
 			<li>Le matériau est considéré isotrope et dans le domaine linéaire élastique.</li>
 		</ul>
 		<hr>
@@ -94,7 +96,7 @@
 	 <ul>
 		 <li>L'extension axiale, qui conduit à une contraction de la section du fait de l'effet Poisson</li>
 		 <li>Les flexions circulaires d'axes 1 et 2, qui conduisent à une dilatation de la section du côté de la fibre comprimée et à une contraction de la section du côté de la fibre tendu</li>
-		 <li>La torsion pure d'axe 3 qui engendre une déforamtion hors plan de la section appellée gauchissement</li>
+		 <li>La torsion pure d'axe 3 qui engendre une déformation hors plan de la section appellée gauchissement</li>
 	 </ul>
 	</aside>
 </section>
@@ -117,44 +119,52 @@
 	<aside class="notes">
 		La cinématique de la poutre reste sensiblement la même que celle présentée dans l'approche variationelle.
 		<hr>
-		La poutre est représentée par sa fibre neutre paramétrée par l'abscisse curviligne de la configuration au repos.
+		La poutre est représentée par sa fibre neutre paramétrée par l'abscisse curviligne de la configuration de référence.
 		<hr>
 		A cette fibre neutre on associe un repère materiel adapté à la courbe pour décrire la section.
-		Un point matériel est repéré par ses coordonnées s, X1 et X2 dans la configuration de référence.
+		Un point matériel sera repéré par ses coordonnées s, X1 et X2 dans la configuration de référence.
 		<hr>
 		Dans la configuration déformée, la position du point est donnée relativement à un mouvement solide de la section, que l'on mesure par le vecteur des déformations locales de la section notée u.
+		<hr>
+		U doit rester petit dans le cadre de nos hypothèses.
 	</aside>
 </section>
 <section class="">
-	<h5 class="">Rod Motion</h5>
+	<h5 class="">Rod Motion : TIME</h5>
 	<ul>
 		<li>Translational velocity > $\mathbf{\dot{x}}(s,t)$</li>
 		<li>Angular velocity > $\mathbf{\omega}(s,t)$</li>
-		<li>Force strains > $\mathbf{\eta}(s,t) = (1+\epsilon(s,t))\mathbf{d}_3$</li>
-		<li>Moment strains > $\mathbf{\varkappa}(s,t) = (1+\epsilon) \mathbf{\Omega}(s,t)$</li>
 	</ul>
 	<hr>
 	<img data-src="./img/eq/motion_1.svg" width="80%">
+	<aside class="notes">
+		Cette fois-ci, le mouvement temporel de la poutre est suivi à l'aide des dérivées premières de la fibre neutre et du repère matériel, qui font apparaitre la vitesse de translation de la fibre neutre (x point) et la vitesse angulaire du repère matériel (omega).
+	</aside>
+</section>
+<section class="">
+	<h5 class="">Rod Motion : SPACE</h5>
+	<ul>
+		<li>Force strains > $\mathbf{\eta}(s,t) = (1+\epsilon)\mathbf{d}_3(s,t)$</li>
+		<li>Moment strains > $\mathbf{\varkappa}(s,t) = (1+\epsilon) \mathbf{\Omega}(s,t)$</li>
+		<hr>
+		<li>Extension > $\epsilon(s,t) \ll 1$</li>
+		<li>Negligible shear > $\eta_1 = \eta_2 = 0$</li>
+	</ul>
 	<hr>
 	<img data-src="./img/eq/motion_2.svg" width="80%">
 	<aside class="notes">
-		Cette fois-ci, le mouvement de la poutre est suivi temporellement à l'aide des dérivées premières de la fibre neutre et du repère matériel, qui font apparaitre la vitesse de translation de la fibre neutre et la vitesse angulaire du repère matériel.
+		Les déformations sont mesurées par les dérivées spatiales de la fibre neutre et du repère matériel, qui font apparaitre le vecteur des déformations (noté ETA) et le vecteur des courbures matérielles (noté Varkappa).
+		<!-- <hr>
+		Du fait de l'extension epsilon de la poutre, qui je le rappelle n'est pas supposée strictement inextensible dans la théorie de Kirchhoff, les courbures materielles diffèrent ne s'assimilent plus aux courbures géométriques. Il faut tenir compte du changement de longueur de la poutre.
 		<hr>
-		Quant aux déformations, elles sont mesurées par les dérivées première de la fibre neutre et du repère matériel, qui font apparaitre le vecteur des déformations noté ETA et le vecteur des courbures matérielles noté Varkappa.
-		<hr>
-		
-		<small>
-		Du fait de l'extension epsilon de la poutre, qui je le rappelle n'est pas supposée strictement inextensible dans la théorie de Kirchhoff, les courbures materielles diffèrent désormais des courbures géométriques de la fibre neutre.
-		<hr>
-		Les composantes transverses du vecteur des déformations ETA sont négligées conformément aux hypothèses. Il ne reste donc que la composante qui caractérise la déformation axiale de la poutre.
-		</small>
+		Les composantes transverses du vecteur des déformations ETA sont négligées conformément aux hypothèses. Il ne reste donc que la composante qui caractérise la déformation axiale de la poutre. -->
 	</aside>
 </section>
 
 <section class="">
 	<h5 class="">Constitutive Equations</h5>
 	<ul>
-		<li>They are deduced from 3D elasticity for an isotropic and linear elastic material</li>
+		<li>They are deduced from 3D elasticity for an isotropic and linear-elastic material</li>
 		<li>They now include the axial component of the </li>
 		<li>The torsion constant $J\;$ depends on the warping function $\varphi_s$</li>
 	</ul>

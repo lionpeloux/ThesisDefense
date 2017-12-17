@@ -179,7 +179,7 @@
 	<hr>
 	Pourtant, une tige élastique intialement droite et contrainte à ce type de parcours ne présenterait pas de discontinuité matérielle au niveau du point d'inflexion. On voit donc que le repère de Frenet, bien qu'essentiel pour la caractérisation géométrique de la ligne neutre, n'est pas adapté à la définition du repère matériel.
 	<hr>
-	Autre exemple. Pour une poutre droite en torsion pure la courbure est nulle et le repère de Frenet n'est pas défini.
+	Autre exemple. Pour une poutre droite en torsion pure, la courbure est nulle et le repère de Frenet n'est pas défini.
 	</aside>
 </section>
 
@@ -198,25 +198,21 @@
 		<li>which is continuous if $\mathbf{x}\;$ is simply regular ... so even when $\kappa = 0$</li>
 	</ul>
 	<p>Then this frame would be a perfect reference frame for the definition of the material frame through a single scalar angle $\theta$</p>
-	</div>
-	<div class="fragment">
 	<hr> 
 	<p>And the kinematic would reduce to only 3-DOFs : $\mathbf{x}\;,\;\theta$</p>
 	</div>
 	<aside class="notes">
-	Je vais maintenant introduire le repère de Bishop en deux slides.
-	<hr>
-	Pour pouvoir définir le repère de Bishop je vosu invite d'abord à considérer le cas des repères mobiles adaptés à la fibre neutre de la poutre. Ces repères ont la particularité d'avoir l'axe E3 tangent à la courbe. 
+	Pour pouvoir définir le repère de Bishop je vous invite d'abord à considérer le cas des repères mobiles, adaptés à la fibre neutre de la poutre. Ces repères ont la particularité d'avoir l'axe E3 tangent à la courbe. 
 	<hr> 
-	Notre repère materiel en est un puisque nous avons supposé que les sections restaient normales à la fibre neutre au cours de la déformation. Lee repère de Frenet est lui aussi un repère adapté.
+	Le repère materiel en est un puisque nous avons supposé que les sections restaient normales à la fibre neutre. Par définition le repère de Frenet est lui aussi un repère adapté.
 	<hr>
 	On constate très simplement que l'on passe d'un repère adapté à un autre par une simple rotation d'angle theta autour de la tangente.
 	<hr>
 	Et donc si l'on est capable d'exhiber un repère mobile qui soit :
 	<ul>
-		<li>adapté à la fibre neutre</li>
-		<li>entièrement définit par la connaissance de X</li>
-		<li> Et continu si la courbe est seulement simplement régulière</li>
+		<li>Adapté à la fibre neutre</li>
+		<li>Entièrement définit par la connaissance de la fibre neutre</li>
+		<li>Et continu si la courbe est seulement simplement régulière</li>
 	</ul>
 	Alors ce repère fournira une excellente référence pour la définition du repère matériel à l'aide d'une unique variable scalaire theta.
 	<hr>
@@ -229,7 +225,7 @@
 	<h5 class="">Bishop Frame</h5>
 	<ul>
 		<li>A material frame moves at angular speed $\mathbf{\Omega}$</li>
-		<div class="fragment">
+		<div class="">
 		<li>For an adapted frame $\mathbf{\kappa b} = k_1\mathbf{e}_1 + k_2\mathbf{e}_2$</li>
 		<li>For an adapted moving frame $\mathbf{\Omega} = \mathbf{\kappa b} + \tau \mathbf{t}$</li>
 		</div>
@@ -244,9 +240,9 @@
 	Ce résultat s'exprime sous la forme d'une équation différentielle d'odre 1 faisant intervenir les vecteurs directeurs du repère mobile et le vecteur de Darboux.
 	<hr>
 	Dans le cas particulier d'un repère adapté on peut montrer l'identié KB = K1 E1 + K2 E2.
-	Et donc réécrire la vitesse du repère sous la forme Omeag = KB + tau * t
+	Et donc réécrire la vitesse du repère sous la forme Omega = KB + tau fois la tangente.
 	<hr>
-	On retrouve formellement ce que nous avons montré avec les mains, à savoir que les repères adaptés diffèrent les uns des autres uniquement par leur façon de tourner autour la courbe, car kb est fixé par la géométrie de la courbe. Seul tau les distingue.
+	On retrouve formellement ce que nous avons montré avec les mains, à savoir que les repères adaptés diffèrent les uns des autres uniquement par leur façon de tourner autour la courbe, car kb est entièrement déterminé par la géométrie de la courbe. Seul tau les distingue.
 	</aside>
 </section>
 <section class="">
@@ -262,7 +258,7 @@
 		<hr>
 		<img class="" data-src="./img/eq/adapted_3.svg" width="80%">
 		<hr>
-		<img class="fragment" data-src="./img/eq/speed_bishop.svg" width="80%">
+		<img class="" data-src="./img/eq/speed_bishop.svg" width="80%">
 	</div>
 	<p><cite>There is more than one way to frame a curve [Bishop 1975]</cite></p>
 	<aside class="notes">
@@ -270,11 +266,11 @@
 	<hr>
 	Le repère de Frenet sera défini par la torsion géométrique de Frenet notée tau_f
 	<hr>
-	Le repère materiel sera défini par la torsion mécanique tau. Et on admettra que les composantes du vecteur vitesse, renommées TAU, KAPPA_1 et KAPPA_2 s'identifient respectivement à la torsion mécanique et aux courbures materielles dans la poutre.
+	Le repère matériel sera défini par la torsion matérielle tau. Et on admettra que les composantes du vecteur vitesse, renommées TAU, KAPPA_1 et KAPPA_2 s'identifient respectivement à la torsion et aux courbures materielles dans la poutre.
 	<hr>
 	Enfin, on appelera repère de Bishop ou zero-twisting frame, le repère de torsion nulle. Ce repère se déplace sans tourner autour de la courbe.
 	<hr>
-	Sa vitesse angulaire est donnée par le vecteur kb, et ne dépend donc que de la courbe X. Le repère de référence que nous cherchions pour réduire notre cinématique existe donc et il se nomme le repère de Bishop.
+	Sa vitesse angulaire est donnée par le vecteur kb, et ne dépend donc que de la géométrie de la fibre neutre. Le repère de référence que nous cherchions pour réduire notre cinématique existe donc, c'est le repère de Bishop.
 	</aside>
 </section>
 <section class="">
@@ -290,11 +286,11 @@
 	<aside class="notes">
 		Nous possédons maintenant tous les éléments pour établir une description cinématique de notre poutre à seulement 4 degrés de liberté.
 		<hr>
-		Trois degrés en translation permettent de définir la position de la fibre neutre de la poutre
+		Trois degrés en translation permettent de définir la position de la fibre neutre de la poutre.
 		<hr>
-		La géométrie de la poutre étant connue, on peut construire le repère de Bishop en tout point de la courbe en transportant un repère initial à vitesse angulaire KB. Le choix de la condition initiale est laissé libre car il disparait dans les équations mécaniques de la poutre.
+		La géométrie de la fibre neutre étant connue, on peut construire le repère de Bishop (t,u,v) en tout point de la courbe, en transportant un repère initial à vitesse angulaire KB, ce qu'on appelle le transport parallèle. Le choix de la condition initiale est laissé libre car il disparait dans les équations mécaniques de la poutre.
 		<hr>
-		A partir de ce repère, on peut désormais repérer de manière univoque le repère materiel de la section par l'angle THETA, qui constitu donc le 4ème et dernier degré de liberté de notre description.
+		A partir de ce repère, on peut désormais repérer de manière univoque le repère matériel de la section par l'angle THETA, qui constitu donc le 4ème et dernier degré de liberté de notre description.
 	</aside>
 </section>
 <section class="">
@@ -306,26 +302,27 @@
 		<li>$\tau = \theta'$</li>
 	</ul>
 	<hr>
-	<img class="fragment" data-src="./img/eq/constitutive_law.svg" width="80%">
+	<img class="" data-src="./img/eq/constitutive_law.svg" width="80%">
 	<hr>
-	<img class="fragment" data-src="./img/eq/curve_angle_2.svg" width="70%">
+	<img class="" data-src="./img/eq/curve_angle_2.svg" width="70%">
 	<br>
 	<p><cite>(<sup>*</sup>) Since the material frames depend on the rod’s centerline and are not independent degrees of freedom [Bergou 2008]</cite></p>
 	<aside class="notes">
-		Contrairement à ce qui est mentionné dans Bergou et al. 2008, nous considérons que les degrés de liberté du système sont indépendants.
+		Contrairement à Bergou et al. 2008, nous considérons que les degrés de liberté du système sont bien indépendants.
 		<hr>
-		Les courbures materielles dans la poutres sont directement données par le projection de KB sur les axes matériels 1 et 2 de la section.
+		Les courbures matérielles dans la poutre sont directement données par la projection de KB sur les axes matériels 1 et 2.
 		<hr>
-		Et on montre sans difficulté que comme le repère de bishop ne tourne pas autour de la courbe, la torsion materielle est donnée directement par le tau de variation de theta.
+		Et on montre sans difficulté que la torsion matérielle est donnée directement par le tau de variation de theta.
 		<hr>
-		Une fois les courbures materielles calculées on pourra remonter au moment interne dans la poutre à partir des équations constituives classiques pour la flexion et la torsion.
+		Une fois les courbures matérielles calculées, on pourra remonter au moment interne dans la poutre à partir des équations constituives classiques pour la flexion et la torsion.
 		<hr>
-		reprenons une dernière fois la cinématique que nous venons de construire.
+		Reprenons une dernière fois la cinématique que nous venons de construire.
 		<ul>
 			<li>La fibre neutre est paramétrée par son abscisse curviligne</li>
-			<li>En mesurant KB, on construit le repère de Bishop par tranport parallèl sur la fibre neutre</li>
-			<li>On obtient le repère materiel par une rotation du repère de bishop d'un angle THETA autour de la courbe</li>
-			<li>A partir du repère meteriel on est capable de calculer les courbures matérielles puis le moment interne</li>
+			<li>En mesurant KB, on construit le repère de Bishop par transport parallèle sur la fibre neutre</li>
+			<li>On obtient le repère matériel par une rotation du repère de bishop d'un angle THETA autour de la courbe</li>
+			<li>A partir du repère matériel on est capable de calculer la torsion et les courbures matérielles</li>
+			<li>Finalement on accède aux moments de torsion et de flexion par les équations constitutives</li>
 		</ul>
 	</aside>
 </section>
@@ -367,7 +364,7 @@
 		La poutre étant supposée inextensible, il n'y a pas d'énergie de déformation axiale.
 		<hr>
 		Les efforts linéiques internes agissant sur la poutre s'obtiennent par dérivation de l'énergie élastique.
-		Dans le calcul, on aura utilisé l'hypothèse quasistatique proposée par Bergou et al. 2008.
+		Dans le calcul, on aura utilisé l'hypothèse quasistatique proposée par Bergou.
 </section>
 </section>
 <section class="">
@@ -383,9 +380,9 @@
 	<hr>
 	<img class="" data-src="./img/eq/constitutive_law.svg" width="80%">
 	<aside class="notes">
-		Après quelques pages de calcul un peu douloureuses on peu écrire de manière condensée l'effort tranchant  et le moment de torsion linéique agisssant sur la poutre.
+		Après quelques pages de calcul on peu écrire de manière condensée l'effort tranchant et le moment de torsion linéique agisssant sur la poutre.
 		<hr>
-		Un oeil averti reconnaitrait la forme classique du membre statique des équations de Kirchhoff pour les tiges élastiques. C'est cette observation qui nous a donnée l'intuition d'une seconde approche, plus complète, que je vais présenter par la suite.
+		Un oeil averti reconnaitra la forme classique de l'effort tranchant dans la théorie de Krichhoff, qui équilibre la vriation de moment de flexion. C'est cette observation qui nous a donné l'intuition d'une seconde approche, plus complète, que je vais présenter par la suite.
 		<hr>
 		En résumé, connaisant la configuration de la poutre, je calcule les courbures matérielles qui me donnent le moment de flexion et de torsion. Connaisssant alors la variation du moment de flexion, je suis capable de calculer l'effort tranchant agissant sur la poutre.
 	</aside>
@@ -400,7 +397,7 @@
 <section class="plan center">
 	<strong>Dynamic</strong>
 	<aside class="notes">
-		A ce stade, j'ai donc tous les éléments nécessaires pour suivre l'évolution dynamic de ma poutre.
+		A ce stade, j'ai donc tous les éléments nécessaires pour suivre l'évolution dynamic de la poutre.
 	</aside>
 </section>
 <section class="">
@@ -415,11 +412,11 @@
 	<br><br>
 	<p><cite>(<sup>*</sup>) Also known as dynamic relaxation, Verlet integration or the semi-implicit Euler, symplectic Euler, semi-explicit Euler, Euler–Cromer or Newton–Størmer–Verlet (NSV) method. [Williams 2011]</cite></p>
 	<aside class="notes">
-		Je ne vais pas m'attarder sur cet aspect. Je veux juste mentionner que dans notre approche, seul l'état d'équilibre statique de la structure nous intéresse et que donc nous avons utilisé une méthode de résolution des équations par relaxation dynamique. 
+		Je ne vais pas m'attarder sur cet aspect. Je veux juste mentionner que, dans notre approche, seul l'état d'équilibre final de la structure nous intéresse, et que donc nous avons utilisé une méthode de résolution des équations par relaxation dynamique. 
 		<hr>
-		Cette méthode conciste à amortir de manière fictive un système en mouvement pour le faire tomber dans l'état d'équiblibre statique recherché.
+		Cette méthode consiste à amortir de manière fictive un système en mouvement pour le faire tomber dans l'état d'équiblibre statique recherché.
 		<hr>
-		Autre aspect, Bergou et al. assure l'hypothèse d'inextensibilité par une étape de reprojection. Nous la gérons de manière élastique par une force de pénalité qui nous permet d'évaluer directement l'effort axial dans la poutre. Ce qui revient ni plus ni moins à considérer une énergie de déformation axiale.
+		Autre aspect, Bergou assure l'hypothèse d'inextensibilité par une étape de reprojection. Nous gérons cette contrainte de manière élastique par une force de pénalité qui nous permet d'évaluer directement l'effort axial dans la poutre. Ce qui revient ni plus ni moins à considérer une énergie de déformation axiale.
 	</aside>
 </section>
 
@@ -433,7 +430,7 @@
 		<aside class="notes">
 		</aside>
 	</section>	
-<section class="positive">
+<section class="center positive">
 	<h5 class="">Results</h5>
 	<ul>
 		<li>Model in the smooth world [Tayeb & Lefevre]</li>
@@ -444,12 +441,12 @@
 	<aside class="notes">
 		En conclusion de cette partie nous avons réussi à constuire un élément de poutre à 4 dégrés de liberté capable de prendre en compte les phénomènes de flexion et de torsion.
 		<hr>
-		Ce modèle se distingue du travail de Bergou et al. 2008 par le fait qu'il soit construit en continu, ce qui laisse libre le choix de la discrétization.
+		Ce modèle se distingue du travail de Bergou et al. de 2008 par le fait qu'il soit construit en continu, ce qui laisse libre le choix de la discrétization.
 		<hr>
 		Par ailleurs, nous avons retrouvé la localité des expressions des efforts internes et nous les avons identifiés à la théorie de Kirchhoff.
 	</aside>
 </section>
-<section class="negative">
+<section class="center negative">
 	<h5 class="">Limitations</h5>
 	<ul>
 		<li>Static equations only > dynamical equations ?</li>
@@ -459,7 +456,7 @@
 		<li>Boundary conditions and complex connections</li>
 	</ul>
 	<aside class="notes">
-		Bien que ce premier modèle remplisse une partie de nos objectifs, il comporte de serieuses limitations pour un usage en conditions réélles.
+		Bien que ce premier modèle remplisse une partie de nos objectifs, il comporte de sérieuses limitations pour un usage en conditions réélles.
 		<ul>
 			<li>La dynamique de la poutre n'est pas traitée de manière unifiée</li>
 			<li>L'effort axial n'est pas modélisé (il est compris comme une contrainte)</li>
