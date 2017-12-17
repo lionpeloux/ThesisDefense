@@ -36,7 +36,7 @@
 		<br> <cite>Bobenko, Discrete differential geometry, 2007</cite>
 	</p>
 	<hr>
-	<div class="fragment red">
+	<div class="red">
 	<ul>
 		<li>There is more than one way to define the discrete curvature</li>
 		<li>Definitions are not equivalents</li>
@@ -51,7 +51,7 @@
 		<hr>
 		Les éléments de comparaison existant dans la littérature sont peu nombreux et portent essentiellement sur les aspects géométriques.
 		<hr>
-		Au cours de notre travail, nous avons donc fait un inventaire des définitions existantes. Nous avons étendues ces définitions aux extrémitées des courbes, ce qui est essentiel pour la modélisations des conditions aux limites. 
+		Au cours de notre travail, nous avons donc fait un inventaire des définitions existantes. Nous avons étendues ces définitions aux extrémités des courbes, ce qui est essentiel pour la modélisations des conditions aux limites. 
 		<hr>
 		Nous avons proposé de les comparer par leur capacité à représenter l'énergie de flexion pour certaines formes d'équilibre typiques de tiges élastiques (le cercle et l'elastica)
 	</aside>
@@ -76,9 +76,9 @@
 		<hr>
 		Ce cercle peut être construit de diverses manières. J'en présente les trois principales :
 		<ul>
-			<li>L'unique cercle qui passe par 3 noeuds successifs</li>
-			<li>L'unique cercle tangent à 3 arrêtes successives, mais qui n'a d'existence possibble que si les arrêtes sont coplanaires, c'est à dire si la courbe est plane </li>
-			<li>On peut relacher cette contrainte de planarité en construisant le cercle bi-tangent deux arrêtes successives, mais alors ce cercle n'est pas unique et dépend de la distance entre le sommet et le point de tangence. On perd donc l'univocité de la définition.</li>
+			<li>L'unique cercle qui passe par 3 sommets successifs.</li>
+			<li>L'unique cercle tangent à 3 arrêtes successives, mais qui n'a d'existence possible que si les arrêtes sont coplanaires, c'est à dire si la courbe est plane.</li>
+			<li>On peut relacher cette contrainte de planarité en construisant le cercle bi-tangent à deux arrêtes successives, mais alors ce cercle n'est pas unique et dépend de la distance entre le sommet et le point de tangence. On perd donc l'univocité de la définition.</li>
 		</ul>
 	</aside>
 </section>
@@ -108,7 +108,7 @@
 	<aside class="notes">
 		L'intéret de la courbure par les arrêtes est qu'elle affiche un bon comportement lorsque la courbe se replie sur elle même. Le rayon du cercle tend vers 0 et donc la courbure tend vers l'infini au fur et à mesure que l'on referme le compas.
 		<hr>
-		Ce n'est pas le cas de la courbure par les noeuds dont la courbure tend vers une valeur finie.
+		Ce n'est pas le cas de la courbure par les sommets dont la courbure tend vers une valeur finie, ce qui n'est pas le comportement souhaité.
 	</aside>
 </section>
 <section class="">
@@ -117,11 +117,11 @@
 	<aside class="notes">
 		Sur ce graphique on a tracé les deux courbures précédentes en fonction de l'angle d'ouverture du compas.
 		<hr>
-		On a également étudié la sensibilité des définition vis à vis à vis de la différence de longueur entre les arrêtes, noté alpha.
+		On a également étudié la sensibilité des définitions vis à vis à vis de la différence de longueur entre les arrêtes, noté alpha.
 		<hr>
-		On retrouve la différence de comportement pour des angles d'ouvertures faibles.
+		On retrouve la différence de comportement pour des angles d'ouvertures faibles (ici sur la partie droite du graphique).
 		<hr>
-		Tandis que pour des angles d'ouverture proche de pi les deux courbures se comportent sensiblement de la même façon.
+		Tandis que pour des angles d'ouverture proche de pi les deux courbures se comportent sensiblement de la même façon (ici sur la partie gauche du graphique).
 	</aside>
 </section>
 
@@ -143,11 +143,17 @@
 		</tr>
 	</table>
 	<aside class="notes">
-		Enfin, nous avons comparé ces deux types de courbures vis à vis de leur capacité à représenter l'énergie de flexion en fonction de la finesse de la discrétization. 
-		<hr> Sur le cas typique du cercle d'adord
-		<hr> Puis sur le cas typique de l'élastica ensuite pour différentes configurations
-		<hr> Dans tous les cas, la courbure par les noeuds est celle qui approche le mieux l'énergie élastique de la courbre continue, pour une finesse de discrétization données.
-		<hr> C'est donc celle là que nous retiendrons pour notre modèle.
+		Enfin, nous avons comparé ces deux types de courbures vis à vis de leur capacité à représenter l'énergie de flexion en fonction de la finesse de la discrétisation :
+		<ul>
+			<li>Sur le cas typique du cercle d'adord.</li>
+			<li>Puis sur le cas typique de l'élastica ensuite.</li>
+		</ul>
+		<hr>
+		Dans le cas du cercle, l'énergie de flexion discrète basée la courbure par les sommets approche plus rapidement la valeur théorique que son homologue basée sur la courbure par les arêtes.
+		<hr>
+		Nous observons le même phénomène pour le cas de l'elastica.
+		<hr>
+		C'est donc la courbure par les sommets que nous retiendrons pour notre modèle.
 	</aside>
 </section>
 
@@ -155,9 +161,9 @@
 <section class="plan center">
 	<strong>Discrete Tangent</strong>
 	<aside class="notes">
-		Nous allons voir maintenant comment la courbure par les noeuds conduit naturellement à la définition du vecteur tangent à la courbe.
+		Nous allons voir maintenant comment la courbure par les sommets conduit naturellement à la définition du vecteur tangent à la courbe.
 		<hr>
-		Et comment, réciproquement, en jouant sur l'orientation du vecteur tangent on peut modéliser une discontinuité de courbure locale au niveau d'un noeud en faisant apparaitre un bi-arc.
+		Et comment réciproquement, en jouant sur l'orientation du vecteur tangent on peut modéliser une discontinuité de courbure locale au niveau d'un sommet en faisant apparaitre un bi-arc.
 	</aside>
 </section>
 
@@ -190,7 +196,6 @@
 	<div>
 		<span class="imgsrc" data-src="./img/eq/tangent_circumscribed_current.svg" data-fragment-index="0"></span>
 		<span class="fragment imgsrc" data-src="./img/eq/tangent_circumscribed_ends.svg" data-fragment-index="1"></span>
-		<span class="fragment imgsrc" data-src="./img/eq/vertex_curvature_biarc_b.svg" data-fragment-index="2"></span>
 	</div>
 	<aside class="notes">
 		Le cercle osculateur est par définition le cercle qui approche le mieu la courbe.
@@ -198,21 +203,51 @@
 		<hr>
 		En faisant se raisonnement nous avons supposé que la courbure était localement continue au voisinage de Xi.
 		<hr>
-		Cette approche peut être étendue aux extrémités de la courbe en définisaant le cercle osculateur comme l'unique cercle passant par deux noeuds voisins et une tangente.
+		Cette approche peut être étendue aux extrémités de la courbe en définissant le cercle osculateur comme l'unique cercle passant par deux sommets voisins et une tangente.
 		<hr>
 		Ici, on retombe sur l'indétermination classique en bout de poutre. Si le moment est préscrit, alors c'est la tangente qui est donnée par la courbure. Si la tangente est préscrite, alors c'est le moment qui est donné par la courbure.
-		<hr>
-		Enfin, on remarquera que cette définition s'intègre parfaitement avec la définition donnée précedement en partie courante.
-		En effet, 
+	</aside>
+</section>
+
+<section class="">
+		<h5 class="">TANGENT</h5>
 		<ul>
-			<li>le cercle défini par les noeuds xi-1, xi et xi+1</li>
-			<li>le cercle défini par ti et les noeuds xi-1 et xi</li>
-			<li>et le cercle défini par ti et les noeuds xi et xi+1</li>	
+			<li>Definitions agree > Current / Left / Right</li>
+			<li>Tangent vector > control local curvature with biarc</li>
 		</ul>
-		sont identiques.
+		<hr>
+		<img class="imgfragment" src="./img/eq/tangent_circumscribed_current.svg" width="65%"/>
+		<div>
+			<span class="imgsrc" data-src="./img/eq/tangent_circumscribed_current.svg" data-fragment-index="0"></span>
+			<span class="fragment imgsrc" data-src="./img/eq/tangent_circumscribed_current_a.svg" data-fragment-index="1"></span>
+			<span class="fragment imgsrc" data-src="./img/eq/tangent_circumscribed_current_b.svg" data-fragment-index="2"></span>
+			<span class="fragment imgsrc" data-src="./img/eq/tangent_circumscribed_current_c.svg" data-fragment-index="3"></span>
+		</div>
+		<aside class="notes">
+			Enfin, on remarquera que ces 3 façons de décrire la courbure sont équivalentes en partie courante.
+			En effet :
+			<ul>
+				<li>le cercle défini par les sommets xi-1, xi et xi+1;</li>
+				<li>le cercle défini par ti et les sommets xi-1 et xi;</li>
+				<li>et le cercle défini par ti et les sommets xi et xi+1;</li>	
+			</ul>
+			sont identiques.
+		</aside>
+	</section>
+
+<section class="">
+	<h5 class="">BIARC</h5>
+	<ul>
+		<li>Definitions agree > Current / Left / Right</li>
+		<li>Tangent vector > control local curvature with biarc</li>
+	</ul>
+	<hr>
+	<object class="svgfragment" type="image/svg+xml" data="img/eq/tangent_circumscribed_current_biarc.svg" width="65%"></object>
+	<aside class="notes">
 		<hr> On comprend alors qu'en jouant sur la tangent ti, on pourra créer une discontinuité de courbure en xi, et c'est ce mécanisme qui est au coeur de notre nouvel élément que je peux désormais présenter.
 	</aside>
 </section>
+
 
 <!-- 
 =============================================================================================== 
@@ -234,11 +269,13 @@
 		<li>Segment > $\{\mathbf{x}_{2i},\mathbf{x}_{2i+1},\mathbf{x}_{2i+2}\}$</li>
 	</ul>
 	<hr>
-	<img data-src="./img/eq/biarc_1.svg" width="65%">
+	<object class="svgfragment" type="image/svg+xml" data="img/eq/biarc_1.svg" width="70%"></object>
+	
+	<!-- <img data-src="./img/eq/biarc_1.svg" width="65%"> -->
 	<aside class="notes">
-		De manière analogue au cas continu la poutre est représentée par une fibre neutre discrete définie comme une suite de noeuds xi auxquels sont attachés des répères matériels.
+		De manière analogue au cas continu, la poutre est représentée par une fibre neutre discrete définie comme une suite de noeuds xi auxquels sont attachés des répères matériels.
 		<hr>
-		La différence c'est que nous allons considérer les noeuds 3 par groupes de trois pour former des segments (repérés par les triangles gris). Chaque segments sera composé de deux noeuds poignés à ses extrémitées et d'un noeud fantome en son milieu. 
+		La différence c'est que nous allons considérer les noeuds par groupes de 3 pour former des segments (CLICKER - repérés par les triangles gris). Chaque segments sera composé de deux noeuds poignés à ses extrémitées et d'un noeud fantome en son milieu. 
 		<hr>
 		Ce noeud supplémentaire va permettre d'enrichir l'ordre d'interpolation de l'élement. Ce pendant il sera inaccessible à l'utilisateur, d'où la dénomination de noeud fantôme.
 	</aside>
@@ -254,15 +291,15 @@
 	<hr>
 	<img data-src="./img/eq/biarc_1.svg" width="70%">
 	<aside class="notes">
-		Les propriétés matériels et de section seront supposées uniformes sur chaque segement mais peuvent diférrer d'un segment à l'autre
+		Les propriétés matérielles et de section sont supposées uniformes sur chaque segment mais peuvent diférrer d'un segment à l'autre.
 		<hr>
-		Les segments pourront subir un chargement distribué uniforme
+		Les segments peuvent subir un chargement distribué uniforme ...
 		<hr>
-		Et les noeuds poignés pourront subir des efforts concentrés, aussi bien des forces que des moments.
+		alors que les noeuds poignée peuvent subir des efforts concentrés.
 		<hr>
-		Cette représentation permet une définition rigoureuse de l'ensemble des paramétres descriptifs tout en respectant leur nature propre.
+		Cette représentation permet une définition rigoureuse de l'ensemble des paramétres descriptifs tout en respectant leur nature propre ...
 		<hr>
-		Les grandeures locales sont définies aux noeuds tandis que les grandeurs distribuées sont définies sur les arrêtes.
+		C'est à dire que les grandeures locales sont définies aux noeuds, tandis que les grandeurs distribuées sont définies sur les arrêtes.
 	</aside>
 </section>
 
@@ -276,7 +313,7 @@
 <section class="plan center">
 	<strong>Internal Forces and Moments</strong>
 	<aside class="notes">
-		Le calcul des efforts internes se conduit naturellement à partir du calcul des déformations et courbures matérielles discrètes et des équations de kirchhoff.
+		Le calcul des efforts internes se conduit ensuite naturellement à partir du calcul des déformations et des courbures matérielles discrètes.
 	</aside>
 </section>
 	
@@ -321,7 +358,7 @@
 		<li>Bending moment > $\mathbf{M}^{\perp}_i$</li>
 	</ul>
 	<hr>
-	<img class="imgfragment" src="./img/eq/bending_4.svg" width="80%" fade="200"/>
+	<img class="imgfragment" src="./img/eq/bending_4.svg" width="80%"/>
 	<div>
 		<!-- <span class="imgsrc" data-src="./img/eq/bending_1.svg" data-fragment-index="0"></span>
 		<span class="fragment imgsrc" data-src="./img/eq/bending_2.svg" data-fragment-index="1"></span>
@@ -337,13 +374,13 @@
 	<aside class="notes">
 		Le calcul du moment de flexion concentre toutes les difficultées.
 		<hr>
-		Au niveau des noeuds fantômes, il est calculé simplement à partir de la mesure de la courbure discrète continue.
+		Au niveau des noeuds fantômes, il est calculé à partir de la courbure des noeuds du segment.
 		<hr>
-		Au niveau des noeuds poignées, la définition de la tangent est relachée pour pouvoir créer une discontinuité de courbure.
+		Au niveau des noeuds poignée, la définition de la tangente est relachée pour pouvoir créer une discontinuité de courbure.
 		<hr> 
 		La position de la tangente est calculée à partir de la courbure moyenne des segments adjacents. En pratique celà revient à controler l'orientation du vecteur tangent au niveau des noeuds poignées par la position des noeuds fantômes adjacents.
 		<hr>
-		La tangente étant défini, on peut calculer les courbures à gauche et à droite du noeuds poignés. On voit appratire le biarc.
+		La tangente étant défini, on peut calculer les courbures à gauche et à droite du noeuds poignés, par la méthode du biarc.
 		<hr>
 		Ces courbures sont finalement corrigées pour tenir compte d'un éventuellement moment extérieur. Elles conduisent à l'expression finale du moment de flexion à droite et à gauche du noeud.
 	</aside>
@@ -362,7 +399,7 @@
 	<hr>
 	<img data-src="./img/eq/shear_3.svg" width="80%">
 	<aside class="notes">
-		Finalement, l'effort tranchant est évalué au milieu des arrêtes par la variation de moment interne selon les équations de kirchhoff
+		Finalement, l'effort tranchant est évalué au milieu des arrêtes par la variation de moment interne selon les équations de kirchhoff.
 	</aside>
 </section>
 
@@ -413,15 +450,15 @@
 	<hr>
 	<img data-src="./img/eq/resultant_2.svg" width="80%">
 	<aside class="notes">
-		La dynamique de la poutre est désormais comprise comme le mouvement d'un système de particules représentées par les repères matériels discrets de la poutre au niveau des noeuds.
+		La dynamique de la poutre est désormais comprise comme le mouvement d'un système de particules, représentées par les repères matériels discrets de la poutre au niveau des noeuds.
 		<hr>
 		Du fait de la représentation curve-angle, cette dynamique s'exprime avec seulement 4 degrés de libertés, 3 en translation et 1 en rotation autour de la tangente du repère matériel.
 		<hr>
 		Les résultantes agissant sur les particules sont obtenues comme sommation :
 		<ul>
-			<li>des efforts internes appliqués par la partie droite de la poutre</li>
-			<li>des efforts internes appliqués par la partie gauche de la poutre</li>
-			<li>et des efforts concentrés externes appliqués sur la particule</li>
+			<li>des efforts internes, appliqués par la partie droite de la poutre;</li>
+			<li>des efforts internes, appliqués par la partie gauche de la poutre;</li>
+			<li>et des efforts concentrés externes appliqués sur la particule.</li>
 		</ul>
 
 	</aside>
@@ -439,46 +476,46 @@
 	<br>
 	<cite>[Day, 1962]</cite>
 	<aside class="notes">
-		Notre objectif final n'est pas de faire de la dynamique. Bien que notre élément en soit tout à fait capable.
+		Notre objectif final n'est pas de faire de la dynamique, bien que notre élément en soit tout à fait capable.
 		Ce que nous voulons calculer c'est la forme d'équilibre statique d'un gridshell.
 		<hr>
 		La méthode de la relaxtion dynamique permet celà. Tant que le système n'est pas à l'équilibre, les particules sont en mouvement sous l'action des forces résultantes. La dynamique est intégrée explicitement à partir des équations du mouvement.
 		<hr>
 		En amortissant le système, on dissipe de l'énergie et on le conduit vers un état d'énergie potentielle minial.
 		<hr>
-		Cette dynamique étant fictive, on peut choisir librement les masses des particules afin d'assurer la convergence de l'algorithme et d'optimiser la vitesse de convergence.
+		Cette dynamique étant fictive, on peut choisir librement les masses des particules afin d'assurer la stabilité de l'algorithme et optimiser sa vitesse de convergence.
 	</aside>
 </section>
 
-<section class="positive" style="text-align:left;">
+<section class=" center positive" >
 	<h5 class="" style="text-align:center;">Achievement</h5>
 	<br>
 	<ul style="text-align:left; margin-left:2em;">
-		<li>Smooth beam model constructed from Kirchhoff's dynamical equations</li>
-		<li>Only 4-DOFs due to the curve-angle representation</li>
-		<li>Axial, Flexural and Torsional behaviours</li>
-		<li>Deals naturally with external distributed loads</li>
-	</ul>
-	<hr>
-	<ul style="text-align:left; margin-left:2em;">
-		<li>Discrete biarc beam model constructed from the smooth model</li>
-		<li>Only 4-DOFs due to the discrete curve-angle representation</li>
-		<li>3-noded elements allow the modeling of curvature dicontinuities</li>
-		<li>The model can be reduced to a particle-spring system for explicit time integration</li>
-		<li>Dynamic relaxation is employed to find the static equilibrium of the system</li>
+		<li>Dynamic beam model from Kirchhoff theory</li>
+		<li>Only 4-DOFs</li>
+		<li>Extension + Flexion + Torsion</li>
+		<li>Accounts for distributed applied loads</li>
+		<hr>
+		<li>Discrete biarc beam model</li>
+		<li>Only 4-DOFs</li>
+		<li>Enriched kinematic with ghost nodes</li>
+		<li>Accounts for concentrated & distributed loads</li>
+		<li>Particle-Spring system > Dynamic Relaxation</li>
 	</ul>
 	<aside class="notes">
 		Synthétisons nos résultats :
 		<ul>
 			<li>Nous avons construit un modèle de poutre directement à partir des équations dynamiques de Kirchhoff, une approche plus complète que l'approche variationnelle.</li>
-			<li>Le modèle est formulé avec seulement quatre degrés de libertés grâce à une représentation curve-angle de la poutre basé sur la construction du repère de Bishop</li>
-			<li>Le modèle prend en compte les comportements axial, de flexion et de torsion de la poutre</li>
-			<li>Il intègre naturellemment les efforts distribués</li>
-			<hr>
+			<li>Le modèle est formulé avec seulement quatre degrés de libertés grâce à une représentation curve-angle de la poutre basé sur la construction du repère de Bishop.</li>
+			<li>Le modèle prend en compte les comportements axial, de flexion et de torsion de la poutre.</li>
+			<li>Il intègre naturellemment les efforts distribués.</li>
+		</ul>
+		<hr>
+		<ul>
 			<li>A partir de ce modèle continu, nous avons contruit une élément de poutre discret original dit biarc.</li>
-			<li>Cet élément permet, par un choix approprié de courbure discrete et grâce à l'ajout d'un noeud fantôme, de décrire des discontinutiés de courbure au sein de la poutre</li>
-			<li>Grâce à cette description notre modèle discret peut représenter fidèlement les sauts d'efforts internes générés par des efforts concentrés appliqués sur la poutre</li>
-			<li>Enfin, nous avons montré comment, nous pouvions interpréter notre podèle discret comme un systeme masse-ressort, un formalisme tout à fait adapté à l'intégration explicite du système par la méthode de la relaxation dynamique </li>
+			<li>Cet élément permet, par un choix approprié de courbure discrete et grâce à l'ajout d'un noeud fantôme, de décrire des discontinutiés de courbure au sein de la poutre.</li>
+			<li>Grâce à cette description notre modèle discret peut représenter fidèlement les sauts d'efforts internes générés par des efforts concentrés appliqués sur la poutre.</li>
+			<li>Enfin, nous avons montré comment, nous pouvions interpréter notre modèle discret comme un système masse-ressort, un formalisme tout à fait adapté à l'intégration explicite du système par la méthode de la relaxation dynamique.</li>
 		</ul>
 	</aside>	
 </section>
