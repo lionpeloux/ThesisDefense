@@ -1,5 +1,5 @@
 <section class="plan center">
-	<h5>Implementation & Test case</h5>
+	<h5>Implementation & test case</h5>
 	<ul>
 		<li>Introduction to the concept</li>
 		<li>Design process : overview</li>
@@ -8,14 +8,12 @@
 		<li>Beam model : equilibrium approach</li>
 		<li >New discrete beam element</li>
 		<hr>
-		<li class="highlight">Implementation & Test case</li>
+		<li class="highlight">Implementation & test case</li>
 	</ul>
 	<aside class="notes">
-		Dans le temps qui me reste, je vais vous présenter l'implémentation que j'ai fait de ce modèle dans un code de calcul que j'ai baptisé Marsupilami.
+		Dans le temps qui me reste, je vais vous présenter l'implémentation que j'ai faite de ce modèle dans un code de calcul baptisé Marsupilami.
 		<hr>
-		Ce code m'a permi de valider le modèle sur un certain nombre de cas tests que je vous présenterai également.
-		<hr>
-		Pour finir, je dresserai un état des lieux sur le développement de ce code et proposerait quelques pistes pour le rendre utilisable par un public plus large.
+		Ce code m'a permis de valider le modèle sur un certain nombre de cas tests, que je vais présenter.
 	</aside>
 </section>
 
@@ -43,15 +41,15 @@
 	<aside class="notes">
 		Marsupilami a été développé dans l'idée d'être employé dans l'ecosystème Rhino & Grasshopper.
 		<hr>
-		Rhino est un modeleur 3D bien implanté auprès des architectes et des ingénieurs qui travaillent sur des formes complexes (Fenêtre de gauche)
+		Rhino est un modeleur 3D bien implanté auprès des architectes et des ingénieurs qui travaillent sur des formes complexes (ici Fenêtre de gauche).
 		<hr>
-		Il est fourni avec le plugin Grasshopper qui permet de générer des algorithmes de manière graphique (fenêtre de droite).
+		Il est fourni avec le plugin Grasshopper qui permet de générer des algorithmes de manière graphique (icic fenêtre de droite).
 		<hr>
-		En combinant des composants l'utilisateur peu créer des logiques très complexes. De nombreux composants sont déjà mis à disposition par des tierses parties et l'on peut développer son propre jeu de composants en language C#.
+		En combinant des composants l'utilisateur peu créer des logiques très complexes. De nombreux composants sont déjà mis à disposition par des tierces parties, et l'on peut développer son propre jeu de composants en language C#.
 		<hr>
 		A la manière d'excel, Grasshopper devient un outil à faire des outils et rend facile la diffusion et la combinaison d'algorithmes quels qu'ils soient.
 		<hr>
-		En outre, la logique interne de rhino est exposée au développeur via l'API RhinoCommon ce qui lui offre tous les outils nécessaires pour manipuler et afficher de la géométrie et s'éviter le développement d'une interface graphique indépendante.
+		En outre, la logique interne de rhino est exposée au développeur via l'API RhinoCommon, ce qui lui offre tous les outils nécessaires pour manipuler et afficher de la géométrie et s'éviter le développement d'une interface graphique dédiée.
 		<hr>
 	</aside>
 </section>
@@ -71,8 +69,8 @@
 			<ul>
 				<li>C# est un language mature et robuste, très largement utilisé.</li>
 				<li>Bien qu'initialement développé par Microsoft sur un mode propriétaire, son développement s'effectue sur le mode de l'opensource depuis 3 ans.</li>
-				<li>Le code est en outre facilement portable sur d'autre plateformes ce qui est un avantage indéniable</li>
-				<li>En revanche, on peu déplorer le manque de bibliothèques scientifiques existantes par rapport à d'autres languages mieux implantés dans la communauté scientifique</li>
+				<li>Le code est en outre facilement portable sur d'autre plateformes ce qui est un avantage indéniable.</li>
+				<li>En revanche, on peu déplorer le manque de bibliothèques scientifiques existantes par rapport à d'autres languages mieux implantés dans la communauté scientifique.</li>
 			</ul>
 		</aside>
 	</section>
@@ -91,9 +89,9 @@
 	<img class="stretch" data-src="./img/case/github.png"/>
 	</div>
 	<aside class="notes">
-		Bien que destinée à être utilisée premièrement dans Rhino Grasshopper, Marsupilami est pensé comme une API sans dépendance avec des programmes tierces, autres que ceux nécesssaires à la compilation et l'exécution du language.
+		Bien que destinée à être utilisé dans Rhino Grasshopper, Marsupilami est pensé comme une API sans dépendance avec des programmes tierces.
 		<hr>
-		Cette API portable est scindée en deux bibliothèques : une de math et une de mécanique
+		Cette API portable est scindée en deux bibliothèques : une de math et une de mécanique.
 		<hr>
 		Marsupilami est exposé à Rhino Grasshopper via l'interface Marsupilami.Gh qui ajoute une barre d'outil dans la fenêtre de Grasshopper.
 		<hr>
@@ -112,9 +110,9 @@
 	<img class="stretch" data-src="./img/case/refine.gif"/>
 	</div>
 	<aside class="notes">
-		Le code de Marsupilami tire parti des concepts de programmation orientée objet pour gagner en modularité et offrir un bon niveau d'abstraction. Par exemple, celà nous permet de mixer des éléments à 3, 4 et 6 degrés de libertés dans un même modèle. A l'avenir, celà nous permettra d'implémenter d'autres types d'éléments comme des cables ou des barres.
+		Le code de Marsupilami tire parti des concepts de programmation orientée objet pour gagner en modularité et offrir un bon niveau d'abstraction. Par exemple, celà nous permet de mixer des éléments à 3, 4 et 6 degrés de libertés dans un même modèle. A l'avenir, cela nous permettra d'implémenter plus facilement d'autres types d'éléments.
 		<hr>
-		Par ailleurs, nous avons aussi fait usage de la programmation par évènement qui permet d'apporter de nouvelles fonctionalités difficiles voir impossibles à implémenter avec un mode de programmation séquentiel.
+		Par ailleurs, nous avons aussi fait usage de la programmation par évènement qui permet d'apporter de nouvelles fonctionalités, difficiles voir impossibles à implémenter avec un mode de programmation séquentiel.
 		<hr>
 		Par exemple, cela nous a permis d'implémenter des méthodes de raffinement automatique des éléments de manière très simple, une piste prometteuse pour augmenter la rapidité des calculs en conservant une bonne précision.
 		<hr>
@@ -146,11 +144,11 @@
 	<hr>
 	<img data-src="./img/eq/bench_drawing.svg">
 	<aside class="notes">
-		Le problème considéré est le flambage d'une poutre naturellement droite, de longeur 10m et de section rectangulare 4x6 centimètres.
+		Le problème considéré est le flambage d'une poutre naturellement droite, de longeur 10m, et de section rectangulaire de  4x6 centimètres.
 		<hr>
 		Cette poutre est fléchie selon son inertie forte ce qui provoque un déplacement hors plan.
 		<hr> 
-		La distance entre les appuis est fixée à 2 mètres et l'angle d'ouverture à pi/3
+		La distance entre les appuis est fixée à 2 mètres et l'angle d'ouverture à pi/3.
 		<hr>
 		On compare les résultats obtenus par Marsupilami et Abaqus pour différentes discrétizations de la poutre.
 	</aside>
@@ -160,10 +158,10 @@
 	<h5 class="">Abaqus</h5>
 	<img class="stretch" data-src="./img/eq/bench_abaqus_anim.gif" />
 	<aside class="notes">
-		Ce problème parait simple mais est difficile à simuler dans un logiciel comme Abaqus.
+		Ce problème parait simple, mais est difficile à simuler dans un logiciel comme Abaqus.
 		Il faut considérer pas moins de 4 étapes pour faire converger le calcul.
 		<hr>
-		Une telle séquence est difficielement envisageable pour un réseau de poutre.
+		Une telle séquence est difficilement envisageable pour un réseau de poutre.
 	</aside>
 </section>
 
@@ -171,7 +169,7 @@
 	<h5 class="">Marsupilami</h5>
 	<video data-autoplay class="stretch" data-src="./img/mov/bench_marsupilami.mp4"></video>
 	<aside class="notes">
-		On voit sur cette courte vidéo le calcul du problème avec Marsupilami en temps réel.
+		On voit sur cette courte vidéo le calcul du problème avec Marsupilami en temps réel, où l'on a utilisé la fonctionalité de rafinement automatique de la poutre.
 	</aside>
 </section>
 
@@ -190,10 +188,14 @@
 		On mesure l'écart relatif de la position du sommet entre Marsupilami et Abaqus.
 		Pour une discrétisation de 24 l'écart est inférieur à 1%. Pour la discrétization maximale il est inférieur à 0.05%.
 		<hr>
-		Sur la figure, on a supperposé les diagrammes normalisés des efforts internes pour la discrétization maximale obtenus par Abaqus (en gris) et par Marsupilami (en bleu). On constate une très grande proximité.
+		Sur la figure, on a superposé les diagrammes normalisés des efforts internes obtenus :
+		<ul>
+			<li>par Abaqus (en gris)</li>
+			<li>et par Marsupilami (en bleu)</li>
+		</ul> 
+		On constate l'excellent adéquations des résultats.
 		<hr>
-
-		On voit que les temps de calcul de Marsupilami sont très inférieurs à ceux d'Abaqus sur ce cas précis. Ce résultat est à relativiser et il faudrait élargir les tests à des structures avec plus de degrés de liberté pour les confirmer.
+		On voit également que les temps de calcul de Marsupilami sont très inférieurs à ceux d'Abaqus sur ce cas précis. Ce résultat est à relativiser et il faudrait élargir les tests à des structures avec plus de degrés de liberté pour les confirmer.
 		<hr> 
 	</aside>
 </section>
@@ -220,7 +222,7 @@
 	<aside class="notes">
 		Ici on a une poutre encastrée-rotulée à ses extrémitées.
 		<hr>
-		On montre la prise en compte d'efforts d'efforts distribués sur la poutre qui donne leur pente aux diagrammes
+		On montre la prise en compte d'efforts distribués sur la poutre qui donnent leur pente aux diagrammes.
 		<hr>
 		On montre la prise en compte d'efforts concentrés qui provoquent des sauts dans les diagrammes.
 		<hr>
@@ -246,7 +248,7 @@
 	<hr>
 	<img class="imgfragment" src="./img/case/cantilever_C.gif" width="90%"/>
 	<aside class="notes">
-		Autre exemple de poutre encastrée qui montre l'influence du couplage flexion-torsion
+		Autre exemple de poutre encastrée qui montre l'influence de la torsion sur les diagrammes des efforts internes.
 	</aside>
 </section>
 
@@ -256,7 +258,7 @@
 	<hr>
 	<img class="imgfragment" src="./img/case/gs.gif" width="90%"/>
 	<aside class="notes">
-		Enfin, bien qu'encore en chantier Marsupilami permet déjà de calculer des poutres interconnectées.
+		Enfin, bien qu'encore en chantier, Marsupilami permet déjà de calculer des poutres interconnectées. On voit ici un petit gridshell de 6 poutres.
 	</aside>
 </section>
 
@@ -272,43 +274,43 @@
 	</aside>
 </section>
 
-<section class="">
+<section class="center">
 	<h5 class="">Conclusion</h5>
 	<ul>
 		<li>New 4-DOFs & 3-noded discrete beam element</li>
-		<li>Marsupilami : lightweight dependence-free API for nonlinear formfinding of structures</li>
+		<li>Marsupilami : formfinding of bending-active structures</li>
 		<li>Validation against Abaqus shows very good results</li>
 		<li>Enhance the analysis toolchain for the design of elastic gridshells</li>
 	</ul>
 	</div>
 	<aside class="notes">
-		Nous avons mis au point un élément de poutre discret original à 4 degrés de liberté et 3 noeuds bien adapté à la modélisation des structures de type gridshell élastique dans un contexte de projet.
+		Nous avons mis au point un élément de poutre discret original à 4 degrés de liberté et 3 noeuds, bien adapté à la modélisation des structures de type gridshell élastique dans un contexte de projet.
 		<hr>
-		Nous avons implémenté cet élement dans un code de calcul baptisé Marsupilami qui prend la forme d'une API et d'une interface pour le logiciel Rhino-Grasshopper. 
+		Nous avons implémenté cet élement dans un code de calcul baptisé Marsupilami, qui prend la forme d'une API et d'une interface pour le logiciel Rhino-Grasshopper. 
 		<hr>
 		Nous avons validé la précision de notre modèle sur un cas test par comparaison avec Abaqus. Et les résultats sont très satisfaisant.
 		<hr>
-		Combiné à notre outil de maillage par la méthode du compas, il offrira des moyens d'analyse renforcés pour concevoir des gridshells élastiques.
+		Combiné à notre outil de maillage par la méthode du compas, Marsupilami offrira des moyens d'analyse renforcés pour concevoir des gridshells élastiques.
 	</aside>
 </section>
 
-<section class="">
+<section class="center">
 	<h5 class="">Perspectives</h5>
 	<ul>
 		<li>Marsupilami is still in progress > collaborative development</li>
+		<li>Computations are fast but not realtime</li>
 		<li>Not limited to the design of elastic gridshells</li>
-		<li>Marsupilami n'est pas limité au design des gridshells. </li>
 		<li>Grishell : research > commercial effort</li>
 	</ul>
 	</div>
 	<aside class="notes">
-		Bien qu'un effort important est été consacré au développement de Marsupilami cet outil reste encore en chantier. Une façon de poursuivre son développement serait d'ouvrir le code à d'autres laboratoires. Ces aspects sont en discussion.
+		Bien qu'un effort important ait été consacré au développement de Marsupilami cet outil reste encore en chantier. Une façon de poursuivre son développement serait d'ouvrir le code à d'autres laboratoires. Ces aspects sont en discussion.
 		<hr>
-		Marsupilami n'est pas limité au design des gridshells. 
+		Bien que Marsupilami soit rapide, on peut regretter que les calculs ne s'exécutente pas en temps réel. A ce stade, la simulation interactive des gridshells n'est donc pas possible.
 		<hr>
-		Il pourrait par exemple être utilisé pour simuler la position des flexibles sur les bras robotisés, afin de prévenir d'éventuels clash.
+		Marsupilami n'est pas limité au design des gridshells.I l pourrait par exemple être utilisé pour simuler la position des flexibles sur les bras robotisés, afin de prévenir d'éventuels clash.
 		<hr>
-		Il est par ailleurs déjà utilisé, dans une version sans torsion pour simuler des fillets de protection par bloc.
+		Il est par ailleurs déjà utilisé, dans une version sans torsion, pour simuler des fillets de protection par bloc.
 		<hr>
 		Enfin, je crois que beaucoup a été fait en terme de recherche sur ces structures mais peu en terme de développement technico-commercial. Si l'on veut en construire à l'avenir, il faut sans doute se remonter un peu les manches de ce côté là.
 	</aside>
