@@ -62,9 +62,9 @@
 <section class="black center" data-background-video="./img/mov/hair.mp4" data-background-size="contain" data-background-video-muted >
 	<!-- <h7 class="">Hair Animation</h7> -->
 	<aside class="notes">
-	Dans le domaine des Computeurs Graphics il y a un intérêt très fort pour la mise au point de modèles mécaniques, physiques ou pseudo-physiques, pour enrichir les rendus des jeux et des films d'animation, tout en gardant une vraie exigeance en terme de rapidité de calcul.
+	Dans le domaine des Computeurs Graphics il y a un intérêt très fort pour la mise au point de modèles mécaniques pour augmenter le réalisme des jeux et des films d'animation, tout en gardant une vraie exigeance en terme de rapidité de calcul.
 	<hr>
-	Sur cette vidéo des studios Pixar on voit comment la chevelure d'un personnage est simulée à partir de tiges élastiques qui représentent des mèches. Ce modèle ne comporte pas de connexion, une limitation qu'il faudra dépasser dans le cadre de notre objectif.
+	Sur cette vidéo des studios Pixar, on voit comment la chevelure d'un personnage est simulée à partir de tiges élastiques qui représentent des mèches. Ce modèle ne comporte pas de connexion, une limitation qu'il faudra dépasser dans le cadre de notre objectif.
 	</aside>
 </section>
 
@@ -113,8 +113,8 @@
 	<aside class="notes">
 	Sous ces hypothèses, la géométrie de la poutre est décrite de manière assez classique comme un milieu curviligne, à l'aide : 
 	<ul>
-		<li>d'une courbre paramétrique (notée x)</li>
-		<li>et d'un repère matériel attaché à la courbe (d3, d1, d2), pour décrire son extension latérale, c'est à dire sa section.</li>
+		<li>d'une courbre paramétrique (notée X)</li>
+		<li>et d'un repère matériel attaché à la courbe (noté D3, D1, D2), pour décrire sa section.</li>
 	</ul> 
 	<hr>
 	Je tiens à souligner que du fait de l'hypothèse d'inextensibilité on peut adopter la même paramétrisation pour toutes les configurations de la poutre. Par la suite, nous choisirons l'abscisse curviligne comme paramètre pour repérer un point matériel de la fibre neutre.
@@ -129,7 +129,7 @@
 <section class="plan center">
 	<strong>6-DOFs > 4-DOFs</strong>
 	<aside class="notes">
-		A priori une telle représentation est entièrement définie par 6 degrés de libertés. 3 en translation et 3 en rotation pour l'orientation du repère matériel.
+		A priori une telle représentation est entièrement définie par 6 degrés de libertés. 3 en position et 3 en rotation pour l'orientation du repère matériel.
 		<hr> 
 		Nous allons voir maintenant comment le repère de Bishop peut nous permettre de réduire à 4 le nombre de degrés de libertés nécessaires pour décrire la configuration de la poutre.
 	</aside>
@@ -148,15 +148,14 @@
 		<span class="fragment imgsrc" data-src="./img/eq/frenet_7.svg" data-fragment-index="1"></span>
 	</div>	 -->
 	<aside class="notes">
-	Commençons par rappeler qu'une courbe de l'espace est entièrement caractérisée par sa courbure et sa torsion géométriques. Connaissant kappa et tau, je suis capable de reconstruire la courbe, à un mouvement solide pret, en intégrant les équations dites de Serret-Frenet.
+	Commençons par rappeler qu'une courbe de l'espace est entièrement caractérisée par sa courbure et sa torsion géométriques. Connaissant kappa et tau, je suis capable de reconstruire la courbe, à un mouvement solide prêt.
 	<hr>
-	Le reprère de frenet est composé des vecteurs t,n et b, les vecteurs tangent, normal et binormal à la courbe.
-	b est obtenu par produit vectoriel de t et n pour former un trièdre orthonormé direct.
+	Le reprère de frenet est composé des vecteurs T, N et B, les vecteurs tangent, normal et binormal à la courbe.
+	B est obtenu par produit vectoriel de T et N pour former un trièdre orthonormé direct.
 	<hr>
-	t et n forment le plan osculateur, le plan local dans lequel la courbe prend sa courbure. La courbure se calcule comme l'inverse du rayon du cercle osculateur, ici en bleu.
+	T et N forment le plan osculateur, le plan local dans lequel la courbe prend sa courbure. La courbure se calcule comme l'inverse du rayon du cercle osculateur, ici en bleu.
 	<hr>
-	On introduit dès à présent le vecteur courbure binormale, qui est colinéaire à b mais de norme kappa. Il est normal au plan osculateur.
-	Ce vecteur sera un outil fondamental pour la suite de notre étude.
+	On introduit dès à présent le vecteur courbure binormale, noté KB, qui est colinéaire à B mais de norme KAPPA. Il est normal au plan osculateur. Ce vecteur sera un outil fondamental pour la suite de notre étude.
 	</aside>
 </section>
 
@@ -170,7 +169,7 @@
 	<hr>
 	<img class="imgfragment" src="./img/eq/frenet_7.svg" width="65%"/>
 	<aside class="notes">
-	La torsion mesure la façon dont la courbe se gauchie dans l'espace. Elle s'interprète comme la vitesse de rotation instannée du plan osculateur autour de la courbe.
+	La torsion mesure la façon dont la courbe se gauchie dans l'espace. Elle s'interprète comme la vitesse de rotation instantanée du plan osculateur autour de la courbe.
 	<hr>
 	Sur ce schéma on a représenté l'évolution du repère de Frenet le long d'une courbe qui présente une inflexion.
 	En ce point, la définition du vecteur tangent est continue mais la courbure s'annule et le vecteur normal n'est plus défini.
@@ -204,7 +203,7 @@
 	<aside class="notes">
 	Pour pouvoir définir le repère de Bishop je vous invite d'abord à considérer le cas des repères mobiles, adaptés à la fibre neutre de la poutre. Ces repères ont la particularité d'avoir l'axe E3 tangent à la courbe. 
 	<hr> 
-	Le repère materiel en est un puisque nous avons supposé que les sections restaient normales à la fibre neutre. Par définition le repère de Frenet est lui aussi un repère adapté.
+	Le repère matériel est adapté à la courbe compte tenue de nos hyptohèses sur les sections.
 	<hr>
 	On constate très simplement que l'on passe d'un repère adapté à un autre par une simple rotation d'angle theta autour de la tangente.
 	<hr>
@@ -235,14 +234,14 @@
 	<hr>
 	<img class="" data-src="./img/frame_speed.svg" width="60%">
 	<aside class="notes">
-	On admettra que dans le cas général, l'évolution d'un reprère mobile le long d'une courbe s'exprime en fonction du vecteur de Darboux, dont les composantes tau, k1, k2, s'interprètent comme les vitesses angulaires instanées du repère exprimées dans sa base propre.
-	<hr>
-	Ce résultat s'exprime sous la forme d'une équation différentielle d'odre 1 faisant intervenir les vecteurs directeurs du repère mobile et le vecteur de Darboux.
+	On admettra que dans le cas général, l'évolution d'un reprère mobile le long d'une courbe s'exprime en fonction du vecteur de DARBOUX, dont les composantes TAU, K1, K2, s'interprètent comme les vitesses angulaires instanées du repère, exprimées dans sa base propre.
+	<!-- <hr>
+	Ce résultat s'exprime sous la forme d'une équation différentielle d'odre 1 faisant intervenir les vecteurs directeurs du repère mobile et le vecteur de Darboux. -->
 	<hr>
 	Dans le cas particulier d'un repère adapté on peut montrer l'identié KB = K1 E1 + K2 E2.
-	Et donc réécrire la vitesse du repère sous la forme Omega = KB + tau fois la tangente.
+	Et donc réécrire la vitesse du repère sous la forme OMEGA = KB + TAU fois la tangente.
 	<hr>
-	On retrouve formellement ce que nous avons montré avec les mains, à savoir que les repères adaptés diffèrent les uns des autres uniquement par leur façon de tourner autour la courbe, car kb est entièrement déterminé par la géométrie de la courbe. Seul tau les distingue.
+	On retrouve formellement que les repères adaptés diffèrent les uns des autres uniquement par leur façon de tourner autour la courbe, car KB est entièrement déterminé par la géométrie de la courbe. Seul TAU les distingue.
 	</aside>
 </section>
 <section class="">
@@ -262,15 +261,13 @@
 	</div>
 	<p><cite>There is more than one way to frame a curve [Bishop 1975]</cite></p>
 	<aside class="notes">
-	Et c'est précisément ce que démontre Bishop en 75.
+	Ainsi, le repère de Frenet sera défini par la torsion géométrique de Frenet notée tau_f
 	<hr>
-	Le repère de Frenet sera défini par la torsion géométrique de Frenet notée tau_f
-	<hr>
-	Le repère matériel sera défini par la torsion matérielle tau. Et on admettra que les composantes du vecteur vitesse, renommées TAU, KAPPA_1 et KAPPA_2 s'identifient respectivement à la torsion et aux courbures materielles dans la poutre.
+	Le repère matériel sera défini par la torsion matérielle TAU. Et on admettra que les composantes du vecteur de DARBOUX, renommées TAU, KAPPA_1 et KAPPA_2 s'identifient aux courbures materielles de la poutre.
 	<hr>
 	Enfin, on appelera repère de Bishop ou zero-twisting frame, le repère de torsion nulle. Ce repère se déplace sans tourner autour de la courbe.
 	<hr>
-	Sa vitesse angulaire est donnée par le vecteur kb, et ne dépend donc que de la géométrie de la fibre neutre. Le repère de référence que nous cherchions pour réduire notre cinématique existe donc, c'est le repère de Bishop.
+	Sa vitesse angulaire est donnée par le vecteur KB, et ne dépend donc que de la géométrie de la fibre neutre. Le repère de référence que nous cherchions pour réduire notre cinématique existe donc, c'est le repère de Bishop.
 	</aside>
 </section>
 <section class="">
@@ -308,20 +305,20 @@
 	<br>
 	<p><cite>(<sup>*</sup>) Since the material frames depend on the rod’s centerline and are not independent degrees of freedom [Bergou 2008]</cite></p>
 	<aside class="notes">
-		Contrairement à Bergou et al. 2008, nous considérons que les degrés de liberté du système sont bien indépendants.
+		Contrairement à Bergou, nous considérons que les degrés de liberté du système sont bien indépendants.
 		<hr>
 		Les courbures matérielles dans la poutre sont directement données par la projection de KB sur les axes matériels 1 et 2.
 		<hr>
-		Et on montre sans difficulté que la torsion matérielle est donnée directement par le tau de variation de theta.
+		Et on montre sans difficulté que la torsion matérielle est donnée directement par le tau de variation de THETA.
 		<hr>
-		Une fois les courbures matérielles calculées, on pourra remonter au moment interne dans la poutre à partir des équations constituives classiques pour la flexion et la torsion.
+		Une fois les courbures matérielles calculées, on pourra remonter au moment interne dans la poutre à partir des équations constituives.
 		<hr>
 		Reprenons une dernière fois la cinématique que nous venons de construire.
 		<ul>
 			<li>La fibre neutre est paramétrée par son abscisse curviligne</li>
 			<li>En mesurant KB, on construit le repère de Bishop par transport parallèle sur la fibre neutre</li>
-			<li>On obtient le repère matériel par une rotation du repère de bishop d'un angle THETA autour de la courbe</li>
-			<li>A partir du repère matériel on est capable de calculer la torsion et les courbures matérielles</li>
+			<li>On obtient alors le repère matériel par une rotation du repère de bishop d'un angle THETA autour de la courbe</li>
+			<li>A partir du repère matériel on calcule les courbures matérielles</li>
 			<li>Finalement on accède aux moments de torsion et de flexion par les équations constitutives</li>
 		</ul>
 	</aside>
@@ -382,9 +379,9 @@
 	<aside class="notes">
 		Après quelques pages de calcul on peu écrire de manière condensée l'effort tranchant et le moment de torsion linéique agisssant sur la poutre.
 		<hr>
-		Un oeil averti reconnaitra la forme classique de l'effort tranchant dans la théorie de Krichhoff, qui équilibre la vriation de moment de flexion. C'est cette observation qui nous a donné l'intuition d'une seconde approche, plus complète, que je vais présenter par la suite.
+		Un oeil averti reconnaitra la forme classique de l'effort tranchant dans la théorie de Kirchhoff, qui équilibre la variation de moment de flexion. C'est cette observation qui nous a donné l'intuition d'une seconde approche, plus complète, que je vais présenter par la suite.
 		<hr>
-		En résumé, connaisant la configuration de la poutre, je calcule les courbures matérielles qui me donnent le moment de flexion et de torsion. Connaisssant alors la variation du moment de flexion, je suis capable de calculer l'effort tranchant agissant sur la poutre.
+		En résumé, connaissant la configuration de la poutre, je calcule les courbures matérielles qui me donnent le moment de flexion et de torsion. Connaisssant alors la variation du moment de flexion, je suis capable de calculer l'effort tranchant agissant sur la poutre.
 	</aside>
 </section>
 

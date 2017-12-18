@@ -44,7 +44,7 @@
 	<aside class="notes">
 		Je vais donc réécrire les équations de Kirchhoff en m'appuyant sur l'excellente présentation qu'en a faite Dill en 92.
 		<hr>
-		Par ailleurs, j'ai adopté le formalisme des tiges de Cosserat tel que présenté par Antman pour décrire la cinématique de la poutre le plus généralement possible. Je ne détaillerai pas cet aspect.
+		Par ailleurs, j'ai adopté le formalisme des tiges de Cosserat, tel que présenté par Antman,  pour décrire la cinématique de la poutre le plus généralement possible. Je ne détaillerai pas cet aspect.
 	</aside>
 </section>
 
@@ -95,7 +95,7 @@
 	 Ce schéma montre les 4 modes de déformation d'une tige de Kirchhoff.
 	 <ul>
 		 <li>L'extension axiale, qui conduit à une contraction de la section du fait de l'effet Poisson.</li>
-		 <li>Les flexions circulaires d'axes 1 et 2, qui conduisent à une dilatation de la section du côté de la fibre comprimée, et à une contraction de la section du côté de la fibre tendu.</li>
+		 <li>Les flexions circulaires d'axes 1 et 2, qui conduisent à une déformation de la section dans son plan.</li>
 		 <li>La torsion pure d'axe 3 qui engendre une déformation hors plan de la section appellée gauchissement.</li>
 	 </ul>
 	</aside>
@@ -122,9 +122,9 @@
 		La poutre est représentée par sa fibre neutre paramétrée par l'abscisse curviligne de la configuration de référence.
 		<hr>
 		A cette fibre neutre on associe un repère materiel adapté à la courbe pour décrire la section.
-		Un point matériel sera repéré par ses coordonnées s, X1 et X2 dans la configuration de référence.
+		<!-- Un point matériel sera repéré par ses coordonnées s, X1 et X2 dans la configuration de référence. -->
 		<hr>
-		Dans la configuration déformée, la position du point est donnée relativement à un mouvement solide de la section, que l'on mesure par le vecteur des déformations locales de la section notée u.
+		Dans la configuration déformée, la position d'un point matériel est donnée relativement à un mouvement solide de la section, grâce au vecteur des déformations locales de la section notée u.
 		<hr>
 		U restera petit dans le cadre de nos hypothèses.
 	</aside>
@@ -153,7 +153,7 @@
 	<hr>
 	<img data-src="./img/eq/motion_2.svg" width="80%">
 	<aside class="notes">
-		Les déformations sont quant à elles données par les dérivées spatiales de la fibre neutre et du repère matériel, qui font apparaitre le vecteur des déformations (noté ETA) et le vecteur des courbures matérielles (noté Varkappa).
+		Les déformations sont quant-à-elles données par les dérivées spatiales de la fibre neutre et du repère matériel, qui font apparaitre le vecteur des déformations (noté ETA) et le vecteur des courbures matérielles (noté Varkappa).
 		<hr>
 		Du fait de l'extension epsilon de la poutre, qui je le rappelle n'est pas supposée strictement inextensible dans la théorie de Kirchhoff, les courbures materielles ne s'assimilent plus aux courbures géométriques. Il faut tenir compte du changement de longueur de la poutre.
 		<!-- <hr>
@@ -164,20 +164,20 @@
 <section class="">
 	<h5 class="">Constitutive Equations</h5>
 	<ul>
-		<li>Deduced from 3D elasticity > isotropic and linear-elastic material</li>
-		<li>Include axial internal force</li>
-		<li>The torsion constant $J\;$ depends on the warping function $\varphi_s$</li>
+		<li>Deduced from the assumptions (linear elasticity + small $\mathbf{u}$)</li>
+		<li>Include axial internal force > $F_3$</li>
+		<li>Warping function $\varphi_s$ > torsion constant $J\;$</li>
 	</ul>
 	<hr>
 	<img data-src="./img/eq/constitutive_1.svg" width="80%">
 	<hr>
 	<img data-src="./img/eq/constitutive_2.svg" width="80%">
 	<aside class="notes">
-		Dill montre ensuite que les équations constitutives qui relient le moment aux courbures sont déduites de l'élasticité 3D pour un matériau élastique.
+		Dill déduit les équations constitutives de la poutre à partir des hypothèses initiale sur les déformations et dans le cadre de l'élasticité linéaire.
 		<!-- <hr>
 		Ces relations ne sont donc pas des hypothèses du modèle à proprement parlé. -->
 		<hr>
-		Remarquons également que la constante de torsion diffère du moment polaire de la section, et dépend de sa fonction de gauchissement notée phi.
+		Remarquons également que la constante de torsion J diffère du moment polaire de la section, et dépend de sa fonction de gauchissement notée phi.
 	</aside>
 </section>
 
@@ -200,7 +200,13 @@
 		<li>Shear force is a reacting parameter</li>
 	</ul>
 	<hr>
-	<img data-src="./img/eq/dynamic_equations.svg" width="80%">
+	<!-- <img data-src="./img/eq/dynamic_equations.svg" width="80%"> -->
+	<img class="imgfragment" src="./img/eq/dynamic_equations.svg" width="80%"/>
+	<div>
+		<span class="imgsrc" data-src="./img/eq/dynamic_equations.svg" data-fragment-index="0"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/dynamic_equations_a.svg" data-fragment-index="1"></span>
+		<span class="fragment imgsrc" data-src="./img/eq/dynamic_equations_b.svg" data-fragment-index="2"></span>
+	</div>
 	<hr>
 	<img data-src="./img/eq/constitutive_1.svg" width="80%">
 	<aside class="notes">
