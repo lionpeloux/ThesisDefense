@@ -175,8 +175,8 @@
 <section class="">
 <h5 class="">Tangent Vector</h5>
 <ul>
-	<li>Curvature and tangent vectors are prescribe at $\mathbf{x}_i$ by the osculating circle</li>
-	<li>Consequently, we have assumed the curvature is continuous in the vicinity of $\mathbf{x}_i$</li>
+	<li>Osculating circle at $\mathbf{x}_i$ > $\mathbf{\kappa b}_i\;,\;\mathbf{t}_i$</li>
+	<li>Curvature is $\mathcal{C}^0$ in the vicinity of $\mathbf{x}_i$</li>
 </ul>
 <hr>
 	<!-- <table class="imgtable">
@@ -195,10 +195,10 @@
 		<span class="fragment imgsrc" data-src="./img/eq/tangent_circumscribed_ends.svg" data-fragment-index="1"></span>
 	</div>
 	<aside class="notes">
-		Le cercle osculateur est par définition le cercle qui approche le mieu la courbe.
-		Il est donc naturel de définir le vecteur tangent à la coubre discrète comme le vecteur tangent au cercle osculateur.
-		<hr>
-		En faisant se raisonnement nous avons supposé que la courbure était localement continue au voisinage de Xi.
+		Par définition le cercle osculateur est celui qui approche le mieu la courbe.
+		Il est donc naturel de définir le vecteur tangent à la coubre discrète, comme le vecteur tangent à son cercle osculateur.
+		<!-- <hr>
+		En faisant se raisonnement nous avons supposé que la courbure était continue au voisinage de Xi. -->
 		<hr>
 		Cette approche peut être étendue aux extrémités de la courbe en définissant le cercle osculateur comme l'unique cercle passant par deux sommets voisins et une tangente.
 		<hr>
@@ -209,7 +209,7 @@
 <section class="">
 		<h5 class="">TANGENT</h5>
 		<ul>
-			<li>Definitions agree > Current / Left / Right</li>
+			<li>Definitions agree > $\mathbf{\kappa b}_i = \mathbf{\kappa b}_i^+ = \mathbf{\kappa b}_i^-$ </li>
 			<li>Tangent vector > control local curvature with biarc</li>
 		</ul>
 		<hr>
@@ -235,12 +235,13 @@
 <section class="">
 	<h5 class="">BIARC</h5>
 	<ul>
-		<li>Definitions agree > Current / Left / Right</li>
+		<li>$\mathbf{\kappa b}_i^-(\mathbf{t}_i^*) \neq \mathbf{\kappa b}_i^+(\mathbf{t}_i^*) \neq \mathbf{\kappa b}_i$ </li>
 		<li>Tangent vector > control local curvature with biarc</li>
 	</ul>
 	<hr>
 	<object class="svgfragment" type="image/svg+xml" data="img/eq/tangent_circumscribed_current_biarc.svg" width="65%"></object>
 	<aside class="notes">
+		CLICKER
 		<hr> On comprend alors qu'en jouant sur la tangent ti, on pourra créer une discontinuité de courbure en xi, et c'est ce mécanisme qui est au coeur de notre nouvel élément que je peux désormais présenter.
 	</aside>
 </section>
@@ -270,11 +271,11 @@
 	
 	<!-- <img data-src="./img/eq/biarc_1.svg" width="65%"> -->
 	<aside class="notes">
-		De manière analogue au cas continu, la poutre est représentée par une fibre neutre discrete définie comme une suite de noeuds xi auxquels sont attachés des répères matériels.
+		De manière analogue au cas continu, la poutre est représentée par une fibre neutre discrete définie comme une suite de noeuds xi, auxquels sont attachés des répères matériels.
 		<hr>
-		La différence c'est que nous allons considérer les noeuds par groupes de 3 pour former des segments (CLICKER - repérés par les triangles gris). Chaque segments sera composé de deux noeuds poignés à ses extrémitées et d'un noeud fantome en son milieu. 
+		La différence c'est que nous allons considérer les noeuds par groupes de 3 pour former des segments (CLICKER - repérés par les triangles gris). Chaque segments sera composé de deux noeuds poignée à ses extrémitées et d'un noeud fantôme en son milieu. 
 		<hr>
-		Ce noeud supplémentaire va permettre d'enrichir l'ordre d'interpolation de l'élement. Ce pendant il sera inaccessible à l'utilisateur, d'où la dénomination de noeud fantôme.
+		Ce noeud supplémentaire va permettre d'enrichir l'élement. Cependant, il restera inaccessible à l'utilisateur, d'où son nom.
 	</aside>
 </section>
 
@@ -290,11 +291,11 @@
 	<aside class="notes">
 		Les propriétés matérielles et de section sont supposées uniformes sur chaque segment mais peuvent différer d'un segment à l'autre.
 		<hr>
-		Les segments peuvent subir des chargement distribué ...
+		Les segments peuvent subir des efforts distribués ...
 		<hr>
-		Les noeuds poignée peuvent subir des efforts concentrés mais pas les noeuds fantomes.
+		tandis que les noeuds poignée peuvent subir des efforts concentrés (mais pas les noeuds fantômes).
 		<hr>
-		Cette représentation permet une définition rigoureuse de l'ensemble des paramétres descriptifs, tout en respectant leur nature propre ...
+		Cette représentation permet une définition rigoureuse de l'ensemble des paramètres descriptifs du système, tout en respectant leur nature propre ...
 		<hr>
 		C'est à dire que les grandeures locales sont définies aux noeuds, tandis que les grandeurs distribuées sont définies sur les arrêtes.
 	</aside>
@@ -334,6 +335,7 @@
 	<ul>
 		<li>Parallel transport > $\Delta \theta_i$</li>
 		<li>Rate of twist > $\tau_i$</li>
+		<li>Material twist > $\varkappa_{3,i}$</li>
 		<li>Twisting moment > $\mathbf{Q}_i$</li>
 	</ul>
 	<hr>
@@ -390,13 +392,13 @@
 		<li>Reacting parameter</li>
 	</ul>
 	<hr>
-	<img data-src="./img/eq/shear_1.svg" width="80%">
+	<img data-src="./img/eq/shear.svg" width="80%">
 	<hr>
 	<img data-src="./img/eq/shear_2.svg" width="80%">
 	<hr>
 	<img data-src="./img/eq/shear_3.svg" width="80%">
 	<aside class="notes">
-		Finalement, l'effort tranchant est évalué au milieu des arrêtes par la variation de moment interne selon les équations de kirchhoff.
+		Finalement, l'effort tranchant est évalué au milieu des arrêtes par la variation de moment interne à partir des équations de kirchhoff.
 	</aside>
 </section>
 
@@ -405,7 +407,7 @@
 	<ul>
 		<li>Linear interpolation : mid-edge > vertex </li>
 		<li>From the equations of motion with inertial terms neglected</li>
-		<li>Particle-spring system</li>
+		<li>Beam > particle-spring system</li>
 	</ul>
 	<hr>
 	<img data-src="./img/eq/interpolation_1.svg" width="80%">
@@ -435,10 +437,10 @@
 <section class="">
 	<h5 class="">Particle-Spring System</h5>
 	<ul>
-		<li>The system is now modeled as a particle-spring system</li>
-		<li>Particles are subject to relsultant forces and moments > $R_i^x\;,\;R_i^{\theta}$</li>
+		<li>Beam(s) > particle-spring system</li>
+		<li>Particle motion under resultants > $R_i^x\;,\;R_i^{\theta}$</li>
 		<li>Translational and rotational lumped masses > $m_i^x\;,\;m_i^{\theta}$</li>
-		<li>Only 4-DOFs due to the curve-angle representation</li>
+		<li>Curve-angle representation > 4-DOFs</li>
 	</ul>
 	<hr>
 	<img data-src="./img/eq/ps_motion.svg" width="80%">
@@ -449,34 +451,32 @@
 	<aside class="notes">
 		La dynamique de la poutre est désormais comprise comme le mouvement d'un système de particules, représentées par les repères matériels discrets de la poutre au niveau des noeuds.
 		<hr>
-		Du fait de la représentation curve-angle, cette dynamique s'exprime avec seulement 4 degrés de libertés, 3 en translation et 1 en rotation autour de la tangente du repère matériel.
+		Du fait de la représentation curve-angle, cette dynamique s'exprime avec seulement 4 degrés de libertés.
 		<hr>
 		Les résultantes agissant sur les particules sont obtenues comme sommation :
 		<ul>
-			<li>des efforts internes, appliqués par la partie droite de la poutre;</li>
-			<li>des efforts internes, appliqués par la partie gauche de la poutre;</li>
-			<li>et des efforts concentrés externes appliqués sur la particule.</li>
+			<li>des efforts internes appliqués par la partie droite de la poutre;</li>
+			<li>des efforts internes appliqués par la partie gauche de la poutre;</li>
+			<li>et des efforts externes appliqués sur la particule.</li>
 		</ul>
-
 	</aside>
 </section>
 
 <section class="">
 	<h5 class="">Dynamic Relaxation</h5>
 	<ul>
-		<li>Explicit dynamic to find the quasi-static state of a structure</li>
-		<li>Atrtificial damping > kinetic vs. viscous</li>
-		<li>Ensure stability and optimize convergence speed with fictitious masses</li>
+		<li>Dynamic > explicit time integration</li>
+		<li>Artificial damping > quasi-static state</li>
+		<li>Fictitious masses > stability & optimal convergence</li>
 	</ul>
 	<hr>
 	<object width="75%" type="image/svg+xml" data="img/eq/pendulum_anim_Ep.svg"></object>
 	<br>
 	<cite>[Day, 1962]</cite>
 	<aside class="notes">
-		Notre objectif final n'est pas de faire de la dynamique, bien que notre élément en soit tout à fait capable.
-		Ce que nous voulons calculer c'est la forme d'équilibre statique d'un gridshell.
+		Notre objectif final n'est pas de faire de la dynamique, bien que notre élément en soit tout à fait capable. Ce que nous voulons calculer c'est la forme d'équilibre statique d'un gridshell.
 		<hr>
-		La méthode de la relaxtion dynamique permet celà. Tant que le système n'est pas à l'équilibre, les particules sont en mouvement sous l'action des forces résultantes. La dynamique est intégrée explicitement à partir des équations du mouvement.
+		La méthode de la relaxtion dynamique permet cela. Tant que le système n'est pas à l'équilibre, les particules sont en mouvement sous l'action des forces résultantes. La dynamique est intégrée explicitement à partir des équations du mouvement.
 		<hr>
 		En amortissant le système, on dissipe de l'énergie et on le conduit vers un état d'énergie potentielle minial.
 		<hr>
@@ -492,12 +492,14 @@
 		<li>Only 4-DOFs</li>
 		<li>Extension + Flexion + Torsion</li>
 		<li>Accounts for distributed applied loads</li>
+		<div class="fragment">
 		<hr>
 		<li>Discrete biarc beam model</li>
 		<li>Only 4-DOFs</li>
 		<li>Enriched kinematic with ghost nodes</li>
 		<li>Accounts for concentrated & distributed loads</li>
 		<li>Particle-Spring system > Dynamic Relaxation</li>
+		</div>
 	</ul>
 	<aside class="notes">
 		Synthétisons nos résultats :

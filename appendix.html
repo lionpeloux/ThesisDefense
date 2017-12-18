@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Modeling of bending-torsion couplings in active-bending structures</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/thesis.css" id="theme">
+		<!-- <link rel="stylesheet" href="css/theme/white.css" id="theme"> -->
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">		
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./lib/css/zenburn.css">
+		
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/gsap/TweenMax.min.js"></script>
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script> -->
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? './css/print/pdf.css' : './css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	</head>
+	<body>
+		<div class="reveal">
+		<div class="slides">
+
+
+		<!-- FRONMATTER -->
+		<section>
+			<section class="cover center" data-state="no-title-footer" data-background-transition="fade" data-transition="fade">
+				<h1>Modeling of bending-torsion couplings<br>in active-bending structures</br></h1>
+				<br>
+				<h2>Application to the design of elastic gridshells</h2>
+				<hr style="margin:2em;">
+				
+				<table class="" width="100%" style="text-align:left; vertical-align:middle;">
+					<!-- <tr style="height:15px;"></tr> -->
+					<tr style="border-top:0px solid black">
+						<td width="35%" style="text-align:left; vertical-align:middle;">
+							<img data-src="./img/logo/enpc.svg" width="100%">
+						</td>
+						<td width="30%" style="text-align:center; vertical-align:middle;">
+							<small>Thèse de doctorat présentée le 20/12/2017 par</small>		
+							<br>
+							<br>
+							<h6>Lionel du Peloux</h6>
+						</td>
+						<td width="35%" style="text-align:center; vertical-align:middle;">
+							<small>Olivier Baverel (Dir.)</small>
+							<br>
+							<small>Jean-François Caron</small>
+							<br>
+							<small>Cyril Douthe</small>
+						</td>
+					</tr>
+				</table>
+			<aside class="notes">
+					Merci M. le président du Jury.
+					<hr>
+					Bonjour à toutes et à tous,
+					<hr>
+					Je vais aujourd'hui vous présenter mon travail de recherche sur les structures de type gridshell élastique. En m'intéressant plus spécifiquement aux modèles de calcul dédiés à l'analyse de ces structures, qui sont fortement précontraintes du fait de leur mise en forme. On parlera de précontrainte de flexion.
+					<hr>
+					On verra que ces ouvrages sont complexes à concevoir, et que les outils d'analyse existants ne permettent pas de répondre de manière efficace aux besoins des architectes et des ingénieurs dans un contexte de projet.
+			</section>
+
+			<section class="center"  data-background-transition="fade" data-transition="fade-in fade-out">
+				<!-- <h3> Brief </h3> -->
+				<p><strong>Provide new tools to help architects and engineers<br>to design and build elastic gridshells</strong></p>
+				<br>
+				<p><small>Focus : discrete beam models for nonlinear formfinding and structural analysis</small></p>
+				<aside class="notes">
+					L'objectif principal de ma thèse aura donc été de mettre au point des outils d'analyse pour faciliter et enrichir le processus de conception de ces structures.
+					<hr>
+					L'absence d'outil de design adapté est d'ailleurs souvent donné comme l'un des principaux obstacles à leur diffusion.
+					<hr>
+					Au coeur de ce travail, on trouve la mise au point d'un élement de poutre discret original, à 4 degrés de liberté et 3 noeuds qui permet de modéliser plus finement les couplages flexion-torsion ainsi que certaines discontinuités dans ces résilles de poutres.
+				</aside>
+			</section>
+ 
+			<section class="center" data-background-transition="none"  data-transition="slide-in slide-out">
+				<h5>Context</h5>
+				<table class="imgtable" width="100%">
+				<tr>
+					<td><img data-src="./img/logo/navier.svg" ></td>
+					<td><img data-src="./img/logo/tess.svg" ></td>
+				</tr>
+				</table>
+				<p style="text-align:center"><cite>(<sup>*</sup>) Douthe 2007, Bouhaya 2010, Kotelnikova 2012, Tayeb 2015, du Peloux 2017</cite>	</p>				
+				<aside class="notes">
+					Avant de rentrer dans le vif du sujet, je voudrais souligner que j'ai cherché à rentrer dans cette problématique avec une double casquette : 
+					<hr>
+					La casquette de chercheur par mon activité au sein du laboratoire Navier, 
+					<br>
+					Et la casquette d'ingénieur par mon activité au sein du bureau d'étude T/E/S/S.
+					<hr>
+					Je crois que cela a donné une coloration particulière à mon travail.
+				</aside>
+			</section>
+
+			<!-- <section class="plan center" data-background-transition="" data-transition="">
+				<h5>Plan</h5>
+				<ul>
+					<li>Introduction to the concept</li>
+					<li>Design process : overview</li>
+					<hr>
+					<li>Beam model : variational approach</li>
+					<li>Beam model : equilibrium approach</li>
+					<li>New discrete beam element</li>
+					<hr>
+					<li>Implementation & test case</li>
+				</ul>
+				<aside class="notes">
+				
+				</aside>
+			</section> -->
+			<section class="plan center" data-background-transition="none" data-transition="">
+				<h5>Plan</h5>
+				<ul>
+					<li class="highlight">Introduction to the concept</li>
+					<li class="highlight">Design process : overview</li>
+					<hr>
+					<li>Beam model : variational approach</li>
+					<li>Beam model : equilibrium approach</li>
+					<li>New discrete beam element</li>
+					<hr>
+					<li>Implementation & test case</li>
+				</ul>
+				<aside class="notes">
+				Ma présentation s'organise de la façon suivante
+				<hr>
+				Dans une première partie je vais présenter le concept de gridshell élastique à partir de projets que j'ai réalisés. 
+				<hr>
+				Je donnerai ensuite quelques éléments sur la méthode de conception que j'ai mise en place pour le projet de la cathédrale éphémère de créteil, en 2013.
+				</aside>
+			</section>
+			<section class="plan center" data-background-transition="none" data-transition="none">
+				<h5>Plan</h5>
+				<ul>
+					<li>Introduction to the concept</li>
+					<li>Design process : overview</li>
+					<hr>
+					<li class="highlight">Beam model : variational approach</li>
+					<li class="highlight">Beam model : equilibrium approach</li>
+					<li class="highlight">New discrete beam element</li>
+					<hr>
+					<li>Implementation & test case</li>
+				</ul>
+				<aside class="notes">
+				Dans une seconde partie je présenterai deux approches pour construire un modèle de poutre enrichi bien adapté au formfinding et à la prise en compte des couplages flexion-torsion dans les gridshells élastiques. 
+				<hr>
+				Je traiterai le passage du continu au discret et cela m'amènera à formuler un nouvel élément de poutre appelé biarc.
+				</aside>
+			</section>
+			<section class="plan center" data-background-transition="none" data-transition="none">
+				<h5>Plan</h5>
+			<ul>
+					<li>Introduction to the concept</li>
+					<li>Design process : overview</li>
+					<hr>
+					<li>Beam model : variational approach</li>
+					<li>Beam model : equilibrium approach</li>
+					<li>New discrete beam element</li>
+					<hr>
+					<li class="highlight">Implementation & test case</li>
+				</ul>
+				<aside class="notes">
+				Pour finir, je parlerai de l'implémentation de cette élément dans un code de relaxation dynamique appelé Marsupilami. 
+				<hr>
+				Je présenterai un comparatif avec le logiciel ABAQUS sur un cas test ...
+				<hr>
+				Avant de conclure.
+				</aside>
+			</section>
+
+
+		</section>
+		
+		<!-- MAINMATTER -->
+		<!-- <section data-external="1-intro.html" data-background-transition="none" data-transition="none"> </section>
+		<section data-external="2-creteil.html"> </section>
+		<section data-external="3-model_1.html"> </section>
+		<section data-external="4-model_2.html"> </section>
+		<section data-external="5-numeric.html"> </section>
+		<section data-external="6-marsupilami.html"> </section> -->
+
+		<!-- APPENDIX -->
+		<section data-external="A1-creteil.html"> </section>
+		<section data-external="A2-model_1.html"> </section>
+		<section data-external="A3-model_2.html"> </section>
+		<section data-external="A4-numeric.html"> </section>
+		<section data-external="A5-marsupilami.html"> </section>
+
+		</div>
+		</div>
+
+		<!--  PINTEREST -->
+		<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+		<script src="./lib/js/head.min.js"></script>
+		<script src="./js/reveal.js"></script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				slideNumber: true,
+				history: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transitionSpeed: 'slow', // default/fast/slow
+				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				width: 1280,
+				height: 960,
+				margin: 0.1,
+				minScale: 0.2,
+				maxScale: 1.5,
+
+				center: false,
+				math: {
+	        		enableGlobally: true,
+    			},
+				menu: {
+					side: 'right',
+					numbers: true,
+					titleSelector: 'h1, h3, h5, h7',
+					hideMissingTitles: false,
+        			markers: true,
+					custom: false,
+					transitions: false,
+					openButton: false,
+					openSlideNumber: true,
+					keyboard: true,
+
+					// Specifies the themes that will be available in the themes
+					// menu panel. Set to 'false' to hide themes panel.
+					themes: [
+						{ name: 'Thesis', theme: 'css/theme/thesis.css' },
+						{ name: 'Black', theme: 'css/theme/black.css' },
+						{ name: 'White', theme: 'css/theme/white.css' },
+						{ name: 'League', theme: 'css/theme/league.css' },
+						{ name: 'Sky', theme: 'css/theme/sky.css' },
+						{ name: 'Beige', theme: 'css/theme/beige.css' },
+						{ name: 'Simple', theme: 'css/theme/simple.css' },
+						{ name: 'Serif', theme: 'css/theme/serif.css' },
+						{ name: 'Blood', theme: 'css/theme/blood.css' },
+						{ name: 'Night', theme: 'css/theme/night.css' },
+						{ name: 'Moon', theme: 'css/theme/moon.css' },
+						{ name: 'Solarized', theme: 'css/theme/solarized.css' }
+					],
+				},
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+        			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+					// Interpret Markdown in <section> elements
+					{ src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function(){ title_footer.initialize("Modeling of bending-torsion couplings in active-bending structures: application to the design of elastic gridshells", "rgba(0,0,0,0.6)")}},
+					// { src: 'plugin/tagcloud/tagcloud.js', async: true } ,
+					{ src: 'plugin/js-menu/menu.js' },
+					{ src: 'plugin/math-katex/math-katex.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					// Zoom in and out with Alt+click
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// { src: 'plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } },
+				]
+			});
+		</script>
+		<script >
+			// hover projects animation
+			window.onload = function () { // then the container tag exists
+				var container = document.getElementById("container");
+				container.addEventListener("load", function(event) { // then the object content has been loaded
+					var a = document.getElementById("container");
+					// Get the SVG document inside the Object tag
+					var svgDoc = a.contentDocument;
+
+					var sf = 1.1;
+					var speed = 0.75;
+
+					svgDoc.getElementById('F1').onmouseover = function(e){
+						var paths = svgDoc.getElementById('F1').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:sf, ease:Back.easeOut})
+						tl.play();
+					};
+					svgDoc.getElementById('F1').addEventListener("mouseout", function(e){
+						var paths = svgDoc.getElementById('F1').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:1, ease:Back.easeOut})
+						tl.play();
+						}
+					, false);
+
+					svgDoc.getElementById('F2').onmouseover = function(e){
+						var paths = svgDoc.getElementById('F2').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:sf, ease:Back.easeOut})
+						tl.play();
+					};
+					svgDoc.getElementById('F2').addEventListener("mouseout", function(e){
+						var paths = svgDoc.getElementById('F2').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:1, ease:Back.easeOut})
+						tl.play();
+						}
+					, false);
+
+					svgDoc.getElementById('F3').onmouseover = function(e){
+						var paths = svgDoc.getElementById('F3').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:sf, ease:Back.easeOut})
+						tl.play();
+					};
+					svgDoc.getElementById('F3').addEventListener("mouseout", function(e){
+						var paths = svgDoc.getElementById('F3').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:1, ease:Back.easeOut})
+						tl.play();
+						}
+					, false);
+
+					svgDoc.getElementById('F4').onmouseover = function(e){
+						var paths = svgDoc.getElementById('F4').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:sf, ease:Back.easeOut})
+						tl.play();
+					};
+					svgDoc.getElementById('F4').addEventListener("mouseout", function(e){
+						var paths = svgDoc.getElementById('F4').querySelector("#shape").getElementsByTagName("path");
+						tl = new TimelineMax();
+						tl.to(paths, speed, {scale:1, ease:Back.easeOut})
+						tl.play();
+						}
+					, false);
+				});
+			};
+		</script>
+		<script>
+				// AUTOHIDE h7 tags for slides with data-state="autohide"
+				Reveal.addEventListener( 'slidechanged', function( event ) {
+					var pause = 2.5;
+					var transition = .75;
+					var pause = 0.75;
+					var element = $('section.present > h7');
+					tl = new TimelineMax();
+					tl.to(element, transition, {css:{opacity:1}});
+					tl.fromTo(element, transition, {css: {opacity:1}}, {css:{opacity:0}},"+="+pause);
+					tl.play();
+				} );
+		</script>
+		<script>
+			// from here : https://stackoverflow.com/questions/23608762/replace-image-in-reveal-js
+			function fadeImage($el) {
+				// Get image DOM element
+				// the fragment image will be insterted in the <img class="imgfragment"> container
+				$img = $el.parent().siblings('img.imgfragment');
+
+				// Fade the image out, change source and fade in again
+				var fade = 0;
+				if ($img[0].hasAttribute("fade"))
+					fade = $img.attr('fade');
+
+    			// data attribute doesn't exist
+				if($img.attr('src') != $el.data('src'))
+					$img.fadeOut(fade, function() {
+						$img.attr('src', $el.data('src'));
+						$img.fadeIn(fade);
+					});
+			}
+
+			function fadeSVG($el) {
+				// Get image DOM element
+				// the fragment svg will be insterted in the <object class="svgfragment"> container
+				$svg = $el.parent().siblings('object.svgfragment');
+
+				// Fade the image out, change source and fade in again
+				var fade = 0;
+				if ($svg[0].hasAttribute("fade"))
+					fade = $svg.attr('fade');
+
+    			// data attribute doesn't exist
+				if($svg.attr('data') != $el.data('src'))
+					$svg.fadeOut(fade, function() {
+						$svg.attr('data', $el.data('src'));
+						$svg.fadeIn(100);
+					});
+			}
+
+			Reveal.addEventListener('fragmentshown', function(event) {
+				// Get DOM element of current fragment
+				var $el = $(event.fragment);
+
+				// Check if current fragment is of 'type' imgsrc
+				// If yes: fade image with source of current element
+				if($el.hasClass('imgsrc'))
+					fadeImage($el);
+				
+				if($el.hasClass('svgsrc'))
+					fadeSVG($el);
+			});
+
+			Reveal.addEventListener('fragmenthidden', function(event) {
+				// Get DOM element of current fragment
+				var $el = $(event.fragment);
+
+				// Check if current fragment is of 'type' imgsrc
+				// If yes: fade image with source of previous element
+				if($el.hasClass('imgsrc')) {
+					fadeImage($el.prev());
+				}
+
+				if($el.hasClass('svgsrc')) {
+					fadeSVG($el.prev());
+				}
+			});
+		</script>
+		<script>
+			// absolute centering of h7.tag above the page
+			jQuery.fn.center = function(parent) {
+				if (parent) {
+					parent = this.parent();
+				} else {
+					parent = window;
+				}
+				this.css({
+					"position": "absolute",
+					"top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
+					"left": ((($(parent).width() - this.outerWidth()) / 2) + $(parent).scrollLeft() + "px")
+				});
+			return this;
+			}
+			window.onload = function () { $("h7.tag").center(true);}
+		</script>
+	</body>
+</html>
