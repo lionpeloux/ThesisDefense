@@ -1,29 +1,105 @@
 /**
- * White theme for reveal.js. This is the opposite of the 'black' theme.
- *
- * By Hakim El Hattab, http://hakim.se
+ * https://www.behance.net/gallery/46842565/2017-Trendy-Google-Fonts-Combinations
+ * By Lionel du Peloux
  */
-/*@import url(../../lib/font/source-sans-pro/source-sans-pro.css);*/
-section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
-  color: #fff; }
+
+/* Font combination
+font-family: 'Roboto Mono', monospace;
+font-family: 'Rubik', sans-serif; 
+*/
+
+/* 
+<b> - Bold text
+<strong> - Important text
+<i> - Italic text
+<em> - Emphasized text
+<mark> - Marked text
+<small> - Small text
+<del> - Deleted text
+<ins> - Inserted text
+<sub> - Subscript text
+<sup> - Superscript text
+ */
 
 /*********************************************
- * GLOBAL STYLES
+ * BASE
  *********************************************/
 body {
   background: #fff;
   background-color: white ;
 }
 
-.reveal .fragment{
-  /*color: red;*/
+.reveal {
+  font-family: 'Rubik', sans-serif; 
+  font-weight: 300;
+  font-size: 44px;
+  color: black;
 }
 
-.reveal {
-  font-family: 'Oswald', sans-serif;
-  font-size: 48px;
+.reveal strong {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: rgb(104, 135, 255);
+  color: white;
+  font-size: 1.2em;
+  font-weight: normal; 
+}
+
+.reveal cite{
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  font-size: 0.6em;
+  margin-top: 100%;
+  color: grey;
+}
+
+/* keywords */
+.reveal h7 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  color: white;
+  background-color: rgb(104, 135, 255);
+  /* background-color: rgba(0,0,0, 0.8); */
+  border-radius: 25px;
+  padding: 0.5em;
+  }
+
+/*********************************************
+ * POSITIVE THEME
+ *********************************************/
+ .reveal .slide-background .positive {
+  background-color: #9ccc65;
+}
+.reveal .positive strong {
+  color: white;
+}
+.reveal .positive ul,
+.reveal .positive h5 {
+  color: white;
+}
+
+/* 
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Rubik', sans-serif; 
+*/
+
+
+
+/* 
+Font-Family: 'Roboto', Sans-Serif;
+Font-Size: 35px;
+Font-Family: 'Droid Serif', Serif;
+Font-Size: 15px; 
+*/
+
+
+#title-footer
+{
+	font-family: 'Roboto Mono', monospace;
   font-weight: 300;
-  color: black;
 }
 
 ::selection {
@@ -72,21 +148,16 @@ body {
 }
 
 
-/*********************************************
- * POSITIVE THEME
- *********************************************/
-.reveal .slide-background .positive {
-  background: #9ccc65;
-}
-.reveal .positive strong,
-.reveal .positive ul,
-.reveal .positive h5 {
-  color: white;
-}
+
 
 /*********************************************
  * PLAN THEME
  *********************************************/
+ .reveal .plan {
+  font-family: 'Rubik', sans-serif; 
+  font-weight: 300;
+}
+
 .reveal .slide-background .plan {
   background-color: black;
 }
@@ -100,20 +171,20 @@ body {
   color:rgb(110, 110, 110);
 }
 .reveal .plan li {
-  font-weight: bold; 
+  /* font-weight: bold;  */
   list-style-type: none;
   font-size: 1.4em;
 }
 .reveal .plan .highlight {
   color:white;
   font-size: 1.4em;
-  font-weight: bold; 
+  /* font-weight: bold;  */
 }
 
 .reveal .plan strong {
   color:white;
   font-size: 1.5em;
-  font-weight: bold; 
+  /* font-weight: bold;  */
 }
 
 
@@ -149,9 +220,17 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: rgb(104, 135, 255);
-  font-family: "Superstudio", Helvetica, sans-serif;
-  /*font-family: 'Cabin Sketch', cursive;*/
-  font-weight: 400;
+  
+  /* Font-Family: 'Roboto Mono', monospace;
+  font-weight: 300;
+   */
+
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+
+  text-transform: uppercase;
+  /* font-family: "Superstudio", Helvetica, sans-serif;
+  font-weight: 400; */
   line-height: 1.0;
   letter-spacing: normal;
   text-transform: uppercase;
@@ -181,8 +260,6 @@ body {
   text-transform: none;
   color: white;
 }
-
-
 .reveal h3 { 
   font-size: 2.0em;
   padding-bottom: 0.0em;
@@ -198,30 +275,14 @@ body {
 
 /* vertical slide headings */
 .reveal h5 {
-  /*background-color: rgba(255,0,0,0.5);*/
-  font-family: 'Oswald', sans-serif !important;
   font-size: 1.5em;
   padding-bottom: 0.5em;
   }
 .reveal h6 {
-  font-family: 'Oswald', sans-serif;
-  /*background-color: rgba(255,0,0,0.5);*/
-  font-family: 'Oswald', sans-serif !important;
   font-size: 0.5em;
   }
 
-/* keywords */
-.reveal h7 {
-  color: white;
-  background-color: rgba(0,0,0, 0.9);
-  /* color: rgb(104, 135, 255);
-  background-color: rgba(255,255,255, 0.8); */
-  border-radius: 25px;
-  font-family: 'Oswald', sans-serif !important;
-  font-size: 2em;
-  padding: 0px 30px;
-  text-transform: uppercase;
-  }
+
 
 
 /*********************************************
@@ -241,11 +302,7 @@ body {
   text-align: center;
 }
 
-.reveal cite{
-  margin-top: 100%;
-  color: grey;
-  font-size: 0.6em;
-}
+
 
 .reveal i{
   color:black;
@@ -259,11 +316,6 @@ body {
   max-width: 95%;
   max-height: 95%; }
 
-.reveal strong,
-.reveal b {
-  color: rgb(104, 135, 255);
-  font-size: 1.2em;
-  font-weight: bold; }
 
 .reveal em {
   font-style: italic; }

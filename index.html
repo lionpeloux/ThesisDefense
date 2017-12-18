@@ -6,6 +6,8 @@
 
 		<title>Modeling of bending-torsion couplings in active-bending structures</title>
 		<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Roboto:300" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Rubik:300,400,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Rubik" rel="stylesheet">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/thesis.css" id="theme">
 		<!-- <link rel="stylesheet" href="css/theme/white.css" id="theme"> -->
@@ -244,7 +246,8 @@
 					// Specifies the themes that will be available in the themes
 					// menu panel. Set to 'false' to hide themes panel.
 					themes: [
-						{ name: 'Thesis', theme: 'css/theme/thesis.css' },
+						{ name: 'Thesis 1', theme: 'css/theme/thesis.css' },
+						{ name: 'Thesis 2', theme: 'css/theme/thesis2.css' },
 						{ name: 'Black', theme: 'css/theme/black.css' },
 						{ name: 'White', theme: 'css/theme/white.css' },
 						{ name: 'League', theme: 'css/theme/league.css' },
@@ -271,7 +274,7 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 
 
-					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function(){ title_footer.initialize("Modeling of bending-torsion couplings in active-bending structures: application to the design of elastic gridshells", "rgba(0,0,0,0.6)")}},
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function(){ title_footer.initialize("Modeling of bending-torsion couplings in active-bending structures", "rgba(0,0,0,0.6)")}},
 					// { src: 'plugin/tagcloud/tagcloud.js', async: true } ,
 					{ src: 'plugin/js-menu/menu.js' },
 					{ src: 'plugin/math-katex/math-katex.js', async: true },
@@ -361,8 +364,8 @@
 					var pause = 0.75;
 					var element = $('section.present > h7');
 					tl = new TimelineMax();
-					tl.to(element, transition, {css:{opacity:1}});
-					tl.fromTo(element, transition, {css: {opacity:1}}, {css:{opacity:0}},"+="+pause);
+					tl.to(element, transition, {css:{opacity:0.8}});
+					tl.fromTo(element, transition, {css: {opacity:0.8}}, {css:{opacity:0}},"+="+pause);
 					tl.play();
 				} );
 		</script>
