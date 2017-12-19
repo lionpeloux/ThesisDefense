@@ -5,9 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>Modeling of bending-torsion couplings in active-bending structures</title>
-
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Roboto:300" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Rubik:300,400,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Rubik" rel="stylesheet">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/thesis.css" id="theme">
+		<link rel="stylesheet" href="css/theme/thesis2.css" id="theme">
 		<!-- <link rel="stylesheet" href="css/theme/white.css" id="theme"> -->
 		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">		
 		<!-- Theme used for syntax highlighting of code -->
@@ -44,23 +46,38 @@
 				
 				<table class="" width="100%" style="text-align:left; vertical-align:middle;">
 					<!-- <tr style="height:15px;"></tr> -->
-					<tr style="border-top:0px solid black">
+					<tr>
 						<td width="30%" style="text-align:left; vertical-align:middle;">
 							<img data-src="./img/logo/enpc.svg" width="100%">
 						</td>
 						<td width="40%" style="text-align:center; vertical-align:middle;">
-							<small>Thèse de doctorat présentée le</small>		
+							<p>
+							<small>Thèse de doctorat présentée le</small>	
 							<br>
 							<small>20/12/2017</small>
 							<br>
 							<small>Lionel du Peloux</small>
+							</p>
 						</td>
 						<td width="30%" style="text-align:center; vertical-align:middle;">
-							<small>Olivier Baverel (Dir.)</small>
-							<br>
-							<small>Jean-François Caron</small>
-							<br>
-							<small>Cyril Douthe</small>
+							<img data-src="./img/logo/navier.svg" >
+						</td>
+					</tr>
+					<tr>
+						<td width="30%" style="text-align:left; vertical-align:middle;">
+						<p>
+						<small>Jean-François Caron</small>
+						</p>
+						</td>
+						<td width="40%" style="text-align:center; vertical-align:middle;">
+						<p>
+						<small>Olivier Baverel (Dir.)</small>
+						</p>
+						</td>
+						<td width="30%" style="text-align:center; vertical-align:middle;">
+						<p>
+						<small>Cyril Douthe</small>
+						</p>
 						</td>
 					</tr>
 				</table>
@@ -69,14 +86,14 @@
 					<hr>
 					Bonjour à toutes et à tous,
 					<hr>
-					Je vais aujourd'hui vous présenter mon travail de recherche sur les structures de type gridshell élastique. En m'intéressant plus spécifiquement aux modèles de calcul dédiés à l'analyse de ces structures, qui sont fortement précontraintes du fait de leur mise en forme. On parlera de précontrainte de flexion.
+					Je vais aujourd'hui vous présenter mon travail de recherche sur les structures de type gridshell élastique, effectué sous la direction d'Olivier Baverel. En m'intéressant plus spécifiquement aux modèles de calcul dédiés à l'analyse de ces structures, qui sont fortement précontraintes du fait de leur mise en forme. On parlera de précontrainte de flexion.
 					<hr>
 					On verra que ces ouvrages sont complexes à concevoir, et que les outils d'analyse existants ne permettent pas de répondre de manière efficace aux besoins des architectes et des ingénieurs dans un contexte de projet.
 			</section>
 
 			<section class="center"  data-background-transition="fade" data-transition="fade-in fade-out">
 				<!-- <h3> Brief </h3> -->
-				<p><strong>Provide new tools to help architects and engineers<br>to design and build elastic gridshells</strong></p>
+				<p><strong>Provide new <mark>tools</mark> to help architects and engineers<br> designing and building elastic gridshells</strong></p>
 				<br>
 				<p><small>Focus : discrete beam models for nonlinear formfinding and structural analysis</small></p>
 				<aside class="notes">
@@ -98,33 +115,17 @@
 				</table>
 				<p style="text-align:center"><cite>(<sup>*</sup>) Douthe 2007, Bouhaya 2010, Kotelnikova 2012, Tayeb 2015, du Peloux 2017</cite>	</p>				
 				<aside class="notes">
-					Avant de rentrer dans le vif du sujet, je voudrais souligner que j'ai cherché à rentrer dans cette problématique avec une double casquette : 
+					J'ai cherché à rentrer dans cette problématique avec une double casquette : 
 					<hr>
 					La casquette de chercheur par mon activité au sein du laboratoire Navier, 
 					<br>
 					Et la casquette d'ingénieur par mon activité au sein du bureau d'étude T/E/S/S.
 					<hr>
-					Je crois que cela a donné une coloration particulière à mon travail.
+					Je crois que cela a donné une coloration particulière à mon travail, et je voulais donc souligner avant de rentrer dans le vif du sujet.
 				</aside>
 			</section>
 
-			<!-- <section class="plan center" data-background-transition="" data-transition="">
-				<h5>Plan</h5>
-				<ul>
-					<li>Introduction to the concept</li>
-					<li>Design process : overview</li>
-					<hr>
-					<li>Beam model : variational approach</li>
-					<li>Beam model : equilibrium approach</li>
-					<li>New discrete beam element</li>
-					<hr>
-					<li>Implementation & test case</li>
-				</ul>
-				<aside class="notes">
-				
-				</aside>
-			</section> -->
-			<section class="plan center" data-background-transition="none" data-transition="">
+			<section class="plan center" data-background-transition="none" data-transition="none">
 				<h5>Plan</h5>
 				<ul>
 					<li class="highlight">Introduction to the concept</li>
@@ -182,8 +183,6 @@
 				Avant de conclure.
 				</aside>
 			</section>
-
-
 		</section>
 		
 		<!-- MAINMATTER -->
@@ -199,6 +198,7 @@
 		<section data-external="A2-model_1.html"> </section>
 		<section data-external="A3-model_2.html"> </section>
 		<section data-external="A4-numeric.html"> </section>
+		<!-- <section data-external="A5-marsupilami.html"> </section> -->
 
 		</div>
 		</div>
@@ -243,7 +243,8 @@
 					// Specifies the themes that will be available in the themes
 					// menu panel. Set to 'false' to hide themes panel.
 					themes: [
-						{ name: 'Thesis', theme: 'css/theme/thesis.css' },
+						{ name: 'Thesis 1', theme: 'css/theme/thesis.css' },
+						{ name: 'Thesis 2', theme: 'css/theme/thesis2.css' },
 						{ name: 'Black', theme: 'css/theme/black.css' },
 						{ name: 'White', theme: 'css/theme/white.css' },
 						{ name: 'League', theme: 'css/theme/league.css' },
@@ -270,7 +271,7 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 
 
-					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function(){ title_footer.initialize("Modeling of bending-torsion couplings in active-bending structures: application to the design of elastic gridshells", "rgba(0,0,0,0.6)")}},
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function(){ title_footer.initialize("Modeling of bending-torsion couplings in active-bending structures", "rgba(0,0,0,0.6)")}},
 					// { src: 'plugin/tagcloud/tagcloud.js', async: true } ,
 					{ src: 'plugin/js-menu/menu.js' },
 					{ src: 'plugin/math-katex/math-katex.js', async: true },
@@ -355,13 +356,13 @@
 		<script>
 				// AUTOHIDE h7 tags for slides with data-state="autohide"
 				Reveal.addEventListener( 'slidechanged', function( event ) {
-					var pause = 2.5;
+					var pause = 3.0;
 					var transition = .75;
 					var pause = 0.75;
 					var element = $('section.present > h7');
 					tl = new TimelineMax();
-					tl.to(element, transition, {css:{opacity:1}});
-					tl.fromTo(element, transition, {css: {opacity:1}}, {css:{opacity:0}},"+="+pause);
+					tl.to(element, transition, {css:{opacity:0.9}});
+					tl.fromTo(element, transition, {css: {opacity:0.9}}, {css:{opacity:0}},"+="+pause);
 					tl.play();
 				} );
 		</script>
