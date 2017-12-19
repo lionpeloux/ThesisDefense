@@ -77,7 +77,7 @@
     <rect x="0" y="0" width="4081.89" height="2040.945" fill="#FFFFFF"/>
   </g> -->
   <g id="Background">
-    <rect x="0" y="0" width="4081.89" height="2040.945" fill="#FFFFFF"/>
+    <rect x="0" y="0" width="4081.89" height="2040.945" fill="#FFFFFF" opacity="0"/>
   </g>
   <g id="Pendulum">
     <g id="25">

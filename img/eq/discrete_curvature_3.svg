@@ -2,8 +2,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="427" height="295" viewBox="0, 0, 427, 295">
   <g id="Background">
-    <rect x="0" y="0" width="427" height="295" fill="#FFFFFF"/>
+    <rect x="0" y="0" width="427" height="295" fill="#000000" fill-opacity="0"/>
   </g>
+  <g id="Background"/>
   <g id="surface1043">
     <path d="M84.43,227.196 L84.43,0.422 M148.851,227.196 L148.851,0.422 M213.277,227.196 L213.277,0.422 M277.699,227.196 L277.699,0.422 M342.125,227.196 L342.125,0.422" fill-opacity="0" stroke="#B8B8B8" stroke-width="0.249" stroke-linecap="round" stroke-miterlimit="10"/>
     <path d="M71.543,214.598 L355.008,214.598 M71.543,174.282 L355.008,174.282 M71.543,133.969 L355.008,133.969 M71.543,93.653 L355.008,93.653 M71.543,53.336 L355.008,53.336 M71.543,13.024 L355.008,13.024" fill-opacity="0" stroke="#B8B8B8" stroke-width="0.249" stroke-linecap="round" stroke-miterlimit="10"/>

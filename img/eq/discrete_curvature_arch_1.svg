@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="426" height="206" viewBox="0, 0, 426, 206">
   <g id="Background">
-    <rect x="0" y="0" width="426" height="206" fill="#FFFFFF"/>
+    <rect x="0" y="0" width="426" height="206" fill="#000000" fill-opacity="0"/>
   </g>
   <defs>
     <clipPath id="Clip_1">
@@ -12,6 +12,7 @@
       <path d="M235.736,233.754 L405.814,233.754 L405.814,359.254 L235.736,359.254 z M235.736,233.754"/>
     </clipPath>
   </defs>
+  <g id="Background"/>
   <g id="surface1048">
     <path d="M144.203,121.094 C140.23,126.559 137.02,132.293 134.434,138.535 C130.043,149.141 127.961,159.598 127.961,171.078" fill-opacity="0" stroke="#B8B8B8" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M134.82,145.676 L129.43,143.922" fill-opacity="0" stroke="#B8B8B8" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>

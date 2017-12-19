@@ -39,7 +39,7 @@
 		</div>
 		<div class="">
 			<hr>
-			<p>Natural frames and the curve angle representation
+			<p>Natural frames and the curve-angle representation
 				<br> <cite>Bishop, The American Mathematical Monthly, 1975</cite>
 				<br> <cite>Langer & Singer, SIAM Review, 1996</cite>
 			</p>
@@ -84,10 +84,10 @@
 <section class="">
 	<h5 class="">Assumptions</h5>
 	<ul>
-		<li>Inextensibility</li>
-		<li>Cross-sections remain planar</li>
-		<li>Cross-sections remain normal to the centerline</li>
-		<li>Material deforms in the linear-elastic domain</li>
+		<li>Centerline > inextensible</li>
+		<li>Cross-section > planar</li>
+		<li>Cross-section > normal to the centerline</li>
+		<li>Material > isotropic & linear-elastic</li>
 	</ul>
 	<aside class="notes">
 		Le modèle est bâti sous les hypothèses suivantes, bien adaptées aux poutres élancées.
@@ -105,11 +105,11 @@
 		<li>arc length > $s$</li>
 		<li>Centerline = space curve  > $\mathbf{x}(s)$</li>
 		<li>Cross-section = material frame  > $\{\mathbf{d}_3,\mathbf{d}_1,\mathbf{d}_2\}(s)$ </li>
-		<li>$\mathbf{d}_1,\mathbf{d}_2$ are the principal axis of the cross-section </li>
-		<li>$\mathbf{d}_3$ is tangent to $\mathbf{x}(s)$</li>
+		<li>$\mathbf{d}_1,\mathbf{d}_2$ > principal axis of the cross-section </li>
+		<li>$\mathbf{d}_3$ > tangent to $\mathbf{x}(s)$</li>
 	</ul>
 	<hr>
-	<img data-src="./img/moving_frame.svg" width="65%">
+	<img data-src="./img/eq/moving_frame.svg" width="65%">
 	<aside class="notes">
 	Sous ces hypothèses, la géométrie de la poutre est décrite de manière assez classique comme un milieu curviligne, à l'aide : 
 	<ul>
@@ -138,11 +138,11 @@
 	<h5 class="">Frenet Frame</h5>
 	<ul>
 		<li>Curvature & Torsion > $\kappa(s)\;,\;\tau_f(s)$</li>
-		<li>Frame > $\{\mathbf{t},\mathbf{n},\mathbf{b}\}\;,\; \mathbf{b} = \mathbf{t} \times \mathbf{n}$</li>
-		<li>Curvature binormal : $\mathbf{\kappa b} = \kappa * \mathbf{b}$</li>
+		<li>Frenet frame > $\{\mathbf{t},\mathbf{n},\mathbf{b}\}\;,\; \mathbf{b} = \mathbf{t} \times \mathbf{n}$</li>
+		<li><mark>Curvature binormal</mark> : $\mathbf{\kappa b} = \kappa * \mathbf{b}$</li>
 	</ul>
 	<hr>
-	<img class="imgfragment" src="./img/frenet_trihedron.svg" width="80%"/>
+	<img class="imgfragment" src="./img/eq/frenet_trihedron.svg" width="80%"/>
 	<!-- <div>
 		<span class="imgsrc" data-src="./img/frenet_trihedron.svg" data-fragment-index="0"></span>
 		<span class="fragment imgsrc" data-src="./img/eq/frenet_7.svg" data-fragment-index="1"></span>
@@ -162,8 +162,8 @@
 <section class="">
 	<h5 class="">Frenet Frame</h5>
 	<ul>
-		<li>Torsion $\tau_f(s)$ > rotation of the osculating plane around $\mathbf{t}$</li>
-		<li>Undefined and jumps where $\kappa = 0$,  &ensp; even for $\mathcal{C}^1$ curves</li>
+		<li>$\tau_f$ > angular speed of the osculating plane around $\mathbf{t}$</li>
+		<li>Where $\kappa = 0$ > undefined, even if $\mathbf{x} \in \mathcal{C}^1$</li>
 		<li>Note suitable for modeling material frames</li>
 	</ul>
 	<hr>
@@ -191,14 +191,14 @@
 	<div class="fragment">
 	<hr>
 	<p>Imagine we can construct a moving frame :</p>
-	<ul style="padding-top:0.75em; padding-bottom:0em">
-		<li>which is adapted to the centerline $\mathbf{x}$</li>
-		<li>which is constructed from the centerline $\mathbf{x}$</li>
-		<li>which is continuous if $\mathbf{x}\;$ is simply regular ... so even when $\kappa = 0$</li>
+	<ul style="">
+		<li>adapted to $\mathbf{x}$</li>
+		<li>fully determined by $\mathbf{x}$</li>
+		<li>continuous if $\mathbf{x} \in \mathcal{C}^1\;$</li>
 	</ul>
-	<p>Then this frame would be a perfect reference frame for the definition of the material frame through a single scalar angle $\theta$</p>
-	<hr> 
-	<p>And the kinematic would reduce to only 3-DOFs : $\mathbf{x}\;,\;\theta$</p>
+	<p>This frame would be a perfect <mark>reference frame</mark> to define the material frame through a single angle $\theta$ ...</p>
+	<p></p> 
+	<p>... and the kinematic would reduce to <mark>only 4-DOFs</mark> : $\mathbf{x}\;,\;\theta$</p>
 	</div>
 	<aside class="notes">
 	Pour pouvoir définir le repère de Bishop je vous invite d'abord à considérer le cas des repères mobiles, adaptés à la fibre neutre de la poutre. Ces repères ont la particularité d'avoir l'axe E3 tangent à la courbe. 
@@ -223,7 +223,7 @@
 <section class="">
 	<h5 class="">Bishop Frame</h5>
 	<ul>
-		<li>A material frame moves at angular speed $\mathbf{\Omega}$</li>
+		<li><mark>Darboux vector</mark> > $\mathbf{\Omega}$ = frame's angular speed</li>
 		<div class="">
 		<li>For an adapted frame $\mathbf{\kappa b} = k_1\mathbf{e}_1 + k_2\mathbf{e}_2$</li>
 		<li>For an adapted moving frame $\mathbf{\Omega} = \mathbf{\kappa b} + \tau \mathbf{t}$</li>
@@ -232,7 +232,7 @@
 	<hr>
 	<img class="" data-src="./img/eq/moving_frame_5.svg" width="80%">
 	<hr>
-	<img class="" data-src="./img/frame_speed.svg" width="60%">
+	<img class="" data-src="./img/eq/frame_speed.svg" width="60%">
 	<aside class="notes">
 	On admettra que dans le cas général, l'évolution d'un reprère mobile le long d'une courbe s'exprime en fonction du vecteur de DARBOUX, dont les composantes TAU, K1, K2, s'interprètent comme les vitesses angulaires instanées du repère, exprimées dans sa base propre.
 	<!-- <hr>
@@ -273,9 +273,9 @@
 <section class="">
 	<h5 class="">Curve-Angle Representation</h5>
 	<ul>
-		<li>3 translational DOFs : $\mathbf{x}$</li>
-		<li>Bishop frame is constructed by (parallel) transport at speed $\mathbf{\kappa b}$</li>
-		<li>1 rotational DOF : $\theta$</li>
+		<li>3 translational DOFs > $\mathbf{x}$</li>
+		<li>$\mathbf{\kappa b}$ > Bishop frame by <mark>parallel transport</mark></li>
+		<li>1 rotational DOF > $\theta$ defines material frame</li>
 	</ul>
 	<hr>
 	<img class="" data-src="./img/eq/curve_angle_1.svg" width="65%">
@@ -400,8 +400,8 @@
 <section class="">
 	<h5 class="">Dynamics</h5>
 	<ul>
-		<li>Symplectic Euler integrator (<sup>*</sup>) + Newton : [Bergou et al. 2008] </li>
-		<li>Dynamic relaxation : [Lefevre et al. 2017]</li>
+		<li>Bergou et al. 2008 > Symplectic Euler integrator (<sup>*</sup>) + Newton </li>
+		<li>Lefevre et al. 2017 > <mark>Dynamic Relaxation</mark></li>
 		<hr>
 		<li>Inextensibility (reprojection vs. penalty)</li>
 		<li>Quasistatic assumption</li>
@@ -430,10 +430,10 @@
 <section class="center positive">
 	<h5 class="">Results</h5>
 	<ul>
-		<li>Model in the smooth world [Tayeb & Lefevre]</li>
+		<li>Model in the <mark>smooth</mark> world [Tayeb & Lefevre]</li>
 		<li>Indepence of the DOFs [du Peloux]</li>
 		<li>Locality of the expressions [du Peloux]</li>
-		<li>Physical meaning > Kirchhoff [du Peloux]</li>
+		<li><mark>Physical meaning</mark> > Kirchhoff [du Peloux]</li>
 	</ul>
 	<aside class="notes">
 		En conclusion de cette partie nous avons réussi à constuire un élément de poutre à 4 dégrés de liberté capable de prendre en compte les phénomènes de flexion et de torsion.
@@ -446,10 +446,10 @@
 <section class="center negative">
 	<h5 class="">Limitations</h5>
 	<ul>
-		<li>Static equations only > dynamical equations ?</li>
+		<li><mark>Static</mark> equations only > dynamical equations ?</li>
 		<li>Inextensibility as a stiff constraint ($\mathbf{N}$)</li>
-		<li>External loads ($\mathbf{F}_{ext} \;,\;\mathbf{M}_{ext}\; \mathbf{f}_{ext} \;,\;\mathbf{m}_{ext}$)</li>
-		<li>Transfert of forces and moments</li>
+		<li>External loads ($\mathbf{F}_{ext} \;,\;\mathbf{M}_{ext}\;,\;\mathbf{f}_{ext} \;,\;\mathbf{m}_{ext}$)</li>
+		<li><mark>Transfert</mark> of forces and moments</li>
 		<li>Boundary conditions and complex connections</li>
 	</ul>
 	<aside class="notes">

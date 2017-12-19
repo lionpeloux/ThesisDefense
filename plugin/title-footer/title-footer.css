@@ -48,7 +48,7 @@ div.progress[style="display: block;"] ~ #title-footer
 }
 
 .reveal #title-footer a{
-	color: white;
+	color: rgb(235,235,235);
 	font-size: 2.0vh;
 }
 

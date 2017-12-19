@@ -2,8 +2,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="426" height="245" viewBox="0, 0, 426, 245">
   <g id="Background">
-    <rect x="0" y="0" width="426" height="245" fill="#FFFFFF"/>
+    <rect x="0" y="0" width="426" height="245" fill="#000000" fill-opacity="0"/>
   </g>
+  <g id="Background"/>
   <g id="surface1054">
     <path d="M22.402,138.062 L22.402,2 M39.582,138.062 L39.582,2 M56.762,138.062 L56.762,2 M73.941,138.062 L73.941,2 M91.121,138.062 L91.121,2 M108.301,138.062 L108.301,2 M125.48,138.062 L125.48,2 M142.664,138.062 L142.664,2 M159.844,138.062 L159.844,2 M177.023,138.062 L177.023,2" fill-opacity="0" stroke="#B8B8B8" stroke-width="0.249" stroke-linecap="round" stroke-miterlimit="10"/>
     <path d="M14.672,130.504 L184.754,130.504 M14.672,106.316 L184.754,106.316 M14.672,82.129 L184.754,82.129 M14.672,57.937 L184.754,57.937 M14.672,33.75 L184.754,33.75 M14.672,9.559 L184.754,9.559" fill-opacity="0" stroke="#B8B8B8" stroke-width="0.249" stroke-linecap="round" stroke-miterlimit="10"/>
