@@ -31,8 +31,8 @@
 <section class="">
 	<h5>environment</h5>
 	<ul>
-		<li>Rhino : versatile 3D modeler (NURBS)</li>
-		<li>Grasshopper : graphical algorithm editor</li>
+		<li><mark>Rhino</mark> : versatile 3D modeler (NURBS)</li>
+		<li><mark>Grasshopper</mark> : graphical algorithm editor</li>
 		<li>Well established (architects & engineers)</li>
 	</ul>
 	<hr>
@@ -137,18 +137,18 @@
 <section class="">
 	<h5 class="">Constrained Arch</h5>
 	<ul>
-		<li>Naturally straight beam with rectangular cross-section $4\times6\,cm$</li>
-		<li>$L=10.0\,m\;,\;a = 2.0\,m$</li>
-		<li>$E=25\,GPa \;,\; G=10\,GPa \;  $</li>
+		<li><mark>Naturally straight</mark> beam with <mark>rectangular cross-section</mark></li>
+		<li>$L=10.0\,m\;,\;a = 2.0\,m \;,\; S= 4.0\times6.0\,cm \;,\; E=25\,GPa \;,\; G=10\,GPa \;$</li>
+		<li>Boundary conditions > <mark>clamped-clamped</mark></li>
 		<li>Discretization (number of edges) : $n=6,12,24,48,96$ </li>
 	</ul>
 	<hr>
-	<img data-src="./img/eq/bench_drawing.svg" width="35%">
+	<img data-src="./img/eq/bench_drawing.svg" width="33%">
 	<aside class="notes">
 		Le problème considéré est le flambage d'une poutre naturellement droite, de longeur 10m, et de section rectangulaire de  4x6 centimètres.
 		<hr>
-		Cette poutre est fléchie selon son inertie forte ce qui provoque un déplacement hors plan.
-		<hr> 
+		Cette poutre est fléchie selon son inertie forte ce qui provoque un déplacement hors plan. Elle est encastrée au niveau de ses appuis.
+		<hr>
 		La distance entre les appuis est fixée à 2 mètres et l'angle d'ouverture à pi/3.
 		<hr>
 		On compare les résultats obtenus par Marsupilami et Abaqus pour différentes discrétisations de la poutre, en regradant la positon du sommet de l'arche.
@@ -160,6 +160,9 @@
 	<img class="stretch" data-src="./img/eq/bench_abaqus_anim.gif" />
 	<aside class="notes">
 		Ce problème parait simple, mais est difficile à simuler dans un logiciel comme Abaqus.
+		<hr>
+		La poutre est d'abord fléchie selon son inertie faible. Puis selon son inertie forte par rotation des appuis en imposant la contrainte de planarité. Finalement, la contrainte de planarité est relachée et l'arche trouve sa position d'équilibre finale.
+		<hr>
 		En effet, il faut considérer pas moins de 4 étapes pour faire converger le calcul.
 		<hr>
 		Une telle séquence serait difficilement envisageable pour un réseau de poutre.
@@ -315,9 +318,9 @@
 		<hr>
 		Bien que Marsupilami soit rapide, on peut regretter que les calculs ne s'exécutent pas en temps réel. A ce stade, la simulation interactive des gridshells n'est donc pas possible.
 		<hr>
-		Marsupilami n'est pas limité au design des gridshells. Il pourrait par exemple être utilisé pour simuler la position des flexibles sur les bras robotisés, afin de prévenir d'éventuels clash.
+		Marsupilami n'est pas limité au design des gridshells. Il pourrait par exemple être utilisé pour simuler la position des flexibles sur les bras robotisés, afin de prévenir d'éventuels clash. Une problématique que l'équipe découvre avec l'acquisition récente de 2 bras 6 axes de chez ABB.
 		<hr>
-		Il est par ailleurs déjà utilisé, dans une version sans torsion, pour simuler des fillets de protection par bloc.
+		Il est par ailleurs déjà utilisé, dans une version sans torsion, pour simuler des fillets de protection par-bloc.
 		<hr>
 		Enfin, je crois que beaucoup a été fait en terme de recherche sur ces structures mais peu en terme de développement technico-commercial. Si l'on veut en construire à l'avenir, il faut sans doute se remonter un peu les manches de ce côté là.
 	</aside>
